@@ -9,17 +9,27 @@ public class Alimento {
     private int stock;
     private int precio;
     private String descripcion;
-    
+    private String tipoEnvase;
+
 //Constructor
-    public Alimento(String nombre, String codigo, int stock, int precio, String descripcion) {
+    public Alimento(String nombre, String codigo, int stock, int precio, String descripcion, String tipoEnvase) {
         this.nombre = nombre;
         this.codigo = codigo;
         this.stock = Math.abs(stock);
         this.precio = precio;
         this.descripcion = descripcion;
+        this.tipoEnvase = tipoEnvase;
     }
 
 //Metodos
+    public String getTipoEnvase() {
+        return tipoEnvase;
+    }
+
+    public void setTipoEnvase(String tipoEnvase) {
+        this.tipoEnvase = tipoEnvase;
+    }
+    
     public String getNombre() {
         return nombre;
     }
