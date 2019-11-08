@@ -4,21 +4,32 @@ import java.util.LinkedList;
 import java.util.List;
 
 public class Usuario {
-   
-//Atributos    
+
     private String nombre;
     private int puntos;
-    private List<String> direcciones;
-    private List<Factura> facturas;
-    
-//Constructor    
-    Usuario(String nombre){
+    private int telefono;
+
+    private final List<String> direcciones;
+    private final List<Alimento> carrito;
+    private final List<Factura> facturas;
+
+    public Usuario(String nombre, int puntos, int telefono) {
         this.nombre = nombre;
-        direcciones = new LinkedList<>();
-        this.puntos = 0;
+        this.puntos = puntos;
+        this.telefono = telefono;
+        this.direcciones = new LinkedList<>();
+        this.carrito = new LinkedList<>();
+        this.facturas = new LinkedList<>();
     }
-    
-//Metodos    
+
+    public int getTelefono() {
+        return telefono;
+    }
+
+    public void setTelefono(int telefono) {
+        this.telefono = telefono;
+    }
+
     public String getNombre() {
         return nombre;
     }
@@ -36,32 +47,35 @@ public class Usuario {
     }
 
     public List<String> getDirecciones() {
-        return direcciones;
+        return this.direcciones;
     }
 
-    public void setDirecciones(List<String> direcciones) {
-        this.direcciones = direcciones;
+    public void addDireccion(String direccion) {
+        this.direcciones.add(direccion);
+    }
+
+    public void removeDireccion(String direccion) {
+        this.direcciones.remove(direccion);
     }
 
     public List<Factura> getFacturas() {
         return facturas;
     }
 
-    public void setFacturas(List<Factura> facturas) {
-        this.facturas = facturas;
-    }
-    
-    public void agregarDireccion(String direccion){
-        this.direcciones.add(direccion);
-    }
-    
-    public void quitarDireccion(String direccion){
-        this.direcciones.remove(direccion);
-    }
-    
-    public void agregarFactura(Factura factura){
+    public void addFactura(Factura factura) {
         this.facturas.add(factura);
     }
 
-    
+    public List<Alimento> getCarrito() {
+        return this.carrito;
+    }
+
+    public void addDElementoCarrito(Alimento alimento) {
+        this.carrito.add(alimento);
+    }
+
+    public void removeElementoCarrit(Alimento alimento) {
+        this.carrito.remove(alimento);
+    }
+
 }

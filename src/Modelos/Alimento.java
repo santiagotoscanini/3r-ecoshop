@@ -1,35 +1,22 @@
-
 package Modelos;
 
 public class Alimento {
-    
-//Atributos    
+
     private String nombre;
     private String codigo;
-    private int stock;
     private int precio;
     private String descripcion;
-    private String tipoEnvase;
+//  Si no es reutilizable es compostable  
+    private boolean esReutilizable;
 
-//Constructor
-    public Alimento(String nombre, String codigo, int stock, int precio, String descripcion, String tipoEnvase) {
+    public Alimento(String nombre, String codigo, int precio, String descripcion, boolean esReutilizable) {
         this.nombre = nombre;
         this.codigo = codigo;
-        this.stock = Math.abs(stock);
         this.precio = precio;
         this.descripcion = descripcion;
-        this.tipoEnvase = tipoEnvase;
+        this.esReutilizable = esReutilizable;
     }
 
-//Metodos
-    public String getTipoEnvase() {
-        return tipoEnvase;
-    }
-
-    public void setTipoEnvase(String tipoEnvase) {
-        this.tipoEnvase = tipoEnvase;
-    }
-    
     public String getNombre() {
         return nombre;
     }
@@ -41,17 +28,9 @@ public class Alimento {
     public String getCodigo() {
         return codigo;
     }
-    
+
     public void setCodigo(String codigo) {
         this.codigo = codigo;
-    }
-
-    public int getStock() {
-        return stock;
-    }
-
-    public void setStock(int stock) {
-        this.stock = stock;
     }
 
     public int getPrecio() {
@@ -69,5 +48,13 @@ public class Alimento {
     public void setDescripcion(String descripcion) {
         this.descripcion = descripcion;
     }
-    
+
+    public boolean esReutilizable() {
+        return this.esReutilizable;
+    }
+
+    public void setReutilizable(boolean reutilizable) {
+        this.esReutilizable = reutilizable;
+    }
+
 }
