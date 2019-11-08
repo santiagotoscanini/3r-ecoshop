@@ -3,27 +3,29 @@ package Modelos;
 import java.util.List;
 import org.junit.After;
 import org.junit.AfterClass;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.fail;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
 public class UsuarioTest {
-    
+
     public UsuarioTest() {
     }
-    
+
     @BeforeClass
     public static void setUpClass() {
     }
-    
+
     @AfterClass
     public static void tearDownClass() {
     }
-    
+
     @Before
     public void setUp() {
     }
-    
+
     @After
     public void tearDown() {
     }
@@ -97,19 +99,6 @@ public class UsuarioTest {
     }
 
     /**
-     * Test of setDirecciones method, of class Usuario.
-     */
-    @Test
-    public void testSetDirecciones() {
-        System.out.println("setDirecciones");
-        List<String> direcciones = null;
-        Usuario instance = null;
-        instance.setDirecciones(direcciones);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-    /**
      * Test of getFacturas method, of class Usuario.
      */
     @Test
@@ -124,19 +113,6 @@ public class UsuarioTest {
     }
 
     /**
-     * Test of setFacturas method, of class Usuario.
-     */
-    @Test
-    public void testSetFacturas() {
-        System.out.println("setFacturas");
-        List<Factura> facturas = null;
-        Usuario instance = null;
-        instance.setFacturas(facturas);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-    /**
      * Test of agregarDireccion method, of class Usuario.
      */
     @Test
@@ -144,7 +120,7 @@ public class UsuarioTest {
         System.out.println("agregarDireccion");
         String direccion = "";
         Usuario instance = null;
-        instance.agregarDireccion(direccion);
+        instance.addDireccion(direccion);
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
@@ -157,7 +133,7 @@ public class UsuarioTest {
         System.out.println("quitarDireccion");
         String direccion = "";
         Usuario instance = null;
-        instance.quitarDireccion(direccion);
+        instance.removeDireccion(direccion);
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
@@ -170,9 +146,9 @@ public class UsuarioTest {
         System.out.println("agregarFactura");
         Factura factura = null;
         Usuario instance = null;
-        instance.agregarFactura(factura);
+        instance.addFactura(factura);
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
-    
+
 }

@@ -1,23 +1,27 @@
 package Vistas;
 
-public class Inicio extends javax.swing.JFrame {
+import Modelos.Sistema;
 
+public class Inicio extends javax.swing.JFrame {
+    private final Sistema sis;
+    
     public Inicio() {
         initComponents();
+        sis = new Sistema();
+        pnlDatos.setVisible(false);
     }
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        pnlPrincipal = new javax.swing.JPanel();
+        pnlTienda = new javax.swing.JPanel();
         lblNombreUsuario = new javax.swing.JLabel();
         pnlImagenUsuario = new javax.swing.JPanel();
         lblPuntosUsuario = new javax.swing.JLabel();
         btnMisDirecciones = new javax.swing.JButton();
         btnMisFavoritos = new javax.swing.JButton();
         btnMisLogros = new javax.swing.JButton();
-        btnMisSellos = new javax.swing.JButton();
         btnMiCarrito = new javax.swing.JButton();
         btnMisRecibos = new javax.swing.JButton();
         btnAyuda = new javax.swing.JButton();
@@ -61,12 +65,18 @@ public class Inicio extends javax.swing.JFrame {
         pnlPrecioP6 = new javax.swing.JPanel();
         btnAgregarP6 = new javax.swing.JButton();
         btnEditarP6 = new javax.swing.JButton();
+        pnlRecibos = new javax.swing.JPanel();
+        pnlDatos = new javax.swing.JPanel();
+        jButton1 = new javax.swing.JButton();
+        pnlFavoritos = new javax.swing.JPanel();
+        pnlCarrito = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        getContentPane().setLayout(new javax.swing.BoxLayout(getContentPane(), javax.swing.BoxLayout.LINE_AXIS));
+        setResizable(false);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        pnlPrincipal.setBackground(new java.awt.Color(47, 24, 50));
-        pnlPrincipal.setName("pnlPrincipal"); // NOI18N
+        pnlTienda.setBackground(new java.awt.Color(47, 24, 50));
+        pnlTienda.setName("pnlTienda"); // NOI18N
 
         lblNombreUsuario.setFont(new java.awt.Font("Microsoft JhengHei", 0, 24)); // NOI18N
         lblNombreUsuario.setForeground(new java.awt.Color(240, 240, 240));
@@ -89,15 +99,22 @@ public class Inicio extends javax.swing.JFrame {
 
         btnMisDirecciones.setBackground(new java.awt.Color(223, 219, 222));
         btnMisDirecciones.setText("Mis direcciones");
+        btnMisDirecciones.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnMisDireccionesMouseClicked(evt);
+            }
+        });
+        btnMisDirecciones.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnMisDireccionesActionPerformed(evt);
+            }
+        });
 
         btnMisFavoritos.setBackground(new java.awt.Color(223, 219, 222));
         btnMisFavoritos.setText("Mis favoritos");
 
         btnMisLogros.setBackground(new java.awt.Color(223, 219, 222));
         btnMisLogros.setText("Mis logros");
-
-        btnMisSellos.setBackground(new java.awt.Color(223, 219, 222));
-        btnMisSellos.setText("Mis sellos");
 
         btnMiCarrito.setBackground(new java.awt.Color(223, 219, 222));
         btnMiCarrito.setText("Mi carrito");
@@ -113,38 +130,37 @@ public class Inicio extends javax.swing.JFrame {
         btnAyuda.setBackground(new java.awt.Color(223, 219, 222));
         btnAyuda.setText("Ayuda");
 
-        javax.swing.GroupLayout pnlPrincipalLayout = new javax.swing.GroupLayout(pnlPrincipal);
-        pnlPrincipal.setLayout(pnlPrincipalLayout);
-        pnlPrincipalLayout.setHorizontalGroup(
-            pnlPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnlPrincipalLayout.createSequentialGroup()
+        javax.swing.GroupLayout pnlTiendaLayout = new javax.swing.GroupLayout(pnlTienda);
+        pnlTienda.setLayout(pnlTiendaLayout);
+        pnlTiendaLayout.setHorizontalGroup(
+            pnlTiendaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlTiendaLayout.createSequentialGroup()
                 .addGap(18, 18, 18)
-                .addGroup(pnlPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(pnlTiendaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(btnMisRecibos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btnMisDirecciones, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btnMisFavoritos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btnMisLogros, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnMisSellos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btnMiCarrito, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(pnlPrincipalLayout.createSequentialGroup()
+                    .addGroup(pnlTiendaLayout.createSequentialGroup()
                         .addComponent(btnAyuda)
                         .addGap(140, 140, 140)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlPrincipalLayout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlTiendaLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(pnlImagenUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(pnlPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(pnlTiendaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lblNombreUsuario)
                     .addComponent(lblPuntosUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(6, 6, 6))
         );
-        pnlPrincipalLayout.setVerticalGroup(
-            pnlPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnlPrincipalLayout.createSequentialGroup()
+        pnlTiendaLayout.setVerticalGroup(
+            pnlTiendaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlTiendaLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(pnlPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(pnlPrincipalLayout.createSequentialGroup()
+                .addGroup(pnlTiendaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(pnlTiendaLayout.createSequentialGroup()
                         .addComponent(lblNombreUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(lblPuntosUsuario))
@@ -158,26 +174,28 @@ public class Inicio extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(btnMisLogros, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(btnMisSellos, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
                 .addComponent(btnMiCarrito, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 267, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 305, Short.MAX_VALUE)
                 .addComponent(btnAyuda)
                 .addContainerGap())
         );
 
-        pnlPrincipalLayout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {btnMiCarrito, btnMisDirecciones, btnMisFavoritos, btnMisLogros, btnMisRecibos, btnMisSellos});
+        pnlTiendaLayout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {btnMiCarrito, btnMisDirecciones, btnMisFavoritos, btnMisLogros, btnMisRecibos});
 
-        getContentPane().add(pnlPrincipal);
-        pnlPrincipal.getAccessibleContext().setAccessibleName("");
-        pnlPrincipal.getAccessibleContext().setAccessibleDescription("");
+        getContentPane().add(pnlTienda, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 240, 720));
+        pnlTienda.getAccessibleContext().setAccessibleName("");
+        pnlTienda.getAccessibleContext().setAccessibleDescription("");
 
-        pnlSecundario.setBackground(new java.awt.Color(250, 250, 250));
+        pnlSecundario.setBackground(new java.awt.Color(47, 24, 50));
+        pnlSecundario.setForeground(new java.awt.Color(47, 24, 50));
 
+        tabTienda.setBackground(new java.awt.Color(47, 24, 50));
+        tabTienda.setForeground(new java.awt.Color(240, 240, 240));
         tabTienda.setToolTipText("\n");
         tabTienda.setFont(tabTienda.getFont());
         tabTienda.setName(""); // NOI18N
 
+        pnlTodo.setBackground(new java.awt.Color(47, 24, 50));
         pnlTodo.setName(""); // NOI18N
 
         pnlFrutosSecos.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
@@ -185,6 +203,11 @@ public class Inicio extends javax.swing.JFrame {
         lblFrutosSecos.setText("Frutos secos");
 
         lblImagenFrutosSecos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/frutos_secos.jpg"))); // NOI18N
+        lblImagenFrutosSecos.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblImagenFrutosSecosMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout pnlFrutosSecosLayout = new javax.swing.GroupLayout(pnlFrutosSecos);
         pnlFrutosSecos.setLayout(pnlFrutosSecosLayout);
@@ -196,7 +219,7 @@ public class Inicio extends javax.swing.JFrame {
                     .addGroup(pnlFrutosSecosLayout.createSequentialGroup()
                         .addComponent(lblFrutosSecos)
                         .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(lblImagenFrutosSecos, javax.swing.GroupLayout.PREFERRED_SIZE, 654, Short.MAX_VALUE))
+                    .addComponent(lblImagenFrutosSecos, javax.swing.GroupLayout.PREFERRED_SIZE, 688, Short.MAX_VALUE))
                 .addContainerGap())
         );
         pnlFrutosSecosLayout.setVerticalGroup(
@@ -220,24 +243,23 @@ public class Inicio extends javax.swing.JFrame {
             pnlEspecialidadesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlEspecialidadesLayout.createSequentialGroup()
                 .addGap(15, 15, 15)
-                .addComponent(lblEspecialidades)
-                .addContainerGap(494, Short.MAX_VALUE))
-            .addGroup(pnlEspecialidadesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(pnlEspecialidadesLayout.createSequentialGroup()
-                    .addContainerGap()
-                    .addComponent(lblImagenEspecialidades, javax.swing.GroupLayout.PREFERRED_SIZE, 654, Short.MAX_VALUE)
-                    .addContainerGap()))
+                .addGroup(pnlEspecialidadesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pnlEspecialidadesLayout.createSequentialGroup()
+                        .addGap(10, 10, 10)
+                        .addComponent(lblImagenEspecialidades, javax.swing.GroupLayout.PREFERRED_SIZE, 678, Short.MAX_VALUE))
+                    .addGroup(pnlEspecialidadesLayout.createSequentialGroup()
+                        .addComponent(lblEspecialidades)
+                        .addGap(0, 513, Short.MAX_VALUE)))
+                .addContainerGap())
         );
         pnlEspecialidadesLayout.setVerticalGroup(
             pnlEspecialidadesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlEspecialidadesLayout.createSequentialGroup()
+                .addGap(8, 8, 8)
                 .addComponent(lblEspecialidades)
-                .addContainerGap(175, Short.MAX_VALUE))
-            .addGroup(pnlEspecialidadesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlEspecialidadesLayout.createSequentialGroup()
-                    .addContainerGap(29, Short.MAX_VALUE)
-                    .addComponent(lblImagenEspecialidades, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(17, 17, 17)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(lblImagenEspecialidades, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
 
         pnlFrutasCongeladas.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
@@ -256,7 +278,7 @@ public class Inicio extends javax.swing.JFrame {
                     .addComponent(lblImagenFrutasCongeladas, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                     .addGroup(pnlFrutasCongeladasLayout.createSequentialGroup()
                         .addComponent(lblFrutasCongeladas)
-                        .addGap(0, 528, Short.MAX_VALUE)))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         pnlFrutasCongeladasLayout.setVerticalGroup(
@@ -276,13 +298,12 @@ public class Inicio extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(pnlTodoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(pnlEspecialidades, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(pnlTodoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addComponent(pnlFrutasCongeladas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(pnlFrutosSecos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addContainerGap(17, Short.MAX_VALUE))
+                    .addComponent(pnlFrutosSecos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(pnlFrutasCongeladas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        pnlTodoLayout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {pnlEspecialidades, pnlFrutasCongeladas, pnlFrutosSecos});
+        pnlTodoLayout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {pnlEspecialidades, pnlFrutosSecos});
 
         pnlTodoLayout.setVerticalGroup(
             pnlTodoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -292,50 +313,59 @@ public class Inicio extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(pnlEspecialidades, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(pnlFrutasCongeladas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(pnlFrutasCongeladas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
         tabTienda.addTab("Todo", pnlTodo);
 
+        pnlRecomendado.setBackground(new java.awt.Color(47, 24, 50));
+        pnlRecomendado.setForeground(new java.awt.Color(47, 24, 50));
+
         javax.swing.GroupLayout pnlRecomendadoLayout = new javax.swing.GroupLayout(pnlRecomendado);
         pnlRecomendado.setLayout(pnlRecomendadoLayout);
         pnlRecomendadoLayout.setHorizontalGroup(
             pnlRecomendadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 718, Short.MAX_VALUE)
+            .addGap(0, 750, Short.MAX_VALUE)
         );
         pnlRecomendadoLayout.setVerticalGroup(
             pnlRecomendadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 684, Short.MAX_VALUE)
+            .addGap(0, 685, Short.MAX_VALUE)
         );
 
         tabTienda.addTab("Recomendado", pnlRecomendado);
+
+        pnlPuntosDeVenta.setBackground(new java.awt.Color(47, 24, 50));
 
         javax.swing.GroupLayout pnlPuntosDeVentaLayout = new javax.swing.GroupLayout(pnlPuntosDeVenta);
         pnlPuntosDeVenta.setLayout(pnlPuntosDeVentaLayout);
         pnlPuntosDeVentaLayout.setHorizontalGroup(
             pnlPuntosDeVentaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 718, Short.MAX_VALUE)
+            .addGap(0, 750, Short.MAX_VALUE)
         );
         pnlPuntosDeVentaLayout.setVerticalGroup(
             pnlPuntosDeVentaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 684, Short.MAX_VALUE)
+            .addGap(0, 685, Short.MAX_VALUE)
         );
 
         tabTienda.addTab("Puntos de venta", pnlPuntosDeVenta);
+
+        pnlEstadisticas.setBackground(new java.awt.Color(47, 24, 50));
 
         javax.swing.GroupLayout pnlEstadisticasLayout = new javax.swing.GroupLayout(pnlEstadisticas);
         pnlEstadisticas.setLayout(pnlEstadisticasLayout);
         pnlEstadisticasLayout.setHorizontalGroup(
             pnlEstadisticasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 718, Short.MAX_VALUE)
+            .addGap(0, 750, Short.MAX_VALUE)
         );
         pnlEstadisticasLayout.setVerticalGroup(
             pnlEstadisticasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 684, Short.MAX_VALUE)
+            .addGap(0, 685, Short.MAX_VALUE)
         );
 
         tabTienda.addTab("Estadísticas", pnlEstadisticas);
+
+        pnlPreVenta.setBackground(new java.awt.Color(47, 24, 50));
 
         pnlProducto1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
@@ -592,14 +622,12 @@ public class Inicio extends javax.swing.JFrame {
                 .addGroup(pnlPreVentaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(pnlProducto3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(pnlProducto5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 9, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(pnlPreVentaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(pnlPreVentaLayout.createSequentialGroup()
                         .addGap(26, 26, 26)
                         .addComponent(pnlProducto4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlPreVentaLayout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(pnlProducto6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(pnlProducto6, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
         );
         pnlPreVentaLayout.setVerticalGroup(
@@ -610,7 +638,7 @@ public class Inicio extends javax.swing.JFrame {
                     .addComponent(pnlProducto1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(pnlProducto3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(pnlProducto4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 73, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 74, Short.MAX_VALUE)
                 .addGroup(pnlPreVentaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(pnlProducto2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(pnlProducto5, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -626,22 +654,100 @@ public class Inicio extends javax.swing.JFrame {
             pnlSecundarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlSecundarioLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(tabTienda, javax.swing.GroupLayout.DEFAULT_SIZE, 723, Short.MAX_VALUE)
+                .addComponent(tabTienda)
                 .addContainerGap())
         );
         pnlSecundarioLayout.setVerticalGroup(
             pnlSecundarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlSecundarioLayout.createSequentialGroup()
+            .addGroup(pnlSecundarioLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(tabTienda, javax.swing.GroupLayout.DEFAULT_SIZE, 718, Short.MAX_VALUE)
+                .addComponent(tabTienda)
                 .addGap(1, 1, 1))
         );
 
         tabTienda.getAccessibleContext().setAccessibleName("tab12");
 
-        getContentPane().add(pnlSecundario);
+        getContentPane().add(pnlSecundario, new org.netbeans.lib.awtextra.AbsoluteConstraints(244, 0, 760, -1));
+
+        pnlRecibos.setBackground(new java.awt.Color(47, 24, 50));
+        pnlRecibos.setForeground(new java.awt.Color(47, 24, 50));
+
+        javax.swing.GroupLayout pnlRecibosLayout = new javax.swing.GroupLayout(pnlRecibos);
+        pnlRecibos.setLayout(pnlRecibosLayout);
+        pnlRecibosLayout.setHorizontalGroup(
+            pnlRecibosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 760, Short.MAX_VALUE)
+        );
+        pnlRecibosLayout.setVerticalGroup(
+            pnlRecibosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 736, Short.MAX_VALUE)
+        );
+
+        getContentPane().add(pnlRecibos, new org.netbeans.lib.awtextra.AbsoluteConstraints(244, 0, 760, -1));
+
+        pnlDatos.setBackground(new java.awt.Color(47, 24, 50));
+        pnlDatos.setForeground(new java.awt.Color(47, 24, 50));
+
+        jButton1.setText("jButton1");
+        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton1MouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout pnlDatosLayout = new javax.swing.GroupLayout(pnlDatos);
+        pnlDatos.setLayout(pnlDatosLayout);
+        pnlDatosLayout.setHorizontalGroup(
+            pnlDatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlDatosLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jButton1)
+                .addContainerGap(652, Short.MAX_VALUE))
+        );
+        pnlDatosLayout.setVerticalGroup(
+            pnlDatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlDatosLayout.createSequentialGroup()
+                .addGap(26, 26, 26)
+                .addComponent(jButton1)
+                .addContainerGap(681, Short.MAX_VALUE))
+        );
+
+        getContentPane().add(pnlDatos, new org.netbeans.lib.awtextra.AbsoluteConstraints(244, 0, 760, -1));
+
+        pnlFavoritos.setBackground(new java.awt.Color(47, 24, 50));
+        pnlFavoritos.setForeground(new java.awt.Color(47, 24, 50));
+
+        javax.swing.GroupLayout pnlFavoritosLayout = new javax.swing.GroupLayout(pnlFavoritos);
+        pnlFavoritos.setLayout(pnlFavoritosLayout);
+        pnlFavoritosLayout.setHorizontalGroup(
+            pnlFavoritosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 760, Short.MAX_VALUE)
+        );
+        pnlFavoritosLayout.setVerticalGroup(
+            pnlFavoritosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 736, Short.MAX_VALUE)
+        );
+
+        getContentPane().add(pnlFavoritos, new org.netbeans.lib.awtextra.AbsoluteConstraints(244, 0, 760, -1));
+
+        pnlCarrito.setBackground(new java.awt.Color(47, 24, 50));
+        pnlCarrito.setForeground(new java.awt.Color(47, 24, 50));
+
+        javax.swing.GroupLayout pnlCarritoLayout = new javax.swing.GroupLayout(pnlCarrito);
+        pnlCarrito.setLayout(pnlCarritoLayout);
+        pnlCarritoLayout.setHorizontalGroup(
+            pnlCarritoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 760, Short.MAX_VALUE)
+        );
+        pnlCarritoLayout.setVerticalGroup(
+            pnlCarritoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 736, Short.MAX_VALUE)
+        );
+
+        getContentPane().add(pnlCarrito, new org.netbeans.lib.awtextra.AbsoluteConstraints(244, 0, 760, -1));
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnMiCarritoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMiCarritoActionPerformed
@@ -651,6 +757,24 @@ public class Inicio extends javax.swing.JFrame {
     private void btnEditarP4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarP4ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnEditarP4ActionPerformed
+
+    private void lblImagenFrutosSecosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblImagenFrutosSecosMouseClicked
+        System.out.println("frutos secos");
+    }//GEN-LAST:event_lblImagenFrutosSecosMouseClicked
+
+    private void btnMisDireccionesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnMisDireccionesMouseClicked
+        pnlSecundario.setVisible(false);
+        pnlDatos.setVisible(true);
+    }//GEN-LAST:event_btnMisDireccionesMouseClicked
+
+    private void btnMisDireccionesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMisDireccionesActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnMisDireccionesActionPerformed
+
+    private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
+        pnlSecundario.setVisible(true);
+        pnlDatos.setVisible(false);
+    }//GEN-LAST:event_jButton1MouseClicked
 
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -679,7 +803,7 @@ public class Inicio extends javax.swing.JFrame {
     private javax.swing.JButton btnMisFavoritos;
     private javax.swing.JButton btnMisLogros;
     private javax.swing.JButton btnMisRecibos;
-    private javax.swing.JButton btnMisSellos;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel lblEspecialidades;
     private javax.swing.JLabel lblFrutasCongeladas;
     private javax.swing.JLabel lblFrutosSecos;
@@ -688,8 +812,11 @@ public class Inicio extends javax.swing.JFrame {
     private javax.swing.JLabel lblImagenFrutosSecos;
     private javax.swing.JLabel lblNombreUsuario;
     private javax.swing.JLabel lblPuntosUsuario;
+    private javax.swing.JPanel pnlCarrito;
+    private javax.swing.JPanel pnlDatos;
     private javax.swing.JPanel pnlEspecialidades;
     private javax.swing.JPanel pnlEstadisticas;
+    private javax.swing.JPanel pnlFavoritos;
     private javax.swing.JPanel pnlFrutasCongeladas;
     private javax.swing.JPanel pnlFrutosSecos;
     private javax.swing.JPanel pnlImagenUsuario;
@@ -700,7 +827,6 @@ public class Inicio extends javax.swing.JFrame {
     private javax.swing.JPanel pnlPrecioP4;
     private javax.swing.JPanel pnlPrecioP5;
     private javax.swing.JPanel pnlPrecioP6;
-    private javax.swing.JPanel pnlPrincipal;
     private javax.swing.JPanel pnlProducto1;
     private javax.swing.JPanel pnlProducto2;
     private javax.swing.JPanel pnlProducto3;
@@ -708,8 +834,10 @@ public class Inicio extends javax.swing.JFrame {
     private javax.swing.JPanel pnlProducto5;
     private javax.swing.JPanel pnlProducto6;
     private javax.swing.JPanel pnlPuntosDeVenta;
+    private javax.swing.JPanel pnlRecibos;
     private javax.swing.JPanel pnlRecomendado;
     private javax.swing.JPanel pnlSecundario;
+    private javax.swing.JPanel pnlTienda;
     private javax.swing.JPanel pnlTodo;
     private javax.swing.JTabbedPane tabTienda;
     // End of variables declaration//GEN-END:variables
