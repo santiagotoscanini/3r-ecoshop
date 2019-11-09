@@ -13,7 +13,7 @@
 
 <AnchorPane id="AnchorPane" prefHeight="653.0" prefWidth="981.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Vistas.FXMLInicioController">
    <children>
-      <Pane prefHeight="653.0" prefWidth="226.0" style="-fx-background-color: #313131;" stylesheets="@fxmlinicio.css">
+      <Pane prefHeight="653.0" prefWidth="226.0" style="-fx-background-color: rgba(89,9,90,1);">
          <children>
             <ImageView fitHeight="55.0" fitWidth="62.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -26,15 +26,15 @@
                </font>
             </Label>
             <JFXButton alignment="CENTER" layoutX="17.0" layoutY="94.0" onAction="#misDireccionesHandleClick" prefHeight="46.0" prefWidth="192.0" style="-fx-background-color: #EEE;" text="Mis direcciones" />
-            <JFXButton alignment="CENTER" layoutX="17.0" layoutY="160.0" onAction="#misBoletasHandleClick" prefHeight="46.0" prefWidth="192.0" style="-fx-background-color: #EEE;" text="Mis recibos" />
-            <JFXButton alignment="CENTER" layoutX="15.0" layoutY="225.0" onAction="#misLogrosHandleClick" prefHeight="46.0" prefWidth="192.0" style="-fx-background-color: #EEE;" text="Mis logros" />
-            <JFXButton layoutX="78.0" layoutY="46.0" prefHeight="25.0" prefWidth="121.0" style="-fx-background-color: #EEE;" text="Ir al carrito" />
+            <JFXButton alignment="CENTER" layoutX="17.0" layoutY="160.0" prefHeight="46.0" prefWidth="192.0" style="-fx-background-color: #EEE;" text="Mis recibos" />
+            <JFXButton alignment="CENTER" layoutX="15.0" layoutY="225.0" prefHeight="46.0" prefWidth="192.0" style="-fx-background-color: #EEE;" text="Mis logros" />
+            <JFXButton contentDisplay="CENTER" layoutX="78.0" layoutY="46.0" prefHeight="25.0" prefWidth="73.0" style="-fx-background-color: #EEE;" text="Ir al carrito" />
             <JFXButton layoutX="14.0" layoutY="614.0" prefHeight="21.0" prefWidth="55.0" style="-fx-background-color: #EEE;" text="Ayuda" />
          </children>
       </Pane>
       <StackPane layoutX="226.0" prefHeight="653.0" prefWidth="756.0">
          <children>
-            <TabPane fx:id="pnlShow" prefHeight="587.0" prefWidth="756.0" tabClosingPolicy="UNAVAILABLE">
+            <TabPane fx:id="pnlShop" prefHeight="587.0" prefWidth="756.0" tabClosingPolicy="UNAVAILABLE">
               <tabs>
                 <Tab text="Categorias">
                   <content>
@@ -96,7 +96,6 @@
                 </Tab>
               </tabs>
             </TabPane>
-            <Pane fx:id="pnlMisDirecciones" prefHeight="200.0" prefWidth="200.0" />
          </children>
       </StackPane>
    </children>
