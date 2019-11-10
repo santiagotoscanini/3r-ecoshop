@@ -11,7 +11,6 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
 public class FXMLInicioController extends Application {
@@ -90,6 +89,54 @@ public class FXMLInicioController extends Application {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("FXMLCarrito.fxml"));
             Parent root = loader.load();
             FXMLCarritoController controlador = loader.getController();
+            controlador.setSistema(this.sistema);
+            Scene escena = new Scene(root);
+            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            stage.setScene(escena);
+            stage.show();
+        } catch (IOException ex) {
+            System.out.println("error");
+        }
+    }
+    
+    @FXML
+    public void frutosSecosHandleClick (ActionEvent event){
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("FXMLFrutosSecos.fxml"));
+            Parent root = loader.load();
+            FXMLFrutosSecosController controlador = loader.getController();
+            controlador.setSistema(this.sistema);
+            Scene escena = new Scene(root);
+            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            stage.setScene(escena);
+            stage.show();
+        } catch (IOException ex) {
+            System.out.println("error");
+        }
+    }
+    
+    @FXML
+    public void especialidadesHandleClick (ActionEvent event){
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("FXMLEspecialidades.fxml"));
+            Parent root = loader.load();
+            FXMLEspecialidadesController controlador = loader.getController();
+            controlador.setSistema(this.sistema);
+            Scene escena = new Scene(root);
+            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            stage.setScene(escena);
+            stage.show();
+        } catch (IOException ex) {
+            System.out.println("error");
+        }
+    }
+    
+    @FXML
+    public void frutasCongeladasHandleClick (ActionEvent event){
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("FXMLFrutasCongeladas.fxml"));
+            Parent root = loader.load();
+            FXMLFrutasCongeladasController controlador = loader.getController();
             controlador.setSistema(this.sistema);
             Scene escena = new Scene(root);
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();

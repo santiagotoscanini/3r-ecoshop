@@ -31,6 +31,8 @@ public class FXMLMisLogrosController implements Initializable {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("FXMLInicio.fxml"));
             Parent root = loader.load();
+            FXMLInicioController controlador = loader.getController();
+            controlador.setSistema(this.sistema);
             Scene escena = new Scene(root);
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             stage.setScene(escena);

@@ -1,3 +1,8 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package Vistas;
 
 import Modelos.Sistema;
@@ -13,19 +18,25 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-public class FXMLMisDireccionesController implements Initializable {
-    
-    private Sistema sistema;
-    
+/**
+ * FXML Controller class
+ *
+ * @author Santi
+ */
+public class FXMLFrutosSecosController implements Initializable {
+
+    /**
+     * Initializes the controller class.
+     */
+    Sistema sistema;
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-    }
+    }    
     
     public void setSistema(Sistema sis){
         this.sistema = sis;
     }
-    
     @FXML
     public void volverHandleClick(ActionEvent event) {
         try {
@@ -41,6 +52,7 @@ public class FXMLMisDireccionesController implements Initializable {
             System.out.println("error");
         }
     }
+    
     
     @FXML
     public void misLogrosHandleClick(ActionEvent event) {
@@ -90,4 +102,19 @@ public class FXMLMisDireccionesController implements Initializable {
         }
     }
     
+    @FXML
+    public void misDireccionesHandleClick(ActionEvent event) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("FXMLMisDirecciones.fxml"));
+            Parent root = loader.load();
+            FXMLMisDireccionesController controlador = loader.getController();
+            controlador.setSistema(this.sistema);
+            Scene escena = new Scene(root);
+            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            stage.setScene(escena);
+            stage.show();
+        } catch (IOException ex) {
+            System.out.println("error");
+        }
+    }
 }

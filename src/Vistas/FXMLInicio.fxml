@@ -33,11 +33,11 @@
       </Pane>
       <StackPane layoutX="226.0" prefHeight="653.0" prefWidth="756.0">
          <children>
-            <TabPane fx:id="pnlShop" prefHeight="587.0" prefWidth="756.0" tabClosingPolicy="UNAVAILABLE">
+            <TabPane fx:id="pnlShop" prefHeight="672.0" prefWidth="756.0" tabClosingPolicy="UNAVAILABLE">
               <tabs>
                 <Tab text="Categorias">
                   <content>
-                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="582.0" prefWidth="756.0">
+                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="647.0" prefWidth="756.0">
                            <children>
                               <ImageView accessibleRole="BUTTON" fitHeight="158.0" fitWidth="703.0" layoutX="29.0" layoutY="40.0" pickOnBounds="true">
                                  <image>
@@ -49,7 +49,7 @@
                                     <Image url="@../Resources/tartas.jpg" />
                                  </image>
                               </ImageView>
-                              <ImageView accessibleRole="BUTTON" fitHeight="177.0" fitWidth="704.0" layoutX="26.0" layoutY="427.0" pickOnBounds="true">
+                              <ImageView accessibleRole="BUTTON" fitHeight="164.0" fitWidth="704.0" layoutX="26.0" layoutY="427.0" pickOnBounds="true">
                                  <image>
                                     <Image url="@../Resources/frutas.jpg" />
                                  </image>
@@ -69,6 +69,9 @@
                                     <Font name="Corbel Light Italic" size="20.0" />
                                  </font>
                               </Label>
+                              <JFXButton layoutX="28.0" layoutY="40.0" onAction="#frutosSecosHandleClick" prefHeight="160.0" prefWidth="704.0" text="." />
+                              <JFXButton layoutX="28.0" layoutY="232.0" onAction="#especialidadesHandleClick" prefHeight="160.0" prefWidth="704.0" text="." />
+                              <JFXButton layoutX="27.0" layoutY="427.0" onAction="#frutasCongeladasHandleClick" prefHeight="160.0" prefWidth="704.0" text="." />
                            </children>
                         </AnchorPane>
                   </content>
