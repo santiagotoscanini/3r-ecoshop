@@ -13,7 +13,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-public class FXMLMisDireccionesController implements Initializable {
+public class FXMLCarritoController implements Initializable {
     
     private Sistema sistema;
     
@@ -55,7 +55,7 @@ public class FXMLMisDireccionesController implements Initializable {
             System.out.println("error");
         }
     }
-    
+
     @FXML
     public void misRecibosHandleClick(ActionEvent event) {
         try {
@@ -71,13 +71,13 @@ public class FXMLMisDireccionesController implements Initializable {
             System.out.println("error");
         }
     }
-    
+
     @FXML
-    public void irAlCarritoHandleClick (ActionEvent event){
+    public void misDireccionesHandleClick(ActionEvent event) {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("FXMLCarrito.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("FXMLMisDirecciones.fxml"));
             Parent root = loader.load();
-            FXMLCarritoController controlador = loader.getController();
+            FXMLMisDireccionesController controlador = loader.getController();
             controlador.setSistema(this.sistema);
             Scene escena = new Scene(root);
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
@@ -87,5 +87,4 @@ public class FXMLMisDireccionesController implements Initializable {
             System.out.println("error");
         }
     }
-    
 }

@@ -26,10 +26,9 @@
                </font>
             </Label>
             <JFXButton alignment="CENTER" layoutX="17.0" layoutY="94.0" onAction="#misDireccionesHandleClick" prefHeight="46.0" prefWidth="192.0" style="-fx-background-color: #EEE;" text="Mis direcciones" />
-            <JFXButton alignment="CENTER" layoutX="17.0" layoutY="160.0" prefHeight="46.0" prefWidth="192.0" style="-fx-background-color: #EEE;" text="Mis recibos" />
-            <JFXButton alignment="CENTER" layoutX="15.0" layoutY="225.0" prefHeight="46.0" prefWidth="192.0" style="-fx-background-color: #EEE;" text="Mis logros" />
-            <JFXButton contentDisplay="CENTER" layoutX="78.0" layoutY="46.0" prefHeight="25.0" prefWidth="73.0" style="-fx-background-color: #EEE;" text="Ir al carrito" />
-            <JFXButton layoutX="14.0" layoutY="614.0" prefHeight="21.0" prefWidth="55.0" style="-fx-background-color: #EEE;" text="Ayuda" />
+            <JFXButton alignment="CENTER" layoutX="17.0" layoutY="160.0" onAction="#misRecibosHandleClick" prefHeight="46.0" prefWidth="192.0" style="-fx-background-color: #EEE;" text="Mis recibos" />
+            <JFXButton alignment="CENTER" layoutX="15.0" layoutY="225.0" onAction="#misLogrosHandleClick" prefHeight="46.0" prefWidth="192.0" style="-fx-background-color: #EEE;" text="Mis logros" />
+            <JFXButton contentDisplay="CENTER" layoutX="78.0" layoutY="46.0" onAction="#irAlCarritoHandleClick" prefHeight="25.0" prefWidth="73.0" style="-fx-background-color: #EEE;" text="Ir al carrito" />
          </children>
       </Pane>
       <StackPane layoutX="226.0" prefHeight="653.0" prefWidth="756.0">
