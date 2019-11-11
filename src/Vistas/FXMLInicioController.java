@@ -4,35 +4,48 @@ import static javafx.application.Application.launch;
 
 import Modelos.Sistema;
 import java.io.IOException;
+import java.net.URL;
+import java.util.Date;
+import java.util.ResourceBundle;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Label;
 import javafx.stage.Stage;
 
-public class FXMLInicioController extends Application {
+public class FXMLInicioController implements Initializable {
+
+    @FXML
+    private Label lblNombreUsuario;
+    @FXML
+    private Label lblKgBasura;
+    @FXML
+    private Label lblEnvasesReutilizados;
+    @FXML
+    private Label lblEnvasesCompostados;
+    @FXML
+    private Label lblTotalDeVentas;
 
     private Sistema sistema;
 
-    public static void main(String[] args) {
-        launch(args);
-    }
-
     @Override
-    public void start(Stage primaryStage) throws Exception {
-        primaryStage.setResizable(false);
-        primaryStage.setTitle("EcoFood");
-        this.sistema = new Sistema();
-        Parent root = FXMLLoader.load(getClass().getResource("FXMLInicio.fxml"));
-        primaryStage.setScene(new Scene(root));
-        primaryStage.show();
+    public void initialize(URL url, ResourceBundle rb) {
     }
 
     public void setSistema(Sistema sis) {
         this.sistema = sis;
+
+        lblNombreUsuario.setText(this.sistema.getSelectedUser().getNombre());
+
+        lblKgBasura.setText(Double.toString((double) this.sistema.getCantEnvReu() * this.sistema.getCantKilos()));
+        lblEnvasesReutilizados.setText(Integer.toString(this.sistema.getCantEnvReu()));
+        lblEnvasesCompostados.setText(Integer.toString(this.sistema.getCantEnvComp()));
+        lblTotalDeVentas.setText(Integer.toString(this.sistema.getCantEnvReu() + this.sistema.getCantEnvComp()));
     }
 
     @FXML
@@ -82,9 +95,9 @@ public class FXMLInicioController extends Application {
             System.out.println("error");
         }
     }
-    
+
     @FXML
-    public void irAlCarritoHandleClick (ActionEvent event){
+    public void irAlCarritoHandleClick(ActionEvent event) {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("FXMLCarrito.fxml"));
             Parent root = loader.load();
@@ -98,9 +111,9 @@ public class FXMLInicioController extends Application {
             System.out.println("error");
         }
     }
-    
+
     @FXML
-    public void frutosSecosHandleClick (ActionEvent event){
+    public void frutosSecosHandleClick(ActionEvent event) {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("FXMLFrutosSecos.fxml"));
             Parent root = loader.load();
@@ -114,9 +127,9 @@ public class FXMLInicioController extends Application {
             System.out.println("error");
         }
     }
-    
+
     @FXML
-    public void especialidadesHandleClick (ActionEvent event){
+    public void especialidadesHandleClick(ActionEvent event) {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("FXMLEspecialidades.fxml"));
             Parent root = loader.load();
@@ -130,9 +143,9 @@ public class FXMLInicioController extends Application {
             System.out.println("error");
         }
     }
-    
+
     @FXML
-    public void frutasCongeladasHandleClick (ActionEvent event){
+    public void frutasCongeladasHandleClick(ActionEvent event) {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("FXMLFrutasCongeladas.fxml"));
             Parent root = loader.load();

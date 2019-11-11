@@ -1,6 +1,7 @@
 package Vistas;
 
 import Modelos.Sistema;
+import com.jfoenix.controls.JFXTextField;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -17,6 +18,9 @@ public class FXMLMisDireccionesController implements Initializable {
     
     private Sistema sistema;
     
+    @FXML
+    private JFXTextField txtDireccion;
+    
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
@@ -24,6 +28,13 @@ public class FXMLMisDireccionesController implements Initializable {
     
     public void setSistema(Sistema sis){
         this.sistema = sis;
+    }
+    
+    @FXML
+    public void btnAddDireccion(ActionEvent event){
+        this.sistema.getSelectedUser().addDireccion(txtDireccion.getText());
+        System.out.println(this.sistema.getSelectedUser().getDirecciones());
+        txtDireccion.setText("");
     }
     
     @FXML

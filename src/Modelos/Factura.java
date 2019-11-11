@@ -9,11 +9,11 @@ import java.util.List;
 public class Factura {
 
     private final Date date;
-    private static final DateFormat formato = new SimpleDateFormat("dd/mm/YYYY HH:mm:ss");
     // si no paga con tarjeta paga con efectivo
     private boolean pagoConTarjeta;
     private List<Pair> productos;
     private Sucursal sucursal;
+    private Usuario usuario;
 
     public Factura(Date date, boolean pagoConTarjeta, List<Pair> productos, Sucursal sucursal) {
         this.date = new Date();
@@ -30,8 +30,8 @@ public class Factura {
         this.sucursal = sucursal;
     }
 
-    public String getFechaFormateada() {
-        return formato.format(this.date);
+    public String getFechaFormateada(Sistema sis) {
+        return sis.getFormat().format(this.date);
     }
 
     public boolean isPagoConTarjeta() {

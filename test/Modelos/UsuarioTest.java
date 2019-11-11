@@ -1,33 +1,59 @@
 package Modelos;
 
 import java.util.List;
-import org.junit.After;
-import org.junit.AfterClass;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.fail;
-import org.junit.Before;
-import org.junit.BeforeClass;
-import org.junit.Test;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class UsuarioTest {
-
+    
     public UsuarioTest() {
     }
-
-    @BeforeClass
+    
+    @BeforeAll
     public static void setUpClass() {
     }
-
-    @AfterClass
+    
+    @AfterAll
     public static void tearDownClass() {
     }
-
-    @Before
+    
+    @BeforeEach
     public void setUp() {
     }
-
-    @After
+    
+    @AfterEach
     public void tearDown() {
+    }
+
+    /**
+     * Test of getTelefono method, of class Usuario.
+     */
+    @Test
+    public void testGetTelefono() {
+        System.out.println("getTelefono");
+        Usuario instance = null;
+        int expResult = 0;
+        int result = instance.getTelefono();
+        assertEquals(expResult, result);
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
+    }
+
+    /**
+     * Test of setTelefono method, of class Usuario.
+     */
+    @Test
+    public void testSetTelefono() {
+        System.out.println("setTelefono");
+        int telefono = 0;
+        Usuario instance = null;
+        instance.setTelefono(telefono);
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
     }
 
     /**
@@ -99,6 +125,32 @@ public class UsuarioTest {
     }
 
     /**
+     * Test of addDireccion method, of class Usuario.
+     */
+    @Test
+    public void testAddDireccion() {
+        System.out.println("addDireccion");
+        String direccion = "";
+        Usuario instance = null;
+        instance.addDireccion(direccion);
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
+    }
+
+    /**
+     * Test of removeDireccion method, of class Usuario.
+     */
+    @Test
+    public void testRemoveDireccion() {
+        System.out.println("removeDireccion");
+        String direccion = "";
+        Usuario instance = null;
+        instance.removeDireccion(direccion);
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
+    }
+
+    /**
      * Test of getFacturas method, of class Usuario.
      */
     @Test
@@ -113,37 +165,11 @@ public class UsuarioTest {
     }
 
     /**
-     * Test of agregarDireccion method, of class Usuario.
+     * Test of addFactura method, of class Usuario.
      */
     @Test
-    public void testAgregarDireccion() {
-        System.out.println("agregarDireccion");
-        String direccion = "";
-        Usuario instance = null;
-        instance.addDireccion(direccion);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-    /**
-     * Test of quitarDireccion method, of class Usuario.
-     */
-    @Test
-    public void testQuitarDireccion() {
-        System.out.println("quitarDireccion");
-        String direccion = "";
-        Usuario instance = null;
-        instance.removeDireccion(direccion);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-    /**
-     * Test of agregarFactura method, of class Usuario.
-     */
-    @Test
-    public void testAgregarFactura() {
-        System.out.println("agregarFactura");
+    public void testAddFactura() {
+        System.out.println("addFactura");
         Factura factura = null;
         Usuario instance = null;
         instance.addFactura(factura);
@@ -151,4 +177,44 @@ public class UsuarioTest {
         fail("The test case is a prototype.");
     }
 
+    /**
+     * Test of getCarrito method, of class Usuario.
+     */
+    @Test
+    public void testGetCarrito() {
+        System.out.println("getCarrito");
+        Usuario instance = null;
+        List<Alimento> expResult = null;
+        List<Alimento> result = instance.getCarrito();
+        assertEquals(expResult, result);
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
+    }
+
+    /**
+     * Test of addDElementoCarrito method, of class Usuario.
+     */
+    @Test
+    public void testAddDElementoCarrito() {
+        System.out.println("addDElementoCarrito");
+        Alimento alimento = null;
+        Usuario instance = null;
+        instance.addDElementoCarrito(alimento);
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
+    }
+
+    /**
+     * Test of removeElementoCarrit method, of class Usuario.
+     */
+    @Test
+    public void testRemoveElementoCarrit() {
+        System.out.println("removeElementoCarrit");
+        Alimento alimento = null;
+        Usuario instance = null;
+        instance.removeElementoCarrit(alimento);
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
+    }
+    
 }

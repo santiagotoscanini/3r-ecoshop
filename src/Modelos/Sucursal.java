@@ -5,18 +5,24 @@ import java.util.List;
 
 public class Sucursal {
 
-    private String direccion;
-    private int telefono;
+    private static int contador = 0;
+
     private final List<Factura> facturas;
+    private final int id;
+
+    private int telefono;
+    private String direccion;
 
     public Sucursal(String direccion, int telefono) {
         this.direccion = direccion;
         this.telefono = telefono;
         this.facturas = new LinkedList<>();
+        id = contador;
+        contador++;
     }
 
     public String getDireccion() {
-        return this.direccion;
+        return direccion;
     }
 
     public void setDireccion(String direccion) {
@@ -24,7 +30,7 @@ public class Sucursal {
     }
 
     public int getTelefono() {
-        return this.telefono;
+        return telefono;
     }
 
     public void setTelefono(int telefono) {
@@ -37,6 +43,10 @@ public class Sucursal {
 
     public void addFactura(Factura factura) {
         this.facturas.add(factura);
+    }
+
+    public int getId() {
+        return this.id;
     }
 
 }
