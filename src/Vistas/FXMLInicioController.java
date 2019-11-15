@@ -16,6 +16,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 public class FXMLInicioController implements Initializable {
@@ -31,10 +32,31 @@ public class FXMLInicioController implements Initializable {
     @FXML
     private Label lblTotalDeVentas;
 
+    @FXML
+    private VBox VBoxMasVendidos;
+
     private Sistema sistema;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+    }
+
+    public void cargarMasVendidos() {
+        this.VBoxMasVendidos.getChildren().clear();
+
+        for (int i = 0; i < 10; i++) {
+            try {
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("FXMLAlimento.fxml"));
+                Parent nodo = loader.load();
+                
+                FXMLAlimentoController controller = loader.getController();
+                
+                
+                this.VBoxMasVendidos.getChildren().add(nodo);
+            } catch (Exception e) {
+                System.out.println(e);
+            }
+        }
     }
 
     public void setSistema(Sistema sis) {
@@ -46,6 +68,8 @@ public class FXMLInicioController implements Initializable {
         lblEnvasesReutilizados.setText(Integer.toString(this.sistema.getCantEnvReu()));
         lblEnvasesCompostados.setText(Integer.toString(this.sistema.getCantEnvComp()));
         lblTotalDeVentas.setText(Integer.toString(this.sistema.getCantEnvReu() + this.sistema.getCantEnvComp()));
+        
+        cargarMasVendidos();
     }
 
     @FXML

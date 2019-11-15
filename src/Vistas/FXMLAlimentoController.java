@@ -1,27 +1,36 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Vistas;
 
+import Modelos.Sistema;
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Label;
 
-/**
- * FXML Controller class
- *
- * @author Santi
- */
 public class FXMLAlimentoController implements Initializable {
 
-    /**
-     * Initializes the controller class.
-     */
+    @FXML
+    private Label nombre;
+    @FXML
+    private Label tipo;
+    @FXML
+    private Label descripcion;
+    @FXML
+    private Label envase;
+    
+    private Sistema sis;
+    
+    public void cargarDatos(){
+        
+    }
+    
+    public void setSistema(Sistema sis){
+        
+    }
+    
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+        
     }    
     
 }
