@@ -13,6 +13,7 @@ public class Sistema {
     private static int cantEnvComp = 0;
     private static Usuario selectedUser;
     private static final double pesoEnKilos = 0.14;
+
     private static final List<Sucursal> sucursales = new LinkedList<>();
     private static final List<Usuario> ranking = new LinkedList<>();
     private static final List<Pair> alimentos = new LinkedList<>();
@@ -26,14 +27,27 @@ public class Sistema {
         return selectedUser;
     }
 
+    //Sucursal
     public void addSucursal(Sucursal suc) {
         sucursales.add(suc);
+    }
+
+    public void eliminarSucursalPorId(int id) {
+        int i = -1;
+        for (i = 0; i < sucursales.size(); i++) {
+            Sucursal sucursal = sucursales.get(i);
+            if (sucursal.getId() == id) {
+                break;
+            }
+        }
+        sucursales.remove(i);
     }
 
     public List<Sucursal> getSucursales() {
         return sucursales;
     }
 
+    //
     public void addUsuario(Usuario user) {
         ranking.add(user);
     }

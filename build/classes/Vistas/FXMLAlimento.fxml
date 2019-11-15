@@ -7,9 +7,9 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane id="AnchorPane" prefHeight="79.0" prefWidth="723.0" style="-fx-background-color: rgb(219, 227, 211); -fx-padding: 0 0 0 10;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Vistas.FXMLAlimentoController">
+<AnchorPane id="AnchorPane" prefHeight="79.0" prefWidth="699.0" style="-fx-background-color: rgb(219, 227, 211); -fx-padding: 0 0 0 10;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Vistas.FXMLAlimentoController">
    <children>
-      <JFXButton layoutX="587.0" layoutY="19.0" prefHeight="42.0" prefWidth="122.0" text="Agregar al carrito" />
+      <JFXButton layoutX="561.0" layoutY="20.0" onAction="#handleClickAdd" prefHeight="42.0" prefWidth="122.0" text="Agregar al carrito" />
       <Label fx:id="lblNombre" layoutX="118.0" layoutY="11.0" text="Fideos con tuquito">
          <effect>
             <Glow />

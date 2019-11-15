@@ -1,13 +1,9 @@
 package Vistas;
 
-import static javafx.application.Application.launch;
-
 import Modelos.Sistema;
 import java.io.IOException;
 import java.net.URL;
-import java.util.Date;
 import java.util.ResourceBundle;
-import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -34,11 +30,32 @@ public class FXMLInicioController implements Initializable {
 
     @FXML
     private VBox VBoxMasVendidos;
+    @FXML
+    private VBox VBoxPuntosDeVenta;
 
     private Sistema sistema;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+    }
+
+    public void cargarPuntosDeVenta() {
+        this.VBoxPuntosDeVenta.getChildren().clear();
+
+        for (int i = 0; i < 10; i++) {
+            try {
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("FXMLSucursal.fxml"));
+                Parent nodo = loader.load();
+
+                FXMLSucursalController controller = loader.getController();
+                controller.setSistema(this.sistema);
+                controller.cargarDatos(1,"Generic Name", 11);
+
+                this.VBoxPuntosDeVenta.getChildren().add(nodo);
+            } catch (Exception e) {
+                System.out.println(e);
+            }
+        }
     }
 
     public void cargarMasVendidos() {
@@ -48,10 +65,11 @@ public class FXMLInicioController implements Initializable {
             try {
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("FXMLAlimento.fxml"));
                 Parent nodo = loader.load();
-                
+
                 FXMLAlimentoController controller = loader.getController();
-                
-                
+                controller.setSistema(this.sistema);
+                controller.cargarDatos("Generic Name", "Generic Description");
+
                 this.VBoxMasVendidos.getChildren().add(nodo);
             } catch (Exception e) {
                 System.out.println(e);
@@ -62,14 +80,18 @@ public class FXMLInicioController implements Initializable {
     public void setSistema(Sistema sis) {
         this.sistema = sis;
 
+        //Formulario lateral
         lblNombreUsuario.setText(this.sistema.getSelectedUser().getNombre());
 
+        // Estadisticas
         lblKgBasura.setText(Double.toString((double) this.sistema.getCantEnvReu() * this.sistema.getCantKilos()));
         lblEnvasesReutilizados.setText(Integer.toString(this.sistema.getCantEnvReu()));
         lblEnvasesCompostados.setText(Integer.toString(this.sistema.getCantEnvComp()));
         lblTotalDeVentas.setText(Integer.toString(this.sistema.getCantEnvReu() + this.sistema.getCantEnvComp()));
-        
+
+        //Mas vendidos
         cargarMasVendidos();
+        cargarPuntosDeVenta();
     }
 
     @FXML
