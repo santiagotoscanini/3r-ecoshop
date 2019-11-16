@@ -5,7 +5,7 @@ import java.util.List;
 
 public class Sucursal {
 
-    private static int contador = 0;
+    private static int contador = 1;
 
     private final List<Factura> facturas;
     private final int id;

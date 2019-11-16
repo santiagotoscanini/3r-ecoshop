@@ -1,6 +1,8 @@
 package Vistas;
 
 import Modelos.Sistema;
+import Modelos.Sucursal;
+import com.jfoenix.controls.JFXTextField;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -12,6 +14,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
@@ -30,8 +33,13 @@ public class FXMLInicioController implements Initializable {
 
     @FXML
     private VBox VBoxMasVendidos;
+
     @FXML
     private VBox VBoxPuntosDeVenta;
+    @FXML
+    private JFXTextField txtDireccion;
+    @FXML
+    private JFXTextField txtTelefono;
 
     private Sistema sistema;
 
@@ -39,17 +47,45 @@ public class FXMLInicioController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
     }
 
+    public void eliminarDireccion(String direccion){
+        
+    }
+    
+    @FXML
+    public void agregarPuntoDeVenta() {
+
+        String direccion = this.txtDireccion.getText();
+
+        if (direccion.length() != 0 && isNumeric(this.txtTelefono.getText()) && this.txtTelefono.getText().length() < 10) {
+            int telefono = Integer.parseInt(this.txtTelefono.getText());
+            this.sistema.addSucursal(new Sucursal(direccion, telefono));
+            this.cargarPuntosDeVenta();
+            this.txtDireccion.setText("");
+            this.txtTelefono.setText("");
+        }
+    }
+
+    public void eliminarSucursal(int id) {
+        this.sistema.eliminarSucursalPorId(id);
+        this.cargarPuntosDeVenta();
+    }
+
+    public static boolean isNumeric(String strNum) {
+        return strNum.matches("-?\\d+(\\.\\d+)?");
+    }
+
     public void cargarPuntosDeVenta() {
         this.VBoxPuntosDeVenta.getChildren().clear();
 
-        for (int i = 0; i < 10; i++) {
+        for (Sucursal suc : this.sistema.getSucursales()) {
             try {
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("FXMLSucursal.fxml"));
                 Parent nodo = loader.load();
 
                 FXMLSucursalController controller = loader.getController();
-                controller.setSistema(this.sistema);
-                controller.cargarDatos(1,"Generic Name", 11);
+                
+                controller.setParentController(this);
+                controller.cargarDatos(suc.getId(), suc.getDireccion(), suc.getTelefono());
 
                 this.VBoxPuntosDeVenta.getChildren().add(nodo);
             } catch (Exception e) {

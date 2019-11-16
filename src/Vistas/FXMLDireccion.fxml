@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane id="AnchorPane" prefHeight="35.0" prefWidth="701.0" style="-fx-background-color: rgb(219, 227, 211); -fx-padding: 0 0 0 10;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Vistas.FXMLDireccionController">
+   <children>
+      <Label fx:id="lblDireccion" layoutX="14.0" layoutY="10.0" prefHeight="17.0" prefWidth="519.0" text="Direccion" />
+      <JFXButton layoutX="577.0" layoutY="5.0" onAction="#eliminarDireccion" prefHeight="26.0" prefWidth="110.0" style="-fx-background-color: red;" text="Eliminar" textFill="WHITE" />
+   </children>
+</AnchorPane>

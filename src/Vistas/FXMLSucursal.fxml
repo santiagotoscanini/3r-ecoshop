@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import com.jfoenix.controls.JFXButton?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.effect.Glow?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane id="AnchorPane" prefHeight="79.0" prefWidth="350.0" style="-fx-background-color: rgb(219, 227, 211); -fx-padding: 0 0 0 10;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Vistas.FXMLSucursalController">
+<AnchorPane id="AnchorPane" prefHeight="79.0" prefWidth="701.0" style="-fx-background-color: rgb(219, 227, 211); -fx-padding: 0 0 0 10;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Vistas.FXMLSucursalController">
    <children>
       <Label layoutX="118.0" layoutY="11.0" text="Sucursal número">
          <effect>
@@ -14,9 +15,9 @@
          </effect>
       </Label>
       <Label fx:id="lblDireccion" layoutX="118.0" layoutY="30.0" prefHeight="17.0" prefWidth="214.0" text="Direccion" />
-      <ImageView fitHeight="79.0" fitWidth="101.0" layoutX="8.0" layoutY="12.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="79.0" fitWidth="101.0" layoutX="9.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../Resources/comida-example.jpg" />
+            <Image url="@../Resources/restaurante.jpg" />
          </image>
       </ImageView>
       <Label fx:id="lblIdSucursal" layoutX="212.0" layoutY="11.0" text="-1">
@@ -25,5 +26,6 @@
          </effect>
       </Label>
       <Label fx:id="lblTelefono" layoutX="118.0" layoutY="49.0" prefHeight="17.0" prefWidth="214.0" text="Teléfono" />
+      <JFXButton layoutX="577.0" layoutY="17.0" onAction="#eliminarSucursal" prefHeight="43.0" prefWidth="110.0" style="-fx-background-color: red;" text="Eliminar" textFill="WHITE" />
    </children>
 </AnchorPane>

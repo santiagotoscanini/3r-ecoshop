@@ -12,31 +12,58 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 public class FXMLMisDireccionesController implements Initializable {
-    
+
     private Sistema sistema;
-    
+
     @FXML
     private JFXTextField txtDireccion;
-    
+    @FXML
+    private VBox VBoxMisDirecciones;
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
     }
-    
-    public void setSistema(Sistema sis){
+
+    public void eliminarDireccion(String direccion) {
+    }
+
+    public void setSistema(Sistema sis) {
         this.sistema = sis;
     }
-    
+
     @FXML
-    public void btnAddDireccion(ActionEvent event){
+    public void btnAddDireccion(ActionEvent event) {
         this.sistema.getSelectedUser().addDireccion(txtDireccion.getText());
         System.out.println(this.sistema.getSelectedUser().getDirecciones());
         txtDireccion.setText("");
+        this.cargarDirecciones();
     }
-    
+
+    public void cargarDirecciones() {
+        this.VBoxMisDirecciones.getChildren().clear();
+
+        for (String direccion : this.sistema.getSelectedUser().getDirecciones()) {
+            try {
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("FXMLDireccion.fxml"));
+                Parent nodo = loader.load();
+
+                FXMLDireccionController controller = loader.getController();
+
+                controller.setParentController(this);
+                controller.setDireccion(direccion);
+
+                this.VBoxMisDirecciones.getChildren().add(nodo);
+            } catch (Exception e) {
+                System.out.println(e);
+            }
+        }
+    }
+
     @FXML
     public void volverHandleClick(ActionEvent event) {
         try {
@@ -52,7 +79,7 @@ public class FXMLMisDireccionesController implements Initializable {
             System.out.println("error");
         }
     }
-    
+
     @FXML
     public void misLogrosHandleClick(ActionEvent event) {
         try {
@@ -68,7 +95,7 @@ public class FXMLMisDireccionesController implements Initializable {
             System.out.println("error");
         }
     }
-    
+
     @FXML
     public void misRecibosHandleClick(ActionEvent event) {
         try {
@@ -84,9 +111,9 @@ public class FXMLMisDireccionesController implements Initializable {
             System.out.println("error");
         }
     }
-    
+
     @FXML
-    public void irAlCarritoHandleClick (ActionEvent event){
+    public void irAlCarritoHandleClick(ActionEvent event) {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("FXMLCarrito.fxml"));
             Parent root = loader.load();
@@ -100,5 +127,5 @@ public class FXMLMisDireccionesController implements Initializable {
             System.out.println("error");
         }
     }
-    
+
 }
