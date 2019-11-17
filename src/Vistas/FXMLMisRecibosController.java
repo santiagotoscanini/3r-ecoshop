@@ -65,6 +65,7 @@ public class FXMLMisRecibosController implements Initializable {
             Parent root = loader.load();
             FXMLMisDireccionesController controlador = loader.getController();
             controlador.setSistema(this.sistema);
+            controlador.cargarDirecciones();
             Scene escena = new Scene(root);
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             stage.setScene(escena);

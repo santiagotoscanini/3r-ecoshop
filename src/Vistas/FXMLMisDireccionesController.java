@@ -30,6 +30,8 @@ public class FXMLMisDireccionesController implements Initializable {
     }
 
     public void eliminarDireccion(String direccion) {
+        this.sistema.getSelectedUser().removeDireccion(direccion);
+        this.cargarDirecciones();
     }
 
     public void setSistema(Sistema sis) {
@@ -38,10 +40,11 @@ public class FXMLMisDireccionesController implements Initializable {
 
     @FXML
     public void btnAddDireccion(ActionEvent event) {
-        this.sistema.getSelectedUser().addDireccion(txtDireccion.getText());
-        System.out.println(this.sistema.getSelectedUser().getDirecciones());
-        txtDireccion.setText("");
-        this.cargarDirecciones();
+        if (txtDireccion.getText().length() != 0 && !this.sistema.getSelectedUser().getDirecciones().contains(txtDireccion.getText())) {
+            this.sistema.getSelectedUser().addDireccion(txtDireccion.getText());
+            txtDireccion.setText("");
+            this.cargarDirecciones();
+        }
     }
 
     public void cargarDirecciones() {

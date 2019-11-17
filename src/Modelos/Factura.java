@@ -1,22 +1,22 @@
 package Modelos;
 
 import javafx.util.Pair;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
 public class Factura {
 
-    private final Date date;
+    private final Date fechaEmision;
+    private final Date fechaEntrega;
     // si no paga con tarjeta paga con efectivo
     private boolean pagoConTarjeta;
     private List<Pair> productos;
     private Sucursal sucursal;
     private Usuario usuario;
 
-    public Factura(Date date, boolean pagoConTarjeta, List<Pair> productos, Sucursal sucursal) {
-        this.date = new Date();
+    public Factura(Date fechaEntrega, boolean pagoConTarjeta, List<Pair> productos, Sucursal sucursal) {
+        this.fechaEntrega = fechaEntrega;
+        this.fechaEmision = new Date();
         this.pagoConTarjeta = pagoConTarjeta;
         this.productos = productos;
         this.sucursal = sucursal;
@@ -31,7 +31,7 @@ public class Factura {
     }
 
     public String getFechaFormateada(Sistema sis) {
-        return sis.getFormat().format(this.date);
+        return sis.getFormat().format(this.fechaEmision);
     }
 
     public boolean isPagoConTarjeta() {
@@ -48,5 +48,21 @@ public class Factura {
 
     public void setProductos(List<Pair> productos) {
         this.productos = productos;
+    }
+
+    public Usuario getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
+    }
+
+    public Date getFechaEmision() {
+        return fechaEmision;
+    }
+
+    public Date getFechaEntrega() {
+        return fechaEntrega;
     }
 }

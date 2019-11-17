@@ -14,7 +14,6 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
@@ -47,10 +46,6 @@ public class FXMLInicioController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
     }
 
-    public void eliminarDireccion(String direccion){
-        
-    }
-    
     @FXML
     public void agregarPuntoDeVenta() {
 
@@ -74,6 +69,18 @@ public class FXMLInicioController implements Initializable {
         return strNum.matches("-?\\d+(\\.\\d+)?");
     }
 
+    public void setSistema(Sistema sis) {
+        this.sistema = sis;
+
+        //Formulario lateral
+        lblNombreUsuario.setText(this.sistema.getSelectedUser().getNombre());
+
+        this.cargarEstadisticas();
+        this.cargarMasVendidos();
+        this.cargarPuntosDeVenta();
+
+    }
+
     public void cargarPuntosDeVenta() {
         this.VBoxPuntosDeVenta.getChildren().clear();
 
@@ -83,7 +90,7 @@ public class FXMLInicioController implements Initializable {
                 Parent nodo = loader.load();
 
                 FXMLSucursalController controller = loader.getController();
-                
+
                 controller.setParentController(this);
                 controller.cargarDatos(suc.getId(), suc.getDireccion(), suc.getTelefono());
 
@@ -94,40 +101,30 @@ public class FXMLInicioController implements Initializable {
         }
     }
 
-    public void cargarMasVendidos() {
-        this.VBoxMasVendidos.getChildren().clear();
-
-        for (int i = 0; i < 10; i++) {
-            try {
-                FXMLLoader loader = new FXMLLoader(getClass().getResource("FXMLAlimento.fxml"));
-                Parent nodo = loader.load();
-
-                FXMLAlimentoController controller = loader.getController();
-                controller.setSistema(this.sistema);
-                controller.cargarDatos("Generic Name", "Generic Description");
-
-                this.VBoxMasVendidos.getChildren().add(nodo);
-            } catch (Exception e) {
-                System.out.println(e);
-            }
-        }
-    }
-
-    public void setSistema(Sistema sis) {
-        this.sistema = sis;
-
-        //Formulario lateral
-        lblNombreUsuario.setText(this.sistema.getSelectedUser().getNombre());
-
-        // Estadisticas
+    public void cargarEstadisticas() {
         lblKgBasura.setText(Double.toString((double) this.sistema.getCantEnvReu() * this.sistema.getCantKilos()));
         lblEnvasesReutilizados.setText(Integer.toString(this.sistema.getCantEnvReu()));
         lblEnvasesCompostados.setText(Integer.toString(this.sistema.getCantEnvComp()));
         lblTotalDeVentas.setText(Integer.toString(this.sistema.getCantEnvReu() + this.sistema.getCantEnvComp()));
+    }
 
-        //Mas vendidos
-        cargarMasVendidos();
-        cargarPuntosDeVenta();
+    public void cargarMasVendidos() {
+//        this.VBoxMasVendidos.getChildren().clear();
+//
+//        for (int i = 0; i < 10; i++) {
+//            try {
+//                FXMLLoader loader = new FXMLLoader(getClass().getResource("FXMLAlimento.fxml"));
+//                Parent nodo = loader.load();
+//
+//                FXMLAlimentoFrutasController controller = loader.getController();
+//                controller.setSistema(this.sistema);
+//                controller.cargarDatos("Generic Name", "Generic Description");
+//
+//                this.VBoxMasVendidos.getChildren().add(nodo);
+//            } catch (Exception e) {
+//                System.out.println(e);
+//            }
+//        }
     }
 
     @FXML
@@ -167,14 +164,17 @@ public class FXMLInicioController implements Initializable {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("FXMLMisDirecciones.fxml"));
             Parent root = loader.load();
+
             FXMLMisDireccionesController controlador = loader.getController();
             controlador.setSistema(this.sistema);
+            controlador.cargarDirecciones();
+
             Scene escena = new Scene(root);
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             stage.setScene(escena);
             stage.show();
         } catch (IOException ex) {
-            System.out.println("error");
+            System.out.println(ex);
         }
     }
 
@@ -231,8 +231,11 @@ public class FXMLInicioController implements Initializable {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("FXMLFrutasCongeladas.fxml"));
             Parent root = loader.load();
+            
             FXMLFrutasCongeladasController controlador = loader.getController();
             controlador.setSistema(this.sistema);
+            controlador.cargarAlimentos();
+            
             Scene escena = new Scene(root);
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             stage.setScene(escena);

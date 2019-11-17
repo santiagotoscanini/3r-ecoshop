@@ -24,6 +24,11 @@ public class AlimentoTest {
     public void setUp() {
     }
     
+    @Test
+    public void agregarDosUsuariosConMismoNombre(){
+        
+    }
+    
     @AfterEach
     public void tearDown() {
     }

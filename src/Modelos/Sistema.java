@@ -43,6 +43,17 @@ public class Sistema {
         sucursales.remove(i);
     }
 
+    public void eliminarAlimentoPorId(int id) {
+        int i = -1;
+        for (i = 0; i < alimentos.size(); i++) {
+            Alimento alimento = (Alimento) alimentos.get(i).getKey();
+            if (alimento.getId() == id) {
+                break;
+            }
+        }
+        alimentos.remove(i);
+    }
+
     public List<Sucursal> getSucursales() {
         return sucursales;
     }

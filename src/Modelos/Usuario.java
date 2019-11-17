@@ -75,7 +75,7 @@ public class Usuario implements Comparable<Usuario> {
             this.carrito.get(indice).setSecond((int) this.carrito.get(indice).getSecond() - 1);
         }
     }
-
+  
     public void removeElementFromCarrito(Alimento alimento) {
         this.carrito.remove(new Triplet(alimento, 0, false));
     }

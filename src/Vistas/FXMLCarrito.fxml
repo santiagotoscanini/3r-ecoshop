@@ -22,10 +22,10 @@
                   <Font name="MS Gothic" size="20.0" />
                </font>
             </Label>
-            <JFXButton alignment="CENTER" layoutX="17.0" layoutY="94.0" onAction="#misDireccionesHandleClick" prefHeight="46.0" prefWidth="192.0" style="-fx-background-color: #EEE;" text="Mis direcciones" />
-            <JFXButton alignment="CENTER" layoutX="17.0" layoutY="160.0" onAction="#misRecibosHandleClick" prefHeight="46.0" prefWidth="192.0" style="-fx-background-color: #EEE;" text="Mis recibos" />
-            <JFXButton alignment="CENTER" layoutX="15.0" layoutY="225.0" onAction="#misLogrosHandleClick" prefHeight="46.0" prefWidth="192.0" style="-fx-background-color: #EEE;" text="Mis logros" />
-            <JFXButton contentDisplay="CENTER" layoutX="78.0" layoutY="46.0" prefHeight="25.0" prefWidth="73.0" style="-fx-background-color: #EEE;" text="Ir al carrito" />
+            <JFXButton alignment="CENTER" layoutX="14.0" layoutY="153.0" onAction="#misDireccionesHandleClick" prefHeight="46.0" prefWidth="192.0" style="-fx-background-color: #EEE;" text="Mis direcciones" />
+            <JFXButton alignment="CENTER" layoutX="14.0" layoutY="219.0" onAction="#misRecibosHandleClick" prefHeight="46.0" prefWidth="192.0" style="-fx-background-color: #EEE;" text="Mis recibos" />
+            <JFXButton alignment="CENTER" layoutX="81.0" layoutY="46.0" onAction="#misLogrosHandleClick" prefHeight="14.0" prefWidth="85.0" style="-fx-background-color: #EEE;" text="Mis logros" />
+            <JFXButton contentDisplay="CENTER" layoutX="14.0" layoutY="87.0" prefHeight="46.0" prefWidth="192.0" style="-fx-background-color: #EEE;" text="Ir al carrito" />
          </children>
       </Pane>
       <Pane layoutX="226.0" prefHeight="653.0" prefWidth="755.0">

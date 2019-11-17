@@ -11,9 +11,9 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="653.0" prefWidth="981.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Vistas.FXMLMisDireccionesController">
+<AnchorPane id="AnchorPane" prefHeight="643.0" prefWidth="911.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Vistas.FXMLMisDireccionesController">
    <children>
-      <Pane prefHeight="653.0" prefWidth="226.0" style="-fx-background-color: rgba(89,9,90,1);">
+      <Pane prefHeight="653.0" prefWidth="213.0" style="-fx-background-color: rgba(89,9,90,1);">
          <children>
             <ImageView fitHeight="55.0" fitWidth="62.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -25,28 +25,28 @@
                   <Font name="MS Gothic" size="20.0" />
                </font>
             </Label>
-            <JFXButton alignment="CENTER" layoutX="17.0" layoutY="94.0" prefHeight="46.0" prefWidth="192.0" style="-fx-background-color: #EEE;" text="Mis direcciones" />
-            <JFXButton alignment="CENTER" layoutX="17.0" layoutY="160.0" onAction="#misRecibosHandleClick" prefHeight="46.0" prefWidth="192.0" style="-fx-background-color: #EEE;" text="Mis recibos" />
-            <JFXButton alignment="CENTER" layoutX="15.0" layoutY="225.0" onAction="#misLogrosHandleClick" prefHeight="46.0" prefWidth="192.0" style="-fx-background-color: #EEE;" text="Mis logros" />
-            <JFXButton contentDisplay="CENTER" layoutX="78.0" layoutY="46.0" onAction="#irAlCarritoHandleClick" prefHeight="25.0" prefWidth="73.0" style="-fx-background-color: #EEE;" text="Ir al carrito" />
+            <JFXButton alignment="CENTER" layoutX="21.0" layoutY="158.0" prefHeight="46.0" prefWidth="182.0" style="-fx-background-color: #EEE;" text="Mis direcciones" />
+            <JFXButton alignment="CENTER" layoutX="21.0" layoutY="224.0" onAction="#misRecibosHandleClick" prefHeight="46.0" prefWidth="176.0" style="-fx-background-color: #EEE;" text="Mis recibos" />
+            <JFXButton alignment="CENTER" layoutX="74.0" layoutY="46.0" onAction="#misLogrosHandleClick" prefHeight="25.0" prefWidth="121.0" style="-fx-background-color: #EEE;" text="Mis logros" />
+            <JFXButton contentDisplay="CENTER" layoutX="16.0" layoutY="88.0" onAction="#irAlCarritoHandleClick" prefHeight="46.0" prefWidth="182.0" style="-fx-background-color: #EEE;" text="Ir al carrito" />
          </children>
       </Pane>
-      <Pane layoutX="236.0" prefHeight="653.0" prefWidth="755.0">
+      <Pane layoutX="227.0" prefHeight="653.0" prefWidth="764.0">
          <children>
-            <JFXButton contentDisplay="CENTER" layoutX="14.0" layoutY="22.0" onAction="#volverHandleClick" prefHeight="25.0" prefWidth="114.0" style="-fx-background-color: #EEE;" text="Volver a la tienda" />
+            <JFXButton contentDisplay="CENTER" layoutX="14.0" layoutY="14.0" onAction="#volverHandleClick" prefHeight="25.0" prefWidth="114.0" style="-fx-background-color: #EEE;" text="Volver a la tienda" />
             <Label layoutX="14.0" layoutY="55.0" prefHeight="46.0" prefWidth="192.0" text="Mis direcciones">
                <font>
                   <Font name="Ebrima" size="27.0" />
                </font>
             </Label>
-            <JFXTextField fx:id="txtDireccion" layoutX="14.0" layoutY="101.0" prefHeight="25.0" prefWidth="313.0" />
+            <JFXTextField fx:id="txtDireccion" layoutX="14.0" layoutY="107.0" prefHeight="25.0" prefWidth="313.0" />
             <JFXButton fx:id="btnAddDireccion" contentDisplay="CENTER" layoutX="349.0" layoutY="107.0" onAction="#btnAddDireccion" prefHeight="25.0" prefWidth="114.0" style="-fx-background-color: #EEE;" text="Agregar dirección" />
+            <ScrollPane layoutX="13.0" layoutY="144.0" prefHeight="503.0" prefWidth="738.0">
+               <content>
+                  <VBox fx:id="VBoxMisDirecciones" prefHeight="499.0" prefWidth="734.0" />
+               </content>
+            </ScrollPane>
          </children>
       </Pane>
-      <ScrollPane layoutX="243.0" layoutY="154.0" prefHeight="487.0" prefWidth="738.0">
-         <content>
-            <VBox fx:id="VBoxMisDirecciones" prefHeight="480.0" prefWidth="731.0" />
-         </content>
-      </ScrollPane>
    </children>
 </AnchorPane>

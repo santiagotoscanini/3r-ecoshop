@@ -1,7 +1,5 @@
 package Modelos;
 
-import java.util.Date;
-
 public class Alimento {
 
     private static int contador = 0;
@@ -12,15 +10,13 @@ public class Alimento {
     private String nombre;
     private String descripcion;
     private String categoria;
-    private Date aPartirDe;
 
-    public Alimento(String nombre, String descripcion, int precio, String categoria, Date aPartirDe) {
+    public Alimento(String nombre, String descripcion, int precio, String categoria) {
         this.nombre = nombre;
         this.descripcion = descripcion;
         this.precio = precio;
         this.id = contador;
         this.categoria = categoria;
-        this.aPartirDe = aPartirDe;
         contador++;
     }
 
@@ -60,17 +56,14 @@ public class Alimento {
         this.categoria = categoria;
     }
 
-    public Date getaPartirDe() {
-        return aPartirDe;
-    }
-
-    public void setaPartirDe(Date aPartirDe) {
-        this.aPartirDe = aPartirDe;
-    }
-
     @Override
     public boolean equals(Object obj) {
         Alimento aux = (Alimento) obj;
         return this.id == aux.id;
+    }
+    
+    @Override
+    public String toString(){
+        return this.getNombre();
     }
 }
