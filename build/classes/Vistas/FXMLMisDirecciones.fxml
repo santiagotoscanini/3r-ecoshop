@@ -20,15 +20,15 @@
                   <Image url="@../Resources/personaExample.jpeg" />
                </image>
             </ImageView>
-            <Label layoutX="81.0" layoutY="14.0" prefHeight="21.0" prefWidth="121.0" text="Maria García" textFill="WHITE">
+            <Label layoutX="77.0" layoutY="15.0" prefHeight="21.0" prefWidth="120.0" text="Maria García" textFill="WHITE">
                <font>
                   <Font name="MS Gothic" size="20.0" />
                </font>
             </Label>
-            <JFXButton alignment="CENTER" layoutX="21.0" layoutY="158.0" prefHeight="46.0" prefWidth="182.0" style="-fx-background-color: #EEE;" text="Mis direcciones" />
-            <JFXButton alignment="CENTER" layoutX="21.0" layoutY="224.0" onAction="#misRecibosHandleClick" prefHeight="46.0" prefWidth="176.0" style="-fx-background-color: #EEE;" text="Mis recibos" />
-            <JFXButton alignment="CENTER" layoutX="74.0" layoutY="46.0" onAction="#misLogrosHandleClick" prefHeight="25.0" prefWidth="121.0" style="-fx-background-color: #EEE;" text="Mis logros" />
-            <JFXButton contentDisplay="CENTER" layoutX="16.0" layoutY="88.0" onAction="#irAlCarritoHandleClick" prefHeight="46.0" prefWidth="182.0" style="-fx-background-color: #EEE;" text="Ir al carrito" />
+            <JFXButton alignment="CENTER" layoutX="17.0" layoutY="153.0" prefHeight="46.0" prefWidth="182.0" style="-fx-background-color: #EEE;" text="Mis direcciones" />
+            <JFXButton alignment="CENTER" layoutX="17.0" layoutY="221.0" onAction="#misRecibosHandleClick" prefHeight="46.0" prefWidth="182.0" style="-fx-background-color: #EEE;" text="Mis recibos" />
+            <JFXButton alignment="CENTER" layoutX="77.0" layoutY="44.0" onAction="#misLogrosHandleClick" prefHeight="25.0" prefWidth="120.0" style="-fx-background-color: #EEE;" text="Mis logros" />
+            <JFXButton contentDisplay="CENTER" layoutX="17.0" layoutY="89.0" onAction="#irAlCarritoHandleClick" prefHeight="46.0" prefWidth="182.0" style="-fx-background-color: #EEE;" text="Ir al carrito" />
          </children>
       </Pane>
       <Pane layoutX="227.0" prefHeight="653.0" prefWidth="764.0">
@@ -41,9 +41,9 @@
             </Label>
             <JFXTextField fx:id="txtDireccion" layoutX="14.0" layoutY="107.0" prefHeight="25.0" prefWidth="313.0" />
             <JFXButton fx:id="btnAddDireccion" contentDisplay="CENTER" layoutX="349.0" layoutY="107.0" onAction="#btnAddDireccion" prefHeight="25.0" prefWidth="114.0" style="-fx-background-color: #EEE;" text="Agregar dirección" />
-            <ScrollPane layoutX="13.0" layoutY="144.0" prefHeight="503.0" prefWidth="738.0">
+            <ScrollPane layoutX="13.0" layoutY="144.0" prefHeight="484.0" prefWidth="725.0">
                <content>
-                  <VBox fx:id="VBoxMisDirecciones" prefHeight="499.0" prefWidth="734.0" />
+                  <VBox fx:id="VBoxMisDirecciones" prefHeight="483.0" prefWidth="723.0" />
                </content>
             </ScrollPane>
          </children>

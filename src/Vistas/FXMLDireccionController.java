@@ -1,6 +1,5 @@
 package Vistas;
 
-import Modelos.Sistema;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
@@ -23,7 +22,6 @@ public class FXMLDireccionController implements Initializable {
     public void setDireccion(String direccion) {
         this.lblDireccion.setText(direccion);
     }
-    
 
     public void setParentController(FXMLMisDireccionesController controlador) {
         this.parentController = controlador;

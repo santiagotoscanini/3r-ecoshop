@@ -201,6 +201,7 @@ public class FXMLInicioController implements Initializable {
             Parent root = loader.load();
             FXMLFrutosSecosController controlador = loader.getController();
             controlador.setSistema(this.sistema);
+            controlador.cargarAlimentos();
             Scene escena = new Scene(root);
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             stage.setScene(escena);
@@ -215,8 +216,11 @@ public class FXMLInicioController implements Initializable {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("FXMLEspecialidades.fxml"));
             Parent root = loader.load();
+            
             FXMLEspecialidadesController controlador = loader.getController();
             controlador.setSistema(this.sistema);
+            controlador.cargarAlimentos();
+            
             Scene escena = new Scene(root);
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             stage.setScene(escena);

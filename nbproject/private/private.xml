@@ -3,15 +3,10 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Santi/Documents/NetBeansProjects/ToscaniniTejerina/src/Vistas/FXMLSucursal.fxml</file>
-            <file>file:/C:/Users/Santi/Documents/NetBeansProjects/ToscaniniTejerina/src/Vistas/FXMLInicioController.java</file>
             <file>file:/C:/Users/Santi/Documents/NetBeansProjects/ToscaniniTejerina/src/Modelos/Usuario.java</file>
-            <file>file:/C:/Users/Santi/Documents/NetBeansProjects/ToscaniniTejerina/src/Modelos/Sistema.java</file>
-            <file>file:/C:/Users/Santi/Documents/NetBeansProjects/ToscaniniTejerina/src/Vistas/FXMLDireccionController.java</file>
-            <file>file:/C:/Users/Santi/Documents/NetBeansProjects/ToscaniniTejerina/src/Vistas/FXMLSucursalController.java</file>
+            <file>file:/C:/Users/Santi/Documents/NetBeansProjects/ToscaniniTejerina/src/Vistas/FXMLMisDirecciones.fxml</file>
             <file>file:/C:/Users/Santi/Documents/NetBeansProjects/ToscaniniTejerina/src/Vistas/FXMLDireccion.fxml</file>
-            <file>file:/C:/Users/Santi/Documents/NetBeansProjects/ToscaniniTejerina/src/Vistas/FXMLMisDireccionesController.java</file>
-            <file>file:/C:/Users/Santi/Documents/NetBeansProjects/ToscaniniTejerina/src/Modelos/Sucursal.java</file>
+            <file>file:/C:/Users/Santi/Documents/NetBeansProjects/ToscaniniTejerina/src/Vistas/FXMLInicio.fxml</file>
         </group>
     </open-files>
 </project-private>

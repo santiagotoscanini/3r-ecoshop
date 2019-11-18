@@ -52,6 +52,7 @@ public class FXMLFrutasCongeladasController implements Initializable {
                     controller.cargarDatos(a.getNombre(), a.getDescripcion(), a.getPrecio(), a.getId());
                     controller.setSistema(this.sistema);
                     controller.setController(this);
+                    
                     this.VBoxFrutasCongeladas.getChildren().add(nodo);
                 } catch (Exception e) {
                     System.out.println(e);
@@ -68,7 +69,6 @@ public class FXMLFrutasCongeladasController implements Initializable {
 
         if (nombre.length() != 0 && descripcion.length() != 0 && precio.length() != 0 && isNumeric(precio)) {
             this.sistema.addAlimento(new Alimento(nombre, descripcion, Integer.parseInt(precio), "Frutas congeladas"));
-            System.out.println(this.sistema.getAlimentos());
             this.cargarAlimentos();
             this.txtDescripcion.setText("");
             this.txtNombre.setText("");
