@@ -37,5 +37,9 @@ public class ElementoCarrito {
         this.envase = envase;
     }
     
-    
+     @Override
+    public boolean equals(Object obj) {
+        ElementoCarrito aux = (ElementoCarrito) obj;
+        return this.alimento == aux.getAlimento();
+    }
 }

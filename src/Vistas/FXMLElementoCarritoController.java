@@ -6,6 +6,7 @@
 package Vistas;
 
 import Modelos.Alimento;
+import Modelos.ElementoCarrito;
 import Modelos.Sistema;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -34,6 +35,8 @@ public class FXMLElementoCarritoController implements Initializable {
     
     Sistema sis;
     private int id;
+    private ElementoCarrito elementoCarrito;
+    private Alimento alimento;
     
     public void setController(FXMLCarritoController controlador) {
         this.controlador = controlador;
@@ -43,7 +46,7 @@ public class FXMLElementoCarritoController implements Initializable {
         this.sis = sis;
     }
     
-    public void cargarDatos(String nombre, Boolean envase, int unidades, int precio, Alimento alimento) {
+    public void cargarDatos(String nombre, Boolean envase, int unidades, int precio, Alimento alimento, ElementoCarrito a) {
         this.lblNombre.setText(nombre);
         if(envase){
             compostableBox.setSelected(true);
@@ -52,9 +55,18 @@ public class FXMLElementoCarritoController implements Initializable {
             reutilizableBox.setSelected(true);
             compostableBox.setSelected(false);
         }
+        a.setEnvase(envase);
        this.lblUnidades.setText(Integer.toString(unidades));
-       this.lblPrecio.setText(Integer.toString(precio));
+       a.setUnidades(unidades);
+       this.lblPrecio.setText(Integer.toString(precio*unidades));
        this.id = alimento.getId();
+       this.elementoCarrito = a;
+       this.alimento = alimento;
+    }
+    
+    private void actualizarPrecio(int unidades){
+        int precioActual = this.alimento.getPrecio()*unidades;
+        this.lblPrecio.setText(Integer.toString(precioActual));
     }
     
     @FXML
@@ -74,23 +86,50 @@ public class FXMLElementoCarritoController implements Initializable {
     
     @FXML
     private void handleReutilizableBox(){
+        this.elementoCarrito.setEnvase(false);
         if(reutilizableBox.isSelected()){
             compostableBox.setSelected(false);
+        }else{
+            reutilizableBox.setSelected(true);
         }
     }
     
     @FXML
     private void handleCompostableBox(){
+        this.elementoCarrito.setEnvase(true);
         if(compostableBox.isSelected()){
             reutilizableBox.setSelected(false);
+        }else{
+            compostableBox.setSelected(true);
         }
     }
     
-//    @FXML
-//    public void eliminarElemento(ActionEvent event) {
-//        this.sis.eliminarElementoPorId(this.id);
-//        this.controlador.cargarElementos();
-//    }
-//    
+    @FXML
+    public void eliminarElemento(ActionEvent event) {
+        this.sis.eliminarElementoPorId(this.id);
+        this.controlador.cargarElementos();
+    }
+    
+    @FXML
+    public void agregarUnidad(ActionEvent event) {
+        int unidades = Integer.parseInt(this.lblUnidades.getText()) + 1;
+        this.lblUnidades.setText(Integer.toString(unidades));
+        this.elementoCarrito.setUnidades(unidades);
+        actualizarPrecio(unidades);
+    }
+    
+    @FXML
+    public void quitarUnidad(ActionEvent event) {
+        int unidades = Integer.parseInt(this.lblUnidades.getText()) - 1;
+        if(unidades > 0 ){
+            this.lblUnidades.setText(Integer.toString(unidades));
+            this.elementoCarrito.setUnidades(unidades);
+            actualizarPrecio(unidades);
+        }else{
+            this.sis.eliminarElementoPorId(this.id);
+            this.controlador.cargarElementos();
+        }
+        
+    }
 
 }

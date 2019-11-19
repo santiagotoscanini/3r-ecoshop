@@ -117,14 +117,15 @@ public class Sistema {
     public double getCantKilos() {
         return pesoEnKilos;
     }
-    
-    public void eliminarElementoPorId(int id){
-        for(ElementoCarrito elemento: this.getSelectedUser().getElementosCarrito()){
-            if(elemento.getAlimento().getId() == id){
-                this.getSelectedUser().getElementosCarrito().remove(elemento);
+
+    public void eliminarElementoPorId(int id) {
+        int i;
+        for (i = 0; i < this.getSelectedUser().getElementosCarrito().size(); i++) {
+            if (this.getSelectedUser().getElementosCarrito().get(i).getAlimento().getId() == id) {
+                break;
             }
         }
+        this.getSelectedUser().getElementosCarrito().remove(i);
     }
-    
-    
+
 }
