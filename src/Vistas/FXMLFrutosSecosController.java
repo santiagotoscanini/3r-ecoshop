@@ -149,7 +149,10 @@ public class FXMLFrutosSecosController implements Initializable {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("FXMLCarrito.fxml"));
             Parent root = loader.load();
             FXMLCarritoController controlador = loader.getController();
+            
             controlador.setSistema(this.sistema);
+            controlador.cargarElementos();
+            
             Scene escena = new Scene(root);
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             stage.setScene(escena);

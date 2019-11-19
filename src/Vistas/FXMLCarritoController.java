@@ -1,6 +1,9 @@
 package Vistas;
 
+import Modelos.Alimento;
+import Modelos.ElementoCarrito;
 import Modelos.Sistema;
+import Modelos.Usuario;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -11,6 +14,8 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.CheckBox;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 public class FXMLCarritoController implements Initializable {
@@ -24,6 +29,53 @@ public class FXMLCarritoController implements Initializable {
     
     public void setSistema(Sistema sis){
         this.sistema = sis;
+    }
+    
+    @FXML
+    private VBox VBoxElementosCarrito;
+    
+    @FXML
+    private CheckBox efectivoBox;
+    
+    @FXML
+    private CheckBox tarjetaBox;
+    
+    @FXML
+    private void handleEfectivoBox(){
+        if(efectivoBox.isSelected()){
+            tarjetaBox.setSelected(false);
+        }
+    }
+    
+    
+    @FXML
+    private void handleTarjetaBox(){
+        if(tarjetaBox.isSelected()){
+            efectivoBox.setSelected(false);
+        }
+    }
+    
+    public void cargarElementos() {
+
+        this.VBoxElementosCarrito.getChildren().clear();
+        System.out.println("oli");
+        for (ElementoCarrito a : this.sistema.getSelectedUser().getElementosCarrito()) {
+                try {
+                    FXMLLoader loader = new FXMLLoader(getClass().getResource("FXMLElementoCarrito.fxml"));
+                    Parent nodo = loader.load();
+
+                    FXMLElementoCarritoController controller = loader.getController();
+                    controller.setSistema(this.sistema);
+                    
+                    controller.cargarDatos(a.getAlimento().getNombre(), a.getEnvase(),a.getUnidades(), (a.getAlimento().getPrecio()*a.getUnidades()), a.getAlimento());
+                    
+                    controller.setController(this);
+                    
+                    this.VBoxElementosCarrito.getChildren().add(nodo);
+                } catch (Exception e) {
+                    System.out.println(e);
+                }
+        }
     }
     
     @FXML

@@ -39,11 +39,11 @@
                   <Font name="Ebrima" size="27.0" />
                </font>
             </Label>
-            <JFXTextField fx:id="txtDireccion" layoutX="14.0" layoutY="107.0" prefHeight="25.0" prefWidth="313.0" />
-            <JFXButton fx:id="btnAddDireccion" contentDisplay="CENTER" layoutX="349.0" layoutY="107.0" onAction="#btnAddDireccion" prefHeight="25.0" prefWidth="114.0" style="-fx-background-color: #EEE;" text="Agregar dirección" />
-            <ScrollPane layoutX="13.0" layoutY="144.0" prefHeight="484.0" prefWidth="725.0">
+            <JFXTextField fx:id="txtDireccion" layoutX="9.0" layoutY="602.0" prefHeight="25.0" prefWidth="313.0" />
+            <JFXButton fx:id="btnAddDireccion" contentDisplay="CENTER" layoutX="373.0" layoutY="602.0" onAction="#btnAddDireccion" prefHeight="25.0" prefWidth="114.0" style="-fx-background-color: #EEE;" text="Agregar dirección" />
+            <ScrollPane layoutX="9.0" layoutY="108.0" prefHeight="481.0" prefWidth="743.0">
                <content>
-                  <VBox fx:id="VBoxMisDirecciones" prefHeight="483.0" prefWidth="723.0" />
+                  <VBox fx:id="VBoxMisDirecciones" prefHeight="481.0" prefWidth="737.0" />
                </content>
             </ScrollPane>
          </children>

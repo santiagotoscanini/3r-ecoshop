@@ -1,5 +1,6 @@
 package Modelos;
 
+import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.List;
@@ -7,20 +8,22 @@ import java.util.List;
 public class Usuario implements Comparable<Usuario> {
 
     private final List<Factura> facturas;
-    private final List<Triplet> carrito;
+    private List<ElementoCarrito> elementosCarrito;
     private final List<String> direcciones;
 
     private String nombre;
     private final String cedula;
     private double puntos;
+    
+    
 
     public Usuario(String nombre, String cedula) {
         this.nombre = nombre;
         this.puntos = 0;
         this.cedula = cedula;
         this.direcciones = new LinkedList<>();
-        this.carrito = new LinkedList<>();
         this.facturas = new LinkedList<>();
+        this.elementosCarrito = new ArrayList<>();
     }
 
     public String getNombre() {
@@ -58,27 +61,19 @@ public class Usuario implements Comparable<Usuario> {
     public void addFactura(Factura factura) {
         this.facturas.add(factura);
     }
-
-    public List<Triplet> getCarrito() {
-        return this.carrito;
-    }
-
-    public void addElementToCarrito(Alimento alimento, boolean esReut) {
-        this.carrito.add(new Triplet(alimento, 1, esReut));
-    }
-
-    public void cambiarCantidadElemento(String operacion, Alimento alimento) {
-        int indice = (this.carrito.indexOf(new Triplet(alimento, 0, true)));
-        if (operacion.equals("suma")) {
-            this.carrito.get(indice).setSecond((int) this.carrito.get(indice).getSecond() + 1);
-        } else if (operacion.equals("resta")) {
-            this.carrito.get(indice).setSecond((int) this.carrito.get(indice).getSecond() - 1);
-        }
-    }
-  
-    public void removeElementFromCarrito(Alimento alimento) {
-        this.carrito.remove(new Triplet(alimento, 0, false));
-    }
+//
+//    public void cambiarCantidadElemento(String operacion, Alimento alimento) {
+//        int indice = (this.carrito.indexOf(new Triplet(alimento, 0, true)));
+//        if (operacion.equals("suma")) {
+//            this.carrito.get(indice).setSecond((int) this.carrito.get(indice).getSecond() + 1);
+//        } else if (operacion.equals("resta")) {
+//            this.carrito.get(indice).setSecond((int) this.carrito.get(indice).getSecond() - 1);
+//        }
+//    }
+//  
+//    public void removeElementFromCarrito(Alimento alimento) {
+//        this.carrito.remove(new Triplet(alimento, 0, false));
+//    }
 
     @Override
     public int compareTo(Usuario o) {
@@ -90,4 +85,18 @@ public class Usuario implements Comparable<Usuario> {
         return 0;
     }
 
+    public List<ElementoCarrito> getElementosCarrito() {
+        return elementosCarrito;
+    }
+    
+    public void agregarElementoCarrito(ElementoCarrito elementoCarrito){
+        this.elementosCarrito.add(elementoCarrito);
+    }
+
+    public void setElementosCarrito(List<ElementoCarrito> elementosCarrito) {
+        this.elementosCarrito = elementosCarrito;
+    }
+
+    
+    
 }

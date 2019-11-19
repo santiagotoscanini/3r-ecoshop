@@ -117,4 +117,14 @@ public class Sistema {
     public double getCantKilos() {
         return pesoEnKilos;
     }
+    
+    public void eliminarElementoPorId(int id){
+        for(ElementoCarrito elemento: this.getSelectedUser().getElementosCarrito()){
+            if(elemento.getAlimento().getId() == id){
+                this.getSelectedUser().getElementosCarrito().remove(elemento);
+            }
+        }
+    }
+    
+    
 }

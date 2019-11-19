@@ -184,13 +184,16 @@ public class FXMLInicioController implements Initializable {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("FXMLCarrito.fxml"));
             Parent root = loader.load();
             FXMLCarritoController controlador = loader.getController();
+
             controlador.setSistema(this.sistema);
+            controlador.cargarElementos();
+            
             Scene escena = new Scene(root);
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             stage.setScene(escena);
             stage.show();
         } catch (IOException ex) {
-            System.out.println("error");
+            System.out.println(ex);
         }
     }
 
@@ -216,11 +219,11 @@ public class FXMLInicioController implements Initializable {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("FXMLEspecialidades.fxml"));
             Parent root = loader.load();
-            
+
             FXMLEspecialidadesController controlador = loader.getController();
             controlador.setSistema(this.sistema);
             controlador.cargarAlimentos();
-            
+
             Scene escena = new Scene(root);
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             stage.setScene(escena);
@@ -235,11 +238,11 @@ public class FXMLInicioController implements Initializable {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("FXMLFrutasCongeladas.fxml"));
             Parent root = loader.load();
-            
+
             FXMLFrutasCongeladasController controlador = loader.getController();
             controlador.setSistema(this.sistema);
             controlador.cargarAlimentos();
-            
+
             Scene escena = new Scene(root);
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             stage.setScene(escena);

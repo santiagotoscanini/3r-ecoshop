@@ -1,11 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXCheckBox?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import com.jfoenix.controls.JFXDatePicker?>
+<?import com.jfoenix.controls.JFXTimePicker?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane id="AnchorPane" prefHeight="641.0" prefWidth="981.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Vistas.FXMLCarritoController">
@@ -36,6 +42,49 @@
                   <Font name="Ebrima" size="27.0" />
                </font>
             </Label>
+            <ScrollPane layoutX="10.0" layoutY="101.0" prefHeight="449.0" prefWidth="735.0">
+               <content>
+                  <VBox fx:id="VBoxElementosCarrito" prefHeight="449.0" prefWidth="735.0" />
+               </content>
+            </ScrollPane>
+            <JFXCheckBox fx:id="efectivoBox" layoutX="22.0" layoutY="562.0" onAction="#handleEfectivoBox" prefHeight="25.0" prefWidth="90.0" selected="true" text="Efectivo">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </JFXCheckBox>
+            <JFXCheckBox fx:id="tarjetaBox" layoutX="22.0" layoutY="599.0" onAction="#handleTarjetaBox" prefHeight="25.0" prefWidth="83.0" text="Tarjeta">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </JFXCheckBox>
+            <Label layoutX="464.0" layoutY="558.0" prefHeight="36.0" prefWidth="69.0" text="Total">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Label layoutX="533.0" layoutY="557.0" prefHeight="36.0" prefWidth="63.0" text="\$ 60">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <JFXDatePicker layoutX="284.0" layoutY="562.0" />
+            <Label layoutX="133.0" layoutY="559.0" prefHeight="36.0" prefWidth="182.0" text="Fecha de entrega:">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <JFXTimePicker layoutX="284.0" layoutY="599.0" />
+            <Label layoutX="133.0" layoutY="594.0" prefHeight="36.0" prefWidth="182.0" text="Hora de entrega:">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <JFXButton layoutX="636.0" layoutY="560.0" prefHeight="71.0" prefWidth="101.0" style="-fx-background-color: #EEE;" text="Comprar">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </JFXButton>
+            <JFXComboBox layoutX="464.0" layoutY="599.0" prefHeight="25.0" prefWidth="155.0" promptText="Direccion" />
          </children>
       </Pane>
    </children>

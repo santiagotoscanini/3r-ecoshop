@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXCheckBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane id="AnchorPane" prefHeight="117.0" prefWidth="788.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.171" fx:controller="Vistas.FXMLElementoCarritoController">
+   <children>
+      <Label fx:id="lblNombre" layoutX="81.0" layoutY="35.0" prefHeight="37.0" prefWidth="135.0" text="Maracuya">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="14.0" layoutY="35.0" prefHeight="37.0" prefWidth="135.0" text="Alimento: ">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblUnidades" layoutX="265.0" layoutY="35.0" prefHeight="37.0" prefWidth="42.0" text="2">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="194.0" layoutY="35.0" prefHeight="37.0" prefWidth="77.0" text="Unidades:">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <JFXButton layoutX="286.0" layoutY="14.0" prefHeight="37.0" prefWidth="42.0" style="-fx-background-color: #EEE;" text="+">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </JFXButton>
+      <JFXButton layoutX="286.0" layoutY="58.0" prefHeight="37.0" prefWidth="42.0" style="-fx-background-color: #EEE;" text="-">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </JFXButton>
+      <JFXCheckBox fx:id="reutilizableBox" layoutX="424.0" layoutY="28.0" onAction="#handleReutilizableBox" prefHeight="30.0" prefWidth="117.0" text="Reutilizable">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </JFXCheckBox>
+      <JFXCheckBox fx:id="compostableBox" layoutX="424.0" layoutY="63.0" onAction="#handleCompostableBox" prefHeight="30.0" prefWidth="149.0" selected="true" text="Compostable">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </JFXCheckBox>
+      <Label layoutX="361.0" layoutY="50.0" text="Envase:">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <JFXButton layoutX="696.0" layoutY="32.0" onAction="#eliminarElemento" prefHeight="53.0" prefWidth="84.0" style="-fx-background-color: red;" text="Eliminar" textFill="WHITE">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </JFXButton>
+      <Label layoutX="599.0" layoutY="39.0" prefHeight="39.0" prefWidth="70.0" text="Precio $">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblPrecio" layoutX="654.0" layoutY="39.0" prefHeight="39.0" prefWidth="46.0" text="60">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>
