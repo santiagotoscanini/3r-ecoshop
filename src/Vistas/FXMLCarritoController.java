@@ -6,7 +6,10 @@ import Modelos.Sistema;
 import Modelos.Usuario;
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -15,6 +18,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.CheckBox;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
@@ -23,18 +27,29 @@ public class FXMLCarritoController implements Initializable {
     
     private Sistema sistema;
     
-    @Override
-    public void initialize(URL url, ResourceBundle rb) {
-        // TODO
-    }
-    
     public void setSistema(Sistema sis){
         this.sistema = sis;
+        for(String direccion : sis.getSelectedUser().getDirecciones()){
+            list.add(direccion);
+        }
+        cBoxDirecciones.setItems(list);
     }
     
-        @FXML
+    @FXML
+    private ComboBox<String> cBoxDirecciones;
+    
+    ObservableList<String> list = FXCollections.observableArrayList();
+    
+    @Override
+    public void initialize(URL url, ResourceBundle rb) {
+        
+    }
+    
+    
+    @FXML
     private Label lblMontoTotal;
     
+
     @FXML
     private VBox VBoxElementosCarrito;
     
@@ -67,26 +82,24 @@ public class FXMLCarritoController implements Initializable {
 
         this.VBoxElementosCarrito.getChildren().clear();
         System.out.println("oli");
+        int montoTotal = 0;
         for (ElementoCarrito a : this.sistema.getSelectedUser().getElementosCarrito()) {
-            int montoTotal = 0;
             try {
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("FXMLElementoCarrito.fxml"));
                 Parent nodo = loader.load();
 
                 FXMLElementoCarritoController controller = loader.getController();
                 controller.setSistema(this.sistema);
-
-                controller.cargarDatos(a.getAlimento().getNombre(), a.getEnvase(),a.getUnidades(), (a.getAlimento().getPrecio()*a.getUnidades()), a.getAlimento(), a);
-
+                controller.cargarDatos(a.getAlimento().getNombre(), a.getEnvase(),a.getUnidades(), (a.getAlimento().getPrecio()), a.getAlimento(), a);
                 controller.setController(this);
 
                 this.VBoxElementosCarrito.getChildren().add(nodo);
                 montoTotal = montoTotal + (a.getAlimento().getPrecio()*a.getUnidades()); 
             } catch (Exception e) {
                 System.out.println(e);
-            }
-            this.lblMontoTotal.setText("$"+montoTotal);
+            }   
         }
+        this.lblMontoTotal.setText("$"+montoTotal);
     }
     
     @FXML

@@ -11,9 +11,9 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="643.0" prefWidth="911.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Vistas.FXMLMisDireccionesController">
+<AnchorPane id="AnchorPane" prefHeight="620.0" prefWidth="991.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Vistas.FXMLMisDireccionesController">
    <children>
-      <Pane prefHeight="653.0" prefWidth="213.0" style="-fx-background-color: rgba(89,9,90,1);">
+      <Pane prefHeight="643.0" prefWidth="213.0" style="-fx-background-color: rgba(89,9,90,1);">
          <children>
             <ImageView fitHeight="55.0" fitWidth="62.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
                <image>

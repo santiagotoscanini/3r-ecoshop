@@ -5,6 +5,8 @@
  */
 package Vistas;
 
+import Modelos.Alimento;
+import Modelos.ElementoCarrito;
 import Modelos.Sistema;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -56,7 +58,10 @@ public class FXMLAlimentoEspecialidadesController implements Initializable {
 
     @FXML
     public void agregarAlCarrito(ActionEvent event) {
-
+        Alimento alimento = sis.getAlimento(this.id);
+        if(!sis.getSelectedUser().getElementosCarrito().contains(new ElementoCarrito(alimento))){
+            sis.getSelectedUser().agregarElementoCarrito(new ElementoCarrito(alimento));
+        }
     }
 
     @Override

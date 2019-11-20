@@ -16,7 +16,7 @@ public class Sistema {
 
     private static final List<Sucursal> sucursales = new LinkedList<>();
     private static final List<Usuario> ranking = new LinkedList<>();
-    private static final List<Pair> alimentos = new LinkedList<>();
+    private static List<Pair> alimentos = new LinkedList<>();
     private static final DateFormat formato = new SimpleDateFormat("dd/mm/YYYY HH:mm:ss");
 
     public void setSelectedUser(Usuario user) {
@@ -128,4 +128,14 @@ public class Sistema {
         this.getSelectedUser().getElementosCarrito().remove(i);
     }
 
+    
+    public Alimento getAlimento(int id){
+        int i;
+        for (i = 0; i < this.getAlimentos().size(); i++) {
+            if (this.getAlimentos().get(i).getId() == id) {
+                break;
+            }
+        }
+        return this.getAlimentos().get(i);
+    }
 }

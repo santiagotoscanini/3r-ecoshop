@@ -135,6 +135,7 @@ public class FXMLFrutasCongeladasController implements Initializable {
             Parent root = loader.load();
             FXMLCarritoController controlador = loader.getController();
             controlador.setSistema(this.sistema);
+            controlador.cargarElementos();
             Scene escena = new Scene(root);
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             stage.setScene(escena);

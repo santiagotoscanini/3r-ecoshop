@@ -64,10 +64,10 @@ public class FXMLAlimentoFrutosSecosController implements Initializable {
 
     @FXML
     public void agregarAlCarrito(ActionEvent event) {
-       Alimento alimento = new Alimento("Borrar", "Lo hice para probar", 0, "Frutos secos");
-       sis.getSelectedUser().agregarElementoCarrito(new ElementoCarrito(alimento));  
-        System.out.println(sis.getSelectedUser().getElementosCarrito().size());
-      System.out.println("Agregar al carrito");
+        Alimento alimento = sis.getAlimento(this.id);
+        if(!sis.getSelectedUser().getElementosCarrito().contains(new ElementoCarrito(alimento))){
+            sis.getSelectedUser().agregarElementoCarrito(new ElementoCarrito(alimento));
+        }
     }
 
     @Override
@@ -75,5 +75,4 @@ public class FXMLAlimentoFrutosSecosController implements Initializable {
 
     }
 
-    
 }

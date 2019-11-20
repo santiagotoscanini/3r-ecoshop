@@ -28,7 +28,7 @@
             <JFXButton alignment="CENTER" layoutX="17.0" layoutY="153.0" onAction="#misDireccionesHandleClick" prefHeight="46.0" prefWidth="182.0" style="-fx-background-color: #EEE;" text="Mis direcciones" />
             <JFXButton alignment="CENTER" layoutX="17.0" layoutY="221.0" onAction="#misRecibosHandleClick" prefHeight="46.0" prefWidth="182.0" style="-fx-background-color: #EEE;" text="Mis recibos" />
             <JFXButton alignment="CENTER" layoutX="77.0" layoutY="44.0" onAction="#misLogrosHandleClick" prefHeight="25.0" prefWidth="120.0" style="-fx-background-color: #EEE;" text="Mis logros" />
-            <JFXButton alignment="CENTER" layoutX="17.0" layoutY="89.0" onAction="#misDireccionesHandleClick" prefHeight="46.0" prefWidth="182.0" style="-fx-background-color: #EEE;" text="Ir al carrito" />
+            <JFXButton alignment="CENTER" layoutX="17.0" layoutY="89.0" onAction="#irAlCarritoHandleClick" prefHeight="46.0" prefWidth="182.0" style="-fx-background-color: #EEE;" text="Ir al carrito" />
          </children>
       </Pane>
       <Pane layoutX="226.0" prefHeight="643.0" prefWidth="755.0">

@@ -68,11 +68,13 @@ public class FXMLEspecialidadesController implements Initializable {
         String precio = this.txtPrecio.getText();
 
         if (nombre.length() != 0 && descripcion.length() != 0 && precio.length() != 0 && isNumeric(precio)) {
-            this.sistema.addAlimento(new Alimento(nombre, descripcion, Integer.parseInt(precio), "Especialidades"));
+            Alimento nuevoAlimento = new Alimento(nombre, descripcion, Integer.parseInt(precio), "Especialidades");
+            this.sistema.addAlimento(nuevoAlimento);
             this.cargarAlimentos();
             this.txtDescripcion.setText("");
             this.txtNombre.setText("");
             this.txtPrecio.setText("");
+            System.out.println(nuevoAlimento.getId()+"add alimento");
         }
     }
 
@@ -136,7 +138,7 @@ public class FXMLEspecialidadesController implements Initializable {
             
             FXMLCarritoController controlador = loader.getController();
             controlador.setSistema(this.sistema);
-            
+            controlador.cargarElementos();
             Scene escena = new Scene(root);
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             stage.setScene(escena);
