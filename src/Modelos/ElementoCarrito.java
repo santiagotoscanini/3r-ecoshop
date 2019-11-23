@@ -1,16 +1,15 @@
-
 package Modelos;
 
 public class ElementoCarrito {
-    
+
     private Alimento alimento;
     private int unidades;
-    private Boolean envase;   // true es compostable, false es reutilizable
-    
-    public ElementoCarrito(Alimento alimento){
+    private boolean esCompostable;   // true es compostable, false es reutilizable
+
+    public ElementoCarrito(Alimento alimento) {
         this.alimento = alimento;
         this.unidades = 1;
-        this.envase = true;
+        this.esCompostable = true;
     }
 
     public Alimento getAlimento() {
@@ -21,8 +20,8 @@ public class ElementoCarrito {
         return unidades;
     }
 
-    public Boolean getEnvase() {
-        return envase;
+    public Boolean getCompostable() {
+        return esCompostable;
     }
 
     public void setAlimento(Alimento alimento) {
@@ -33,11 +32,11 @@ public class ElementoCarrito {
         this.unidades = unidades;
     }
 
-    public void setEnvase(Boolean envase) {
-        this.envase = envase;
+    public void setCompostable(Boolean envase) {
+        this.esCompostable = envase;
     }
-    
-     @Override
+
+    @Override
     public boolean equals(Object obj) {
         ElementoCarrito aux = (ElementoCarrito) obj;
         return this.alimento == aux.getAlimento();

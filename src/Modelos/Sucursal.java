@@ -7,7 +7,6 @@ public class Sucursal {
 
     private static int contador = 1;
 
-    private final List<Factura> facturas;
     private final int id;
 
     private int telefono;
@@ -16,7 +15,6 @@ public class Sucursal {
     public Sucursal(String direccion, int telefono) {
         this.direccion = direccion;
         this.telefono = telefono;
-        this.facturas = new LinkedList<>();
         id = contador;
         contador++;
     }
@@ -35,14 +33,6 @@ public class Sucursal {
 
     public void setTelefono(int telefono) {
         this.telefono = telefono;
-    }
-
-    public List<Factura> getFacturas() {
-        return this.facturas;
-    }
-
-    public void addFactura(Factura factura) {
-        this.facturas.add(factura);
     }
 
     public int getId() {

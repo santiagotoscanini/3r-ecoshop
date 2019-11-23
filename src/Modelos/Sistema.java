@@ -17,7 +17,7 @@ public class Sistema {
     private static final List<Sucursal> sucursales = new LinkedList<>();
     private static final List<Usuario> ranking = new LinkedList<>();
     private static List<Pair> alimentos = new LinkedList<>();
-    private static final DateFormat formato = new SimpleDateFormat("dd/mm/YYYY HH:mm:ss");
+    private static final DateFormat formato = new SimpleDateFormat("dd/mm/YYYY HH:mm");
 
     public void setSelectedUser(Usuario user) {
         selectedUser = user;
@@ -66,6 +66,17 @@ public class Sistema {
     public List<Usuario> getRanking() {
         Collections.sort(ranking);
         return ranking;
+    }
+
+    public void addCantidadAlimento(int id, int cantidad) {
+        for (int i = 0; i < alimentos.size(); i++) {
+            Pair par = alimentos.get(i);
+            Alimento alim = (Alimento) par.getKey();
+            if (alim.getId() == id) {
+                alimentos.set(i, new Pair(id, (int) par.getValue() + cantidad));
+                break;
+            }
+        }
     }
 
     public void addAlimento(Alimento alimento) {
@@ -128,8 +139,7 @@ public class Sistema {
         this.getSelectedUser().getElementosCarrito().remove(i);
     }
 
-    
-    public Alimento getAlimento(int id){
+    public Alimento getAlimento(int id) {
         int i;
         for (i = 0; i < this.getAlimentos().size(); i++) {
             if (this.getAlimentos().get(i).getId() == id) {

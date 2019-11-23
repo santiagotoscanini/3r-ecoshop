@@ -62,29 +62,34 @@
                   <Font size="18.0" />
                </font>
             </Label>
-            <Label fx:id="lblMontoTotal" layoutX="533.0" layoutY="557.0" prefHeight="36.0" prefWidth="63.0" text="\$ 60">
+            <Label fx:id="lblMontoTotal" layoutX="532.0" layoutY="557.0" prefHeight="36.0" prefWidth="83.0" text="0">
                <font>
                   <Font size="18.0" />
                </font>
             </Label>
-            <JFXDatePicker layoutX="284.0" layoutY="562.0" />
+            <JFXDatePicker fx:id="calendario" layoutX="284.0" layoutY="562.0" />
             <Label layoutX="133.0" layoutY="559.0" prefHeight="36.0" prefWidth="182.0" text="Fecha de entrega:">
                <font>
                   <Font size="18.0" />
                </font>
             </Label>
-            <JFXTimePicker layoutX="284.0" layoutY="599.0" />
+            <JFXTimePicker fx:id="reloj" layoutX="284.0" layoutY="599.0" />
             <Label layoutX="133.0" layoutY="594.0" prefHeight="36.0" prefWidth="182.0" text="Hora de entrega:">
                <font>
                   <Font size="18.0" />
                </font>
             </Label>
-            <JFXButton layoutX="636.0" layoutY="560.0" prefHeight="71.0" prefWidth="101.0" style="-fx-background-color: #EEE;" text="Comprar">
+            <JFXButton layoutX="636.0" layoutY="560.0" onAction="#comprarHandleClick" prefHeight="71.0" prefWidth="101.0" style="-fx-background-color: #EEE;" text="Comprar">
                <font>
                   <Font size="18.0" />
                </font>
             </JFXButton>
             <JFXComboBox fx:id="cBoxDirecciones" layoutX="464.0" layoutY="599.0" prefHeight="25.0" prefWidth="155.0" promptText="Direccion" />
+            <Label fx:id="lblMontoTotal1" layoutX="517.0" layoutY="557.0" prefHeight="36.0" prefWidth="10.0" text="\$">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
          </children>
       </Pane>
    </children>

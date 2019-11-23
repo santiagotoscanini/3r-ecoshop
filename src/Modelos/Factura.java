@@ -10,24 +10,27 @@ public class Factura {
     private final Date fechaEntrega;
     // si no paga con tarjeta paga con efectivo
     private boolean pagoConTarjeta;
-    private List<Pair> productos;
-    private Sucursal sucursal;
+    private List<ElementoCarrito> productos;
+    private String direccion;
     private Usuario usuario;
+    private int montoTotal;
 
-    public Factura(Date fechaEntrega, boolean pagoConTarjeta, List<Pair> productos, Sucursal sucursal) {
+    public Factura(Date fechaEntrega, boolean pagoConTarjeta, List<ElementoCarrito> productos, String direccion, Usuario usuario, int montoTotal) {
         this.fechaEntrega = fechaEntrega;
         this.fechaEmision = new Date();
         this.pagoConTarjeta = pagoConTarjeta;
         this.productos = productos;
-        this.sucursal = sucursal;
+        this.direccion = direccion;
+        this.usuario = usuario;
+        this.montoTotal = montoTotal;
     }
 
-    public Sucursal getSucursal() {
-        return sucursal;
+    public String getDireccion() {
+        return this.direccion;
     }
 
-    public void setSucursal(Sucursal sucursal) {
-        this.sucursal = sucursal;
+    public void setDireccion(String direccion) {
+        this.direccion = direccion;
     }
 
     public String getFechaFormateada(Sistema sis) {
@@ -42,11 +45,11 @@ public class Factura {
         this.pagoConTarjeta = pagoConTarjeta;
     }
 
-    public List<Pair> getProductos() {
+    public List<ElementoCarrito> getProductos() {
         return productos;
     }
 
-    public void setProductos(List<Pair> productos) {
+    public void setProductos(List<ElementoCarrito> productos) {
         this.productos = productos;
     }
 
@@ -64,5 +67,13 @@ public class Factura {
 
     public Date getFechaEntrega() {
         return fechaEntrega;
+    }
+
+    public int getMontoTotal() {
+        return montoTotal;
+    }
+
+    public void setMontoTotal(int montoTotal) {
+        this.montoTotal = montoTotal;
     }
 }

@@ -150,6 +150,7 @@ public class FXMLInicioController implements Initializable {
             Parent root = loader.load();
             FXMLMisRecibosController controlador = loader.getController();
             controlador.setSistema(this.sistema);
+            controlador.cargarDatos();
             Scene escena = new Scene(root);
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             stage.setScene(escena);
