@@ -1,11 +1,11 @@
 package Modelos;
 
-import javafx.util.Pair;
 import java.util.Date;
 import java.util.List;
 
 public class Factura {
-
+    private static int contador = 0;
+    private int id;
     private final Date fechaEmision;
     private final Date fechaEntrega;
     // si no paga con tarjeta paga con efectivo
@@ -23,8 +23,14 @@ public class Factura {
         this.direccion = direccion;
         this.usuario = usuario;
         this.montoTotal = montoTotal;
+        this.id = contador;
+        contador++;
     }
 
+    public int getId(){
+        return this.id;
+    }
+    
     public String getDireccion() {
         return this.direccion;
     }

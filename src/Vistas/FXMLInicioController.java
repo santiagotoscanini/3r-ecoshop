@@ -1,5 +1,6 @@
 package Vistas;
 
+import Modelos.Alimento;
 import Modelos.Sistema;
 import Modelos.Sucursal;
 import com.jfoenix.controls.JFXTextField;
@@ -109,22 +110,37 @@ public class FXMLInicioController implements Initializable {
     }
 
     public void cargarMasVendidos() {
-//        this.VBoxMasVendidos.getChildren().clear();
-//
-//        for (int i = 0; i < 10; i++) {
-//            try {
-//                FXMLLoader loader = new FXMLLoader(getClass().getResource("FXMLAlimento.fxml"));
-//                Parent nodo = loader.load();
-//
-//                FXMLAlimentoFrutasController controller = loader.getController();
-//                controller.setSistema(this.sistema);
-//                controller.cargarDatos("Generic Name", "Generic Description");
-//
-//                this.VBoxMasVendidos.getChildren().add(nodo);
-//            } catch (Exception e) {
-//                System.out.println(e);
-//            }
-//        }
+        this.VBoxMasVendidos.getChildren().clear();
+
+        for (Alimento alimento : this.sistema.getMasVendidos()) {
+            try {
+                if (alimento.getCategoria().equals("Frutos Secos")) {
+                    FXMLLoader loader = new FXMLLoader(getClass().getResource("FXMLAlimentoFrutosSecos.fxml"));
+                    Parent nodo = loader.load();
+                    FXMLAlimentoFrutosSecosController controller = loader.getController();
+                    controller.setSistema(this.sistema);
+                    controller.cargarDatos(alimento.getNombre(), alimento.getDescripcion(), alimento.getPrecio(), alimento.getId());
+                    this.VBoxMasVendidos.getChildren().add(nodo);
+                } else if (alimento.getCategoria().equals("Especialidades")) {
+                    FXMLLoader loader = new FXMLLoader(getClass().getResource("FXMLAlimentoEspecialidades.fxml"));
+                    Parent nodo = loader.load();
+                    FXMLAlimentoEspecialidadesController controller = loader.getController();
+                    controller.setSistema(this.sistema);
+                    controller.cargarDatos(alimento.getNombre(), alimento.getDescripcion(), alimento.getPrecio(), alimento.getId());
+                    this.VBoxMasVendidos.getChildren().add(nodo);
+                } else {
+                    FXMLLoader loader = new FXMLLoader(getClass().getResource("FXMLAlimentoFrutas.fxml"));
+                    Parent nodo = loader.load();
+                    FXMLAlimentoFrutasController controller = loader.getController();
+                    controller.setSistema(this.sistema);
+                    controller.cargarDatos(alimento.getNombre(), alimento.getDescripcion(), alimento.getPrecio(), alimento.getId());
+                    this.VBoxMasVendidos.getChildren().add(nodo);
+                }
+
+            } catch (IOException e) {
+                System.out.println(e);
+            }
+        }
     }
 
     @FXML
@@ -188,7 +204,7 @@ public class FXMLInicioController implements Initializable {
 
             controlador.setSistema(this.sistema);
             controlador.cargarElementos();
-            
+
             Scene escena = new Scene(root);
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             stage.setScene(escena);

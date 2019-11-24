@@ -38,7 +38,7 @@ public class FXMLFacturaController implements Initializable {
         document.addAuthor("EcoFood");
         document.addTitle("Demostracion");
         try {
-            PdfWriter.getInstance(document, new FileOutputStream("pdf/holi.pdf "));
+            PdfWriter.getInstance(document, new FileOutputStream("pdf/factura_" + this.fact.getId() + ".pdf "));
             document.open();
 
             Paragraph pInformacionHeader = new Paragraph("EcoFood tienda online \n\n Tel: 1234 6789 \n e-Ticket \n\n Consumo final \n\n");
@@ -54,13 +54,13 @@ public class FXMLFacturaController implements Initializable {
             document.add(pHoraEmision);
             document.add(Chunk.NEWLINE);
             for (ElementoCarrito el : this.fact.getProductos()) {
-                Paragraph pProducto = new Paragraph(el.getAlimento().getNombre() + " x" + el.getUnidades() + " " + (el.getAlimento().getPrecio() * el.getUnidades()));
+                Paragraph pProducto = new Paragraph(el.getAlimento().getNombre() + " x" + el.getUnidades() + " $" + (el.getAlimento().getPrecio() * el.getUnidades()));
                 Paragraph pEnvase = new Paragraph("\t Envase: " + (el.getCompostable() ? "Compostable" : "Reutilizable"));
                 document.add(pProducto);
                 document.add(pEnvase);
                 document.add(Chunk.NEWLINE);
             }
-            Paragraph pTotal = new Paragraph("Total: " + Integer.toString(this.fact.getMontoTotal()));
+            Paragraph pTotal = new Paragraph("Total: $" + Integer.toString(this.fact.getMontoTotal()));
             Paragraph pFechaEntrega = new Paragraph("");
             Paragraph pHoraEntrega = new Paragraph("");
             document.add(pTotal);

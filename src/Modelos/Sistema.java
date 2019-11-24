@@ -5,6 +5,7 @@ import java.text.SimpleDateFormat;
 import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Map.Entry;
 import javafx.util.Pair;
 
 public class Sistema {
@@ -12,11 +13,11 @@ public class Sistema {
     private static int cantEnvReu = 0;
     private static int cantEnvComp = 0;
     private static Usuario selectedUser;
-    private static final double pesoEnKilos = 0.14;
 
+    private static final double pesoEnKilos = 0.14;
     private static final List<Sucursal> sucursales = new LinkedList<>();
     private static final List<Usuario> ranking = new LinkedList<>();
-    private static List<Pair> alimentos = new LinkedList<>();
+    private static final List<Par> alimentos = new LinkedList<>();
     private static final DateFormat formato = new SimpleDateFormat("dd/mm/YYYY HH:mm");
 
     public void setSelectedUser(Usuario user) {
@@ -27,7 +28,6 @@ public class Sistema {
         return selectedUser;
     }
 
-    //Sucursal
     public void addSucursal(Sucursal suc) {
         sucursales.add(suc);
     }
@@ -46,7 +46,7 @@ public class Sistema {
     public void eliminarAlimentoPorId(int id) {
         int i = -1;
         for (i = 0; i < alimentos.size(); i++) {
-            Alimento alimento = (Alimento) alimentos.get(i).getKey();
+            Alimento alimento = (Alimento) alimentos.get(i).getPrimerValor();
             if (alimento.getId() == id) {
                 break;
             }
@@ -58,7 +58,6 @@ public class Sistema {
         return sucursales;
     }
 
-    //
     public void addUsuario(Usuario user) {
         ranking.add(user);
     }
@@ -68,27 +67,37 @@ public class Sistema {
         return ranking;
     }
 
+    public Alimento[] getMasVendidos() {
+        Collections.sort(alimentos);
+        Alimento[] alimentosMasVendidos = new Alimento[alimentos.size()];
+        for (int i = 0; i < alimentos.size(); i++) {
+            alimentosMasVendidos[alimentos.size() - i - 1] = (Alimento) alimentos.get(i).getPrimerValor();
+
+        }
+        return alimentosMasVendidos;
+    }
+
     public void addCantidadAlimento(int id, int cantidad) {
         for (int i = 0; i < alimentos.size(); i++) {
-            Pair par = alimentos.get(i);
-            Alimento alim = (Alimento) par.getKey();
+            Par par = alimentos.get(i);
+            Alimento alim = (Alimento) par.getPrimerValor();
             if (alim.getId() == id) {
-                alimentos.set(i, new Pair(id, (int) par.getValue() + cantidad));
+                alimentos.get(i).setSegundoValor((int) par.getSegundoValor() + cantidad);
                 break;
             }
         }
     }
 
     public void addAlimento(Alimento alimento) {
-        alimentos.add(new Pair(alimento, 0));
+        alimentos.add(new Par(alimento, 0));
     }
 
     public Alimento getMaxAlimento() {
         Alimento mayor = null;
         int mayorActual = 0;
-        for (Pair a : alimentos) {
-            Alimento alimento = (Alimento) a.getKey();
-            int cantidad = (int) a.getValue();
+        for (Par a : alimentos) {
+            Alimento alimento = (Alimento) a.getPrimerValor();
+            int cantidad = (int) a.getSegundoValor();
             if (cantidad > mayorActual) {
                 mayorActual = cantidad;
                 mayor = alimento;
@@ -99,8 +108,8 @@ public class Sistema {
 
     public List<Alimento> getAlimentos() {
         List<Alimento> auxAlimentos = new LinkedList<>();
-        for (Pair p : alimentos) {
-            auxAlimentos.add((Alimento) p.getKey());
+        for (Par p : alimentos) {
+            auxAlimentos.add((Alimento) p.getPrimerValor());
         }
         return auxAlimentos;
     }
