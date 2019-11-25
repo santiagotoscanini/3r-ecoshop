@@ -39,4 +39,10 @@ public class Sucursal {
         return this.id;
     }
 
+    @Override
+    public boolean equals(Object obj) {
+        Sucursal suc = (Sucursal) obj;
+        return (this.getId() == suc.getId());
+    }
+
 }

@@ -137,8 +137,7 @@ public class AlimentoTest {
     public void testToString() {
         String expResult = "1kg de frutillas";
         instance.setNombre("1kg de frutillas");
-        assertEquals(expResult, instance.toString());
-        
+        assertEquals(expResult, instance.toString()); 
     }
     
 }

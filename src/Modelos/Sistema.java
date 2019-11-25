@@ -33,14 +33,18 @@ public class Sistema {
     }
 
     public void eliminarSucursalPorId(int id) {
-        int i = -1;
+        int i;
+        boolean encontre = false;
         for (i = 0; i < sucursales.size(); i++) {
             Sucursal sucursal = sucursales.get(i);
             if (sucursal.getId() == id) {
+                encontre = true;
                 break;
             }
         }
-        sucursales.remove(i);
+        if (encontre) {
+            sucursales.remove(i);
+        }
     }
 
     public void eliminarAlimentoPorId(int id) {

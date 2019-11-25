@@ -2,6 +2,7 @@
 package Modelos;
 
 import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 import org.junit.After;
@@ -60,7 +61,7 @@ public class SistemaTest {
     @Test
     public void testAddSucursal() {
         Sucursal sucursal = new Sucursal("D1", 4245667);
-        List<Sucursal> expResult = new ArrayList();
+        List<Sucursal> expResult = instance.getSucursales();
         expResult.add(sucursal);
         instance.addSucursal(sucursal);
         assertEquals(expResult, instance.getSucursales());
@@ -72,11 +73,19 @@ public class SistemaTest {
     @Test
     public void testEliminarSucursalPorId() {
         Sucursal sucursal = new Sucursal("D1", 4245667);
-        List<Sucursal> expResult = new ArrayList();
-        expResult.add(sucursal);
+        List<Sucursal> expResult = instance.getSucursales();
         instance.addSucursal(sucursal);
-        expResult.remove(sucursal);
-        instance.eliminarSucursalPorId(1);
+        instance.eliminarSucursalPorId(sucursal.getId());
+        assertEquals(expResult, instance.getSucursales());
+    }
+    
+    /**
+     * Test of eliminarSucursalPorId method, of class Sistema.
+     */
+    @Test
+    public void testEliminarSucursalPorIdNoExistente() {
+        List<Sucursal> expResult = instance.getSucursales();
+        instance.eliminarSucursalPorId(-1);
         assertEquals(expResult, instance.getSucursales());
     }
 
@@ -85,10 +94,11 @@ public class SistemaTest {
      */
     @Test
     public void testEliminarAlimentoPorId() {
-//        Alimento alimento = new Alimento("A1", "C1", 1, "FS");
-//        instance.addAlimento(alimento);
-//        instance.eliminarAlimentoPorId(1);
-//        assertTrue(instance.getAlimentos().isEmpty());
+        Alimento alimento = new Alimento("A1", "C1", 1, "FS");
+        List<Alimento> expResult = instance.getAlimentos();
+        instance.addAlimento(alimento);
+        instance.eliminarAlimentoPorId(alimento.getId());
+        assertEquals(expResult, instance.getAlimentos());
     }
 
     /**
@@ -96,7 +106,19 @@ public class SistemaTest {
      */
     @Test
     public void testGetSucursales() {
-        List<Sucursal> expResult = new ArrayList();
+        List<Sucursal> expResult = instance.getSucursales();
+        assertEquals(expResult, instance.getSucursales());
+    }
+    
+    /**
+     * Test of getSucursales method, of class Sistema.
+     */
+    @Test
+    public void testGetSucursalesConUnaSucursal() {
+        List<Sucursal> expResult = instance.getSucursales();
+        Sucursal nueva = new Sucursal("Dir2", 324544665);
+        expResult.add(nueva);
+        instance.addSucursal(nueva);
         assertEquals(expResult, instance.getSucursales());
     }
 
@@ -107,7 +129,7 @@ public class SistemaTest {
     public void testAddUsuario() {
         Usuario expResult = new Usuario("N1", "CI1", "Dir1");
         instance.addUsuario(new Usuario("N1", "CI1", "Dir1"));
-        assertEquals(expResult, instance.getRanking().get(0));
+        assertEquals(expResult, instance.getRanking().get(instance.getRanking().indexOf(expResult)));
     }
 
     /**
@@ -117,11 +139,8 @@ public class SistemaTest {
     public void testGetRanking() {
         Usuario usuario = new Usuario("N1", "CI1", "Dir1");
         
-        List<Usuario> expResult = new ArrayList();
-        
-        expResult.add(this.instance.getRanking().get(0));
+        List<Usuario> expResult = instance.getRanking();
         expResult.add(usuario);
-        
         instance.addUsuario(usuario);
         
         assertEquals(expResult, instance.getRanking());
@@ -144,9 +163,6 @@ public class SistemaTest {
         Alimento alimento = new Alimento("A1", "D1", 1, "fs");
         instance.addAlimento(alimento);
         instance.addCantidadAlimento(alimento.getId(), 3);
-        System.out.println(alimento.getId());
-        System.out.println(instance.getIndexOfAlimento(alimento.getId()));
-        System.out.println(instance.getMasVendidos()[0].getId());
         assertEquals(alimento, instance.getMasVendidos()[0]);
     }
 
@@ -179,7 +195,7 @@ public class SistemaTest {
      */
     @Test
     public void testGetAlimentos() {
-        List<Alimento> expResult =  new ArrayList();
+        List<Alimento> expResult =  instance.getAlimentos();
         Alimento alimento = new Alimento("A1", "D1", 1, "FC");
         Alimento alimento2 = new Alimento("A2", "D2", 1, "FC");
         instance.addAlimento(alimento);
@@ -194,7 +210,8 @@ public class SistemaTest {
      */
     @Test
     public void testGetFormat() {
-        
+        DateFormat expFormato = new SimpleDateFormat("dd/mm/YYYY HH:mm");
+        assertEquals(expFormato, instance.getFormat());
     }
 
     /**
@@ -244,14 +261,6 @@ public class SistemaTest {
     public void testGetCantKilos() {
         double expResult = 0.14;
         assertEquals(expResult, instance.getCantKilos(), 0);
-    }
-
-    /**
-     * Test of eliminarElementoPorId method, of class Sistema.
-     */
-    @Test
-    public void testEliminarElementoPorId() {
-        
     }
 
     /**
