@@ -154,7 +154,7 @@ public class UsuarioTest {
      */
     @Test
     public void testAgregarElementoCarrito() {
-        List<ElementoCarrito> productos = new ArrayList();
+        List<ElementoCarrito> productos = instance.getElementosCarrito();
         ElementoCarrito elemento = new ElementoCarrito(new Alimento("A1", "D1", 1, "FS"));
         productos.add(elemento);
         instance.agregarElementoCarrito(elemento);

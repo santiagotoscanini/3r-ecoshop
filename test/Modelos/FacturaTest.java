@@ -73,14 +73,10 @@ public class FacturaTest {
      */
     @Test
     public void testGetFechaFormateada() {
-//        System.out.println("getFechaFormateada");
-//        Sistema sis = null;
-//        Factura instance = null;
-//        String expResult = "";
-//        String result = instance.getFechaFormateada(sis);
-//        assertEquals(expResult, result);
-//        // TODO review the generated test code and remove the default call to fail.
-//        fail("The test case is a prototype.");
+        Sistema sis = new Sistema();
+        Date expFecha = new Date();
+        String expResult = sis.getFormat().format(expFecha);
+        assertEquals(expResult, instance.getFechaFormateada(sis));
     }
 
     /**
@@ -96,9 +92,19 @@ public class FacturaTest {
      * Test of setPagoConTarjeta method, of class Factura.
      */
     @Test
-    public void testSetPagoConTarjeta() {
+    public void testSetPagoConTarjetaTrue() {
         boolean expResult = true;
         instance.setPagoConTarjeta(true);
+        assertEquals(expResult, instance.isPagoConTarjeta());
+    }
+    
+    /**
+     * Test of setPagoConTarjeta method, of class Factura.
+     */
+    @Test
+    public void testSetPagoConTarjetaFalse() {
+        boolean expResult = false;
+        instance.setPagoConTarjeta(false);
         assertEquals(expResult, instance.isPagoConTarjeta());
     }
 
@@ -107,17 +113,9 @@ public class FacturaTest {
      */
     @Test
     public void testGetProductos() {
-//        System.out.println("getProductos");
-//        Factura instance = null;
-//        List<ElementoCarrito> expResult = null;
-//        List<ElementoCarrito> result = instance.getProductos();
-//        assertEquals(expResult, result);
-//        // TODO review the generated test code and remove the default call to fail.
-//        fail("The test case is a prototype.");
-//        List<ElementoCarrito> expAlimentos = new ArrayList<>();
-//        expAlimentos.add(new ElementoCarrito(new Alimento("F3", "C4", 1, "FS")));
-//        assertFalse(expAlimentos, instance.getProductos());
-
+        List<ElementoCarrito> alimentos = new ArrayList<>();
+        alimentos.add(new ElementoCarrito(new Alimento("F3", "C4", 1, "FS")));
+        assertFalse(alimentos.equals(instance.getProductos()));
     }
 
     /**
@@ -155,13 +153,8 @@ public class FacturaTest {
      */
     @Test
     public void testGetFechaEmision() {
-//        System.out.println("getFechaEmision");
-//        Factura instance = null;
-//        Date expResult = null;
-//        Date result = instance.getFechaEmision();
-//        assertEquals(expResult, result);
-//        // TODO review the generated test code and remove the default call to fail.
-//        fail("The test case is a prototype.");
+        Date expResult = new Date();
+        assertEquals(expResult, instance.getFechaEmision());
     }
 
     /**
@@ -169,13 +162,8 @@ public class FacturaTest {
      */
     @Test
     public void testGetFechaEntrega() {
-//        System.out.println("getFechaEntrega");
-//        Factura instance = null;
-//        Date expResult = null;
-//        Date result = instance.getFechaEntrega();
-//        assertEquals(expResult, result);
-//        // TODO review the generated test code and remove the default call to fail.
-//        fail("The test case is a prototype.");
+        Date expResult = new Date();
+        assertEquals(expResult, instance.getFechaEntrega());
     }
 
     /**

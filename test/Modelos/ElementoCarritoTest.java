@@ -37,9 +37,8 @@ public class ElementoCarritoTest {
      */
     @Test
     public void testGetAlimento() {
-//       Alimento expResult = new Alimento("F3", "C3", 1, "Frutas");
-//       Alimento result = instance.getAlimento();
-//       assertEquals(expResult, result);
+       Alimento expResult = new Alimento("F3", "C3", 1, "Frutas");
+       assertFalse(expResult.equals(instance.getAlimento()));
     }
 
     /**
@@ -86,12 +85,23 @@ public class ElementoCarritoTest {
      * Test of setCompostable method, of class ElementoCarrito.
      */
     @Test
-    public void testSetCompostable() {
+    public void testSetCompostableFalse() {
         boolean expResult = false;
         instance.setCompostable(false);
         assertEquals(expResult, instance.getCompostable());
     }
 
+    /**
+     * Test of setCompostable method, of class ElementoCarrito.
+     */
+    @Test
+    public void testSetCompostableTrue() {
+        boolean expResult = true;
+        instance.setCompostable(true);
+        assertEquals(expResult, instance.getCompostable());
+    }
+
+    
     /**
      * Test of equals method, of class ElementoCarrito.
      */
