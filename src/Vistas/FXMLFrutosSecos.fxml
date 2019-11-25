@@ -28,7 +28,7 @@
             <JFXButton alignment="CENTER" layoutX="17.0" layoutY="153.0" onAction="#misDireccionesHandleClick" prefHeight="46.0" prefWidth="182.0" style="-fx-background-color: #EEE;" text="Mis direcciones" />
             <JFXButton alignment="CENTER" layoutX="17.0" layoutY="221.0" onAction="#misRecibosHandleClick" prefHeight="46.0" prefWidth="182.0" style="-fx-background-color: #EEE;" text="Mis recibos" />
             <JFXButton alignment="CENTER" layoutX="77.0" layoutY="44.0" onAction="#misLogrosHandleClick" prefHeight="25.0" prefWidth="120.0" style="-fx-background-color: #EEE;" text="Mis logros" />
-            <JFXButton contentDisplay="CENTER" layoutX="17.0" layoutY="89.0" onAction="#irAlCarritoHandleClick" prefHeight="46.0" prefWidth="182.0" style="-fx-background-color: #EEE;" text="Ir al carrito" />
+            <JFXButton alignment="CENTER" layoutX="17.0" layoutY="89.0" onAction="#irAlCarritoHandleClick" prefHeight="46.0" prefWidth="182.0" style="-fx-background-color: #EEE;" text="Ir al carrito" />
          </children>
       </Pane>
       <Pane layoutX="226.0" prefHeight="643.0" prefWidth="755.0">
@@ -39,18 +39,21 @@
                   <Font name="Ebrima" size="27.0" />
                </font>
             </Label>
-            <ScrollPane layoutX="12.0" layoutY="76.0" prefHeight="515.0" prefWidth="731.0">
+            <ScrollPane layoutX="12.0" layoutY="76.0" prefHeight="494.0" prefWidth="731.0">
                <content>
-                  <VBox fx:id="VBoxFrutosSecos" prefHeight="516.0" prefWidth="728.0" />
+                  <VBox fx:id="VBoxFrutosSecos" prefHeight="493.0" prefWidth="728.0" />
                </content>
             </ScrollPane>
-            <JFXTextField fx:id="txtNombre" layoutX="19.0" layoutY="614.0" />
-            <Label layoutX="19.0" layoutY="597.0" text="Nombre" />
-            <Label layoutX="170.0" layoutY="597.0" text="Descripción" />
-            <JFXTextField fx:id="txtDescripcion" layoutX="170.0" layoutY="614.0" />
-            <Label layoutX="321.0" layoutY="597.0" text="Precio" />
-            <JFXTextField fx:id="txtPrecio" layoutX="321.0" layoutY="614.0" />
-            <JFXButton layoutX="629.0" layoutY="614.0" onAction="#addAlimento" prefHeight="25.0" prefWidth="114.0" text="Agregar" />
+            <JFXTextField fx:id="txtNombre" layoutX="19.0" layoutY="598.0" />
+            <Label layoutX="19.0" layoutY="581.0" text="Nombre" />
+            <Label layoutX="170.0" layoutY="581.0" text="Descripción" />
+            <JFXTextField fx:id="txtDescripcion" layoutX="170.0" layoutY="598.0" />
+            <Label layoutX="321.0" layoutY="581.0" text="Precio" />
+            <JFXTextField fx:id="txtPrecio" layoutX="321.0" layoutY="598.0" />
+            <JFXButton layoutX="629.0" layoutY="598.0" onAction="#addAlimento" prefHeight="25.0" prefWidth="114.0" text="Agregar" />
+            <Label fx:id="lblErrorNombre" layoutX="19.0" layoutY="626.0" prefHeight="17.0" prefWidth="135.0" text="Label" textFill="RED" />
+            <Label fx:id="lblErrorDesc" layoutX="170.0" layoutY="626.0" prefHeight="17.0" prefWidth="135.0" text="Label" textFill="RED" />
+            <Label fx:id="lblErrorPrecio" layoutX="321.0" layoutY="626.0" prefHeight="17.0" prefWidth="135.0" text="Label" textFill="RED" />
          </children>
       </Pane>
    </children>

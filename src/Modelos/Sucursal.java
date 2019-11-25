@@ -1,14 +1,10 @@
 package Modelos;
 
-import java.util.LinkedList;
-import java.util.List;
-
 public class Sucursal {
 
     private static int contador = 1;
 
     private final int id;
-
     private int telefono;
     private String direccion;
 

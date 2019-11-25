@@ -47,11 +47,11 @@ public class Alimento {
     public int getId() {
         return id;
     }
-    
+
     public void setCategoria(String categoria) {
         this.categoria = categoria;
     }
-    
+
     public String getCategoria() {
         return categoria;
     }
@@ -61,9 +61,9 @@ public class Alimento {
         Alimento aux = (Alimento) obj;
         return this.id == aux.id;
     }
-    
+
     @Override
-    public String toString(){
+    public String toString() {
         return this.getNombre();
     }
 }

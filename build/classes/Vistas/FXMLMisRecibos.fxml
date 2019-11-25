@@ -27,20 +27,20 @@
             <JFXButton alignment="CENTER" layoutX="17.0" layoutY="153.0" onAction="#misDireccionesHandleClick" prefHeight="46.0" prefWidth="182.0" style="-fx-background-color: #EEE;" text="Mis direcciones" />
             <JFXButton alignment="CENTER" layoutX="17.0" layoutY="220.0" prefHeight="46.0" prefWidth="182.0" style="-fx-background-color: #EEE;" text="Mis recibos" />
             <JFXButton alignment="CENTER" layoutX="77.0" layoutY="44.0" onAction="#misLogrosHandleClick" prefHeight="25.0" prefWidth="120.0" style="-fx-background-color: #EEE;" text="Mis logros" />
-            <JFXButton alignment="CENTER" layoutX="17.0" layoutY="89.0" prefHeight="46.0" prefWidth="182.0" style="-fx-background-color: #EEE;" text="Ir al carrito" />
+            <JFXButton alignment="CENTER" layoutX="17.0" layoutY="89.0" onAction="#irAlCarritoHandleClick" prefHeight="46.0" prefWidth="182.0" style="-fx-background-color: #EEE;" text="Ir al carrito" />
          </children>
       </Pane>
       <Pane layoutX="213.0" prefHeight="643.0" prefWidth="768.0">
          <children>
             <JFXButton contentDisplay="CENTER" layoutX="14.0" layoutY="22.0" onAction="#volverHandleClick" prefHeight="25.0" prefWidth="114.0" style="-fx-background-color: #EEE;" text="Volver a la tienda" />
-            <Label layoutX="14.0" layoutY="55.0" prefHeight="46.0" prefWidth="192.0" text="Mis recibos">
+            <Label layoutX="137.0" layoutY="12.0" prefHeight="46.0" prefWidth="192.0" text="Mis recibos">
                <font>
                   <Font name="Ebrima" size="27.0" />
                </font>
             </Label>
-            <ScrollPane layoutX="14.0" layoutY="101.0" prefHeight="531.0" prefWidth="746.0">
+            <ScrollPane layoutX="14.0" layoutY="62.0" prefHeight="570.0" prefWidth="746.0">
                <content>
-                  <VBox fx:id="VBoxMisRecibos" prefHeight="530.0" prefWidth="742.0" />
+                  <VBox fx:id="VBoxMisRecibos" prefHeight="569.0" prefWidth="742.0" />
                </content>
             </ScrollPane>
          </children>

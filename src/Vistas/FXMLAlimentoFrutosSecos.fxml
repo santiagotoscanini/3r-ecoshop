@@ -17,7 +17,7 @@
       <Label fx:id="lblDesc" layoutX="118.0" layoutY="30.0" prefHeight="17.0" prefWidth="419.0" text="Maracuya congelado" />
       <ImageView fitHeight="57.0" fitWidth="101.0" layoutX="8.0" layoutY="12.0" pickOnBounds="true">
          <image>
-            <Image url="@../Resources/frutas.jpg" />
+            <Image url="@../Resources/frutos_secos.jpg" />
          </image>
       </ImageView>
       <Label layoutX="118.0" layoutY="49.0" prefHeight="17.0" prefWidth="8.0" text="\$" />

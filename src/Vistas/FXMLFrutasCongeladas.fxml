@@ -31,7 +31,7 @@
             <JFXButton alignment="CENTER" layoutX="17.0" layoutY="89.0" onAction="#irAlCarritoHandleClick" prefHeight="46.0" prefWidth="182.0" style="-fx-background-color: #EEE;" text="Ir al carrito" />
          </children>
       </Pane>
-      <Pane layoutX="226.0" prefHeight="643.0" prefWidth="755.0">
+      <Pane layoutX="213.0" prefHeight="643.0" prefWidth="768.0">
          <children>
             <JFXButton contentDisplay="CENTER" layoutX="14.0" layoutY="22.0" onAction="#volverHandleClick" prefHeight="25.0" prefWidth="114.0" style="-fx-background-color: #EEE;" text="Volver a la tienda" />
             <Label layoutX="157.0" layoutY="12.0" prefHeight="46.0" prefWidth="226.0" text="Frutas congeladas">
@@ -44,13 +44,16 @@
                   <VBox fx:id="VBoxFrutasCongeladas" prefHeight="494.0" prefWidth="728.0" />
                </content>
             </ScrollPane>
-            <JFXTextField fx:id="txtNombre" layoutX="20.0" layoutY="601.0" />
-            <Label layoutX="20.0" layoutY="584.0" text="Nombre" />
-            <Label layoutX="171.0" layoutY="584.0" text="Descripción" />
-            <JFXTextField fx:id="txtDescripcion" layoutX="171.0" layoutY="601.0" />
-            <Label layoutX="322.0" layoutY="584.0" text="Precio" />
-            <JFXTextField fx:id="txtPrecio" layoutX="322.0" layoutY="601.0" />
+            <JFXTextField fx:id="txtNombre" layoutX="14.0" layoutY="595.0" />
+            <Label layoutX="14.0" layoutY="578.0" text="Nombre" />
+            <Label layoutX="165.0" layoutY="578.0" text="Descripción" />
+            <JFXTextField fx:id="txtDescripcion" layoutX="165.0" layoutY="595.0" />
+            <Label layoutX="316.0" layoutY="578.0" text="Precio" />
+            <JFXTextField fx:id="txtPrecio" layoutX="316.0" layoutY="595.0" />
             <JFXButton layoutX="630.0" layoutY="601.0" onAction="#addAlimento" prefHeight="25.0" prefWidth="114.0" text="Agregar" />
+            <Label fx:id="lblErrorNombre" layoutX="14.0" layoutY="624.0" prefHeight="17.0" prefWidth="135.0" text="Label" textFill="RED" />
+            <Label fx:id="lblErrorDesc" layoutX="165.0" layoutY="624.0" prefHeight="17.0" prefWidth="135.0" text="Label" textFill="RED" />
+            <Label fx:id="lblErrorPrecio" layoutX="317.0" layoutY="624.0" prefHeight="17.0" prefWidth="135.0" text="Label" textFill="RED" />
          </children>
       </Pane>
    </children>

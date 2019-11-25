@@ -1,7 +1,6 @@
 package Modelos;
 
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -14,8 +13,6 @@ public class Usuario implements Comparable<Usuario> {
     private String nombre;
     private final String cedula;
     private double puntos;
-    
-    
 
     public Usuario(String nombre, String cedula, String direccion) {
         this.nombre = nombre;
@@ -39,7 +36,7 @@ public class Usuario implements Comparable<Usuario> {
         return puntos;
     }
 
-    public void sumarPunto(double puntos) {
+    public void sumarPuntos(double puntos) {
         this.puntos += puntos;
     }
 
@@ -62,35 +59,12 @@ public class Usuario implements Comparable<Usuario> {
     public void addFactura(Factura factura) {
         this.facturas.add(factura);
     }
-//
-//    public void cambiarCantidadElemento(String operacion, Alimento alimento) {
-//        int indice = (this.carrito.indexOf(new Triplet(alimento, 0, true)));
-//        if (operacion.equals("suma")) {
-//            this.carrito.get(indice).setSecond((int) this.carrito.get(indice).getSecond() + 1);
-//        } else if (operacion.equals("resta")) {
-//            this.carrito.get(indice).setSecond((int) this.carrito.get(indice).getSecond() - 1);
-//        }
-//    }
-//  
-//    public void removeElementFromCarrito(Alimento alimento) {
-//        this.carrito.remove(new Triplet(alimento, 0, false));
-//    }
-
-    @Override
-    public int compareTo(Usuario o) {
-        if (this.puntos < o.getPuntos()) {
-            return -1;
-        } else if (o.getPuntos() < this.puntos) {
-            return 1;
-        }
-        return 0;
-    }
 
     public List<ElementoCarrito> getElementosCarrito() {
         return elementosCarrito;
     }
-    
-    public void agregarElementoCarrito(ElementoCarrito elementoCarrito){
+
+    public void agregarElementoCarrito(ElementoCarrito elementoCarrito) {
         this.elementosCarrito.add(elementoCarrito);
     }
 
@@ -103,5 +77,18 @@ public class Usuario implements Comparable<Usuario> {
         Usuario aux = (Usuario) obj;
         return this.cedula.equals(aux.cedula);
     }
-    
+
+    @Override
+    public int compareTo(Usuario o) {
+        if (this.puntos > o.getPuntos()) {
+            return -1;
+        } else if (o.getPuntos() > this.puntos) {
+            return 1;
+        }
+        return 0;
+    }
+
+    public void resetearCarrito() {
+        this.elementosCarrito = new ArrayList<>();
+    }
 }

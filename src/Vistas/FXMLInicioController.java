@@ -1,8 +1,10 @@
 package Vistas;
 
 import Modelos.Alimento;
+import Modelos.ElementoCarrito;
 import Modelos.Sistema;
 import Modelos.Sucursal;
+import Modelos.Usuario;
 import com.jfoenix.controls.JFXTextField;
 import java.io.IOException;
 import java.net.URL;
@@ -40,6 +42,10 @@ public class FXMLInicioController implements Initializable {
     private JFXTextField txtDireccion;
     @FXML
     private JFXTextField txtTelefono;
+    @FXML
+    private Label lblErrorDir;
+    @FXML
+    private Label lblErrorTel;
 
     private Sistema sistema;
 
@@ -52,12 +58,34 @@ public class FXMLInicioController implements Initializable {
 
         String direccion = this.txtDireccion.getText();
 
-        if (direccion.length() != 0 && isNumeric(this.txtTelefono.getText()) && this.txtTelefono.getText().length() < 10) {
-            int telefono = Integer.parseInt(this.txtTelefono.getText());
-            this.sistema.addSucursal(new Sucursal(direccion, telefono));
-            this.cargarPuntosDeVenta();
-            this.txtDireccion.setText("");
-            this.txtTelefono.setText("");
+        if (direccion.length() == 0) {
+            lblErrorDir.setText("Error, la direccion no puede estar vacia");
+            lblErrorDir.setVisible(true);
+        } else {
+            lblErrorDir.setVisible(false);
+        }
+
+        if (this.txtTelefono.getText().length() == 0) {
+            lblErrorTel.setText("Error, el telefono no puede estar vacio");
+            lblErrorTel.setVisible(true);
+        } else {
+            if (!isNumeric(this.txtTelefono.getText())) {
+                lblErrorTel.setText("Error, el telefono no es un numero");
+                lblErrorTel.setVisible(true);
+            } else {
+                if (this.txtTelefono.getText().length() < 10 && direccion.length() != 0) {
+                    int telefono = Integer.parseInt(this.txtTelefono.getText());
+                    this.sistema.addSucursal(new Sucursal(direccion, telefono));
+                    this.cargarPuntosDeVenta();
+                    this.txtDireccion.setText("");
+                    this.txtTelefono.setText("");
+                    lblErrorTel.setVisible(false);
+                    lblErrorDir.setVisible(false);
+                } else if (this.txtTelefono.getText().length() > 9) {
+                    lblErrorTel.setText("Error, el telefono no puede tener mas de 9 digitos");
+                    lblErrorTel.setVisible(true);
+                }
+            }
         }
     }
 
@@ -79,7 +107,8 @@ public class FXMLInicioController implements Initializable {
         this.cargarEstadisticas();
         this.cargarMasVendidos();
         this.cargarPuntosDeVenta();
-
+        this.lblErrorTel.setVisible(false);
+        this.lblErrorDir.setVisible(false);
     }
 
     public void cargarPuntosDeVenta() {
@@ -102,11 +131,34 @@ public class FXMLInicioController implements Initializable {
         }
     }
 
+    private int[] cantEnvReuAndComp() {
+        int cantEnvReu = 0;
+        int cantEnvComp = 0;
+        for (Usuario user : this.sistema.getRanking()) {
+            for (int i = 0; i < user.getFacturas().size(); i++) {
+                for (ElementoCarrito producto : user.getFacturas().get(i).getProductos()) {
+                    if (producto.getCompostable()) {
+                        cantEnvComp += producto.getUnidades();
+                    } else {
+                        cantEnvReu += producto.getUnidades();
+                    }
+                }
+            }
+        }
+        int cantEnv[] = {cantEnvReu, cantEnvComp};
+        return cantEnv;
+    }
+
     public void cargarEstadisticas() {
-        lblKgBasura.setText(Double.toString((double) this.sistema.getCantEnvReu() * this.sistema.getCantKilos()));
-        lblEnvasesReutilizados.setText(Integer.toString(this.sistema.getCantEnvReu()));
-        lblEnvasesCompostados.setText(Integer.toString(this.sistema.getCantEnvComp()));
-        lblTotalDeVentas.setText(Integer.toString(this.sistema.getCantEnvReu() + this.sistema.getCantEnvComp()));
+        int[] cantEnv = this.cantEnvReuAndComp();
+        lblKgBasura.setText(Double.toString((double) cantEnv[0] * this.sistema.getCantKilos()));
+        lblEnvasesReutilizados.setText(Integer.toString(cantEnv[0]));
+        lblEnvasesCompostados.setText(Integer.toString(cantEnv[1]));
+        int totalVentas = 0;
+        for (Usuario user : this.sistema.getRanking()) {
+            totalVentas += user.getFacturas().size();
+        }
+        lblTotalDeVentas.setText(Integer.toString(totalVentas));
     }
 
     public void cargarMasVendidos() {
@@ -203,7 +255,6 @@ public class FXMLInicioController implements Initializable {
             FXMLCarritoController controlador = loader.getController();
 
             controlador.setSistema(this.sistema);
-            controlador.cargarElementos();
 
             Scene escena = new Scene(root);
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();

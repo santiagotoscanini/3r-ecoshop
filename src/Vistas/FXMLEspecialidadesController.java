@@ -13,6 +13,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Label;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
@@ -28,7 +29,13 @@ public class FXMLEspecialidadesController implements Initializable {
     private JFXTextField txtDescripcion;
     @FXML
     private JFXTextField txtPrecio;
-    
+    @FXML
+    private Label lblErrorNombre;
+    @FXML
+    private Label lblErrorDesc;
+    @FXML
+    private Label lblErrorPrecio;
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
@@ -36,8 +43,11 @@ public class FXMLEspecialidadesController implements Initializable {
 
     public void setSistema(Sistema sis) {
         this.sistema = sis;
+        this.lblErrorPrecio.setText("");
+        this.lblErrorDesc.setText("");
+        this.lblErrorNombre.setText("");
     }
-    
+
     public void cargarAlimentos() {
 
         this.VBoxEspecialidades.getChildren().clear();
@@ -52,7 +62,7 @@ public class FXMLEspecialidadesController implements Initializable {
                     controller.cargarDatos(a.getNombre(), a.getDescripcion(), a.getPrecio(), a.getId());
                     controller.setSistema(this.sistema);
                     controller.setController(this);
-                    
+
                     this.VBoxEspecialidades.getChildren().add(nodo);
                 } catch (Exception e) {
                     System.out.println(e);
@@ -67,6 +77,26 @@ public class FXMLEspecialidadesController implements Initializable {
         String descripcion = this.txtDescripcion.getText();
         String precio = this.txtPrecio.getText();
 
+        if (nombre.length() == 0) {
+            this.lblErrorNombre.setText("Error, nombre vacio");
+        } else {
+            this.lblErrorNombre.setText("");
+        }
+        if (descripcion.length() == 0) {
+            this.lblErrorDesc.setText("Error, descripcion vacia");
+        } else {
+            this.lblErrorDesc.setText("");
+        }
+        if (precio.length() == 0) {
+            this.lblErrorPrecio.setText("Error, precio vacio");
+        } else {
+            if (!isNumeric(precio)) {
+                this.lblErrorPrecio.setText("Error, precio no numerico");
+            } else {
+                this.lblErrorPrecio.setText("");
+            }
+        }
+
         if (nombre.length() != 0 && descripcion.length() != 0 && precio.length() != 0 && isNumeric(precio)) {
             Alimento nuevoAlimento = new Alimento(nombre, descripcion, Integer.parseInt(precio), "Especialidades");
             this.sistema.addAlimento(nuevoAlimento);
@@ -74,7 +104,9 @@ public class FXMLEspecialidadesController implements Initializable {
             this.txtDescripcion.setText("");
             this.txtNombre.setText("");
             this.txtPrecio.setText("");
-            System.out.println(nuevoAlimento.getId()+"add alimento");
+            this.lblErrorPrecio.setText("");
+            this.lblErrorDesc.setText("");
+            this.lblErrorNombre.setText("");
         }
     }
 
@@ -135,7 +167,7 @@ public class FXMLEspecialidadesController implements Initializable {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("FXMLCarrito.fxml"));
             Parent root = loader.load();
-            
+
             FXMLCarritoController controlador = loader.getController();
             controlador.setSistema(this.sistema);
             controlador.cargarElementos();
@@ -153,11 +185,11 @@ public class FXMLEspecialidadesController implements Initializable {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("FXMLMisDirecciones.fxml"));
             Parent root = loader.load();
-            
+
             FXMLMisDireccionesController controlador = loader.getController();
             controlador.setSistema(this.sistema);
             controlador.cargarDirecciones();
-            
+
             Scene escena = new Scene(root);
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             stage.setScene(escena);

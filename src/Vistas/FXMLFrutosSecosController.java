@@ -18,6 +18,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Label;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
@@ -32,7 +33,7 @@ public class FXMLFrutosSecosController implements Initializable {
      * Initializes the controller class.
      */
     Sistema sistema;
-    
+
     @FXML
     private VBox VBoxFrutosSecos;
     @FXML
@@ -41,6 +42,12 @@ public class FXMLFrutosSecosController implements Initializable {
     private JFXTextField txtDescripcion;
     @FXML
     private JFXTextField txtPrecio;
+    @FXML
+    private Label lblErrorNombre;
+    @FXML
+    private Label lblErrorDesc;
+    @FXML
+    private Label lblErrorPrecio;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -49,6 +56,9 @@ public class FXMLFrutosSecosController implements Initializable {
 
     public void setSistema(Sistema sis) {
         this.sistema = sis;
+        this.lblErrorPrecio.setText("");
+        this.lblErrorDesc.setText("");
+        this.lblErrorNombre.setText("");
     }
 
     public void cargarAlimentos() {
@@ -65,7 +75,7 @@ public class FXMLFrutosSecosController implements Initializable {
                     controller.cargarDatos(a.getNombre(), a.getDescripcion(), a.getPrecio(), a.getId());
                     controller.setSistema(this.sistema);
                     controller.setController(this);
-                    
+
                     this.VBoxFrutosSecos.getChildren().add(nodo);
                 } catch (Exception e) {
                     System.out.println(e);
@@ -80,12 +90,35 @@ public class FXMLFrutosSecosController implements Initializable {
         String descripcion = this.txtDescripcion.getText();
         String precio = this.txtPrecio.getText();
 
+        if (nombre.length() == 0) {
+            this.lblErrorNombre.setText("Error, nombre vacio");
+        } else {
+            this.lblErrorNombre.setText("");
+        }
+        if (descripcion.length() == 0) {
+            this.lblErrorDesc.setText("Error, descripcion vacia");
+        } else {
+            this.lblErrorDesc.setText("");
+        }
+        if (precio.length() == 0) {
+            this.lblErrorPrecio.setText("Error, precio vacio");
+        } else {
+            if (!isNumeric(precio)) {
+                this.lblErrorPrecio.setText("Error, precio no numerico");
+            } else {
+                this.lblErrorPrecio.setText("");
+            }
+        }
+
         if (nombre.length() != 0 && descripcion.length() != 0 && precio.length() != 0 && isNumeric(precio)) {
             this.sistema.addAlimento(new Alimento(nombre, descripcion, Integer.parseInt(precio), "Frutos Secos"));
             this.cargarAlimentos();
             this.txtDescripcion.setText("");
             this.txtNombre.setText("");
             this.txtPrecio.setText("");
+            this.lblErrorPrecio.setText("");
+            this.lblErrorDesc.setText("");
+            this.lblErrorNombre.setText("");
         }
     }
 
@@ -93,7 +126,6 @@ public class FXMLFrutosSecosController implements Initializable {
         return strNum.matches("-?\\d+(\\.\\d+)?");
     }
 
-    
     @FXML
     public void volverHandleClick(ActionEvent event) {
         try {
@@ -109,8 +141,7 @@ public class FXMLFrutosSecosController implements Initializable {
             System.out.println("error");
         }
     }
-    
-    
+
     @FXML
     public void misLogrosHandleClick(ActionEvent event) {
         try {
@@ -126,7 +157,7 @@ public class FXMLFrutosSecosController implements Initializable {
             System.out.println("error");
         }
     }
-    
+
     @FXML
     public void misRecibosHandleClick(ActionEvent event) {
         try {
@@ -142,17 +173,17 @@ public class FXMLFrutosSecosController implements Initializable {
             System.out.println("error");
         }
     }
-    
+
     @FXML
-    public void irAlCarritoHandleClick (ActionEvent event){
+    public void irAlCarritoHandleClick(ActionEvent event) {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("FXMLCarrito.fxml"));
             Parent root = loader.load();
             FXMLCarritoController controlador = loader.getController();
-            
+
             controlador.setSistema(this.sistema);
             controlador.cargarElementos();
-            
+
             Scene escena = new Scene(root);
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             stage.setScene(escena);
@@ -161,7 +192,7 @@ public class FXMLFrutosSecosController implements Initializable {
             System.out.println("error");
         }
     }
-    
+
     @FXML
     public void misDireccionesHandleClick(ActionEvent event) {
         try {

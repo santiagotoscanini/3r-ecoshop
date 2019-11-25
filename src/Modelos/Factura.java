@@ -4,16 +4,17 @@ import java.util.Date;
 import java.util.List;
 
 public class Factura {
+
     private static int contador = 0;
-    private int id;
+
+    private final int id;
+    private final int montoTotal;
     private final Date fechaEmision;
     private final Date fechaEntrega;
-    // si no paga con tarjeta paga con efectivo
-    private boolean pagoConTarjeta;
+    private boolean pagoConTarjeta; // si no paga con tarjeta paga con efectivo
     private List<ElementoCarrito> productos;
     private String direccion;
     private Usuario usuario;
-    private int montoTotal;
 
     public Factura(Date fechaEntrega, boolean pagoConTarjeta, List<ElementoCarrito> productos, String direccion, Usuario usuario, int montoTotal) {
         this.fechaEntrega = fechaEntrega;
@@ -27,10 +28,10 @@ public class Factura {
         contador++;
     }
 
-    public int getId(){
+    public int getId() {
         return this.id;
     }
-    
+
     public String getDireccion() {
         return this.direccion;
     }
@@ -81,8 +82,8 @@ public class Factura {
 
     public void calcularMontoTotal(int montoTotal) {
         int monto = 0;
-        for(int i = 0; i < this.productos.size(); i++){
-            monto = monto + (this.productos.get(i).getAlimento().getPrecio()*this.productos.get(i).getUnidades());   
+        for (int i = 0; i < this.productos.size(); i++) {
+            monto = monto + (this.productos.get(i).getAlimento().getPrecio() * this.productos.get(i).getUnidades());
         }
     }
 }

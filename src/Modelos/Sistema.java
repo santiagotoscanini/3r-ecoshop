@@ -5,8 +5,6 @@ import java.text.SimpleDateFormat;
 import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
-import java.util.Map.Entry;
-import javafx.util.Pair;
 
 public class Sistema {
 
@@ -33,7 +31,7 @@ public class Sistema {
     }
 
     public void eliminarSucursalPorId(int id) {
-        int i = -1;
+        int i;
         for (i = 0; i < sucursales.size(); i++) {
             Sucursal sucursal = sucursales.get(i);
             if (sucursal.getId() == id) {
@@ -44,7 +42,7 @@ public class Sistema {
     }
 
     public void eliminarAlimentoPorId(int id) {
-        int i = -1;
+        int i;
         for (i = 0; i < alimentos.size(); i++) {
             Alimento alimento = (Alimento) alimentos.get(i).getPrimerValor();
             if (alimento.getId() == id) {

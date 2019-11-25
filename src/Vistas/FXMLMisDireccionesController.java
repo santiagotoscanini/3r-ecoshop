@@ -12,6 +12,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Label;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
@@ -23,6 +24,8 @@ public class FXMLMisDireccionesController implements Initializable {
     private JFXTextField txtDireccion;
     @FXML
     private VBox VBoxMisDirecciones;
+    @FXML
+    private Label lblError;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -38,14 +41,24 @@ public class FXMLMisDireccionesController implements Initializable {
 
     public void setSistema(Sistema sis) {
         this.sistema = sis;
+        this.lblError.setVisible(false);
     }
 
     @FXML
     public void btnAddDireccion(ActionEvent event) {
-        if (txtDireccion.getText().length() != 0 && !this.sistema.getSelectedUser().getDirecciones().contains(txtDireccion.getText())) {
-            this.sistema.getSelectedUser().addDireccion(txtDireccion.getText());
-            txtDireccion.setText("");
-            this.cargarDirecciones();
+        if (txtDireccion.getText().length() != 0) {
+            if (!this.sistema.getSelectedUser().getDirecciones().contains(txtDireccion.getText())) {
+                this.sistema.getSelectedUser().addDireccion(txtDireccion.getText());
+                txtDireccion.setText("");
+                this.cargarDirecciones();
+                this.lblError.setVisible(false);
+            } else {
+                this.lblError.setText("Error, la direccion ya esta ingresada");
+                this.lblError.setVisible(true);
+            }
+        } else {
+            this.lblError.setText("Error, la direccion no puede estar vacia");
+            this.lblError.setVisible(true);
         }
     }
 

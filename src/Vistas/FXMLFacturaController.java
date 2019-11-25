@@ -9,7 +9,10 @@ import Modelos.Sistema;
 import com.itextpdf.text.Chunk;
 import com.itextpdf.text.Paragraph;
 import com.itextpdf.text.pdf.PdfWriter;
+import java.awt.Desktop;
+import java.io.File;
 import java.io.FileOutputStream;
+import java.io.IOException;
 import java.net.URL;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -38,9 +41,8 @@ public class FXMLFacturaController implements Initializable {
         document.addAuthor("EcoFood");
         document.addTitle("Demostracion");
         try {
-            PdfWriter.getInstance(document, new FileOutputStream("pdf/factura_" + this.fact.getId() + ".pdf "));
+            PdfWriter.getInstance(document, new FileOutputStream("pdf/factura_" + this.fact.getId() + ".pdf"));
             document.open();
-
             Paragraph pInformacionHeader = new Paragraph("EcoFood tienda online \n\n Tel: 1234 6789 \n e-Ticket \n\n Consumo final \n\n");
 
             DateFormat formatoFecha = new SimpleDateFormat("dd/MM/yyyy");
@@ -69,6 +71,13 @@ public class FXMLFacturaController implements Initializable {
             document.add(pHoraEntrega);
             document.add(Chunk.NEWLINE);
             document.add(new Paragraph("Gracias por su compra"));
+            if (Desktop.isDesktopSupported()) {
+                try {
+                    File myFile = new File("pdf/factura_" + this.fact.getId() + ".pdf");
+                    Desktop.getDesktop().open(myFile);
+                } catch (IOException ex) {
+                }
+            }
         } catch (Exception e) {
             System.out.println(e);
         } finally {

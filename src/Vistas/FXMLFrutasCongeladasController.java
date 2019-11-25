@@ -13,6 +13,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Label;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
@@ -28,6 +29,12 @@ public class FXMLFrutasCongeladasController implements Initializable {
     private JFXTextField txtDescripcion;
     @FXML
     private JFXTextField txtPrecio;
+    @FXML
+    private Label lblErrorNombre;
+    @FXML
+    private Label lblErrorDesc;
+    @FXML
+    private Label lblErrorPrecio;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -36,6 +43,9 @@ public class FXMLFrutasCongeladasController implements Initializable {
 
     public void setSistema(Sistema sis) {
         this.sistema = sis;
+        this.lblErrorPrecio.setText("");
+        this.lblErrorDesc.setText("");
+        this.lblErrorNombre.setText("");
     }
 
     public void cargarAlimentos() {
@@ -52,7 +62,7 @@ public class FXMLFrutasCongeladasController implements Initializable {
                     controller.cargarDatos(a.getNombre(), a.getDescripcion(), a.getPrecio(), a.getId());
                     controller.setSistema(this.sistema);
                     controller.setController(this);
-                    
+
                     this.VBoxFrutasCongeladas.getChildren().add(nodo);
                 } catch (Exception e) {
                     System.out.println(e);
@@ -67,12 +77,35 @@ public class FXMLFrutasCongeladasController implements Initializable {
         String descripcion = this.txtDescripcion.getText();
         String precio = this.txtPrecio.getText();
 
+        if (nombre.length() == 0) {
+            this.lblErrorNombre.setText("Error, nombre vacio");
+        } else {
+            this.lblErrorNombre.setText("");
+        }
+        if (descripcion.length() == 0) {
+            this.lblErrorDesc.setText("Error, descripcion vacia");
+        } else {
+            this.lblErrorDesc.setText("");
+        }
+        if (precio.length() == 0) {
+            this.lblErrorPrecio.setText("Error, precio vacio");
+        } else {
+            if (!isNumeric(precio)) {
+                this.lblErrorPrecio.setText("Error, precio no numerico");
+            } else {
+                this.lblErrorPrecio.setText("");
+            }
+        }
+
         if (nombre.length() != 0 && descripcion.length() != 0 && precio.length() != 0 && isNumeric(precio)) {
             this.sistema.addAlimento(new Alimento(nombre, descripcion, Integer.parseInt(precio), "Frutas congeladas"));
             this.cargarAlimentos();
             this.txtDescripcion.setText("");
             this.txtNombre.setText("");
             this.txtPrecio.setText("");
+            this.lblErrorPrecio.setText("");
+            this.lblErrorDesc.setText("");
+            this.lblErrorNombre.setText("");
         }
     }
 

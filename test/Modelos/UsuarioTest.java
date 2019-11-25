@@ -68,7 +68,7 @@ public class UsuarioTest {
      */
     @Test
     public void testSumarPunto() {
-        instance.sumarPunto(1.2);
+        instance.sumarPuntos(1.2);
         double expResult = 1.2;
         assertEquals(expResult, instance.getPuntos(), 0);
     }

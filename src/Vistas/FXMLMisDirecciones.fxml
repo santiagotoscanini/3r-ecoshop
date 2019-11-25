@@ -28,24 +28,25 @@
             <JFXButton alignment="CENTER" layoutX="17.0" layoutY="153.0" prefHeight="46.0" prefWidth="182.0" style="-fx-background-color: #EEE;" text="Mis direcciones" />
             <JFXButton alignment="CENTER" layoutX="17.0" layoutY="221.0" onAction="#misRecibosHandleClick" prefHeight="46.0" prefWidth="182.0" style="-fx-background-color: #EEE;" text="Mis recibos" />
             <JFXButton alignment="CENTER" layoutX="77.0" layoutY="44.0" onAction="#misLogrosHandleClick" prefHeight="25.0" prefWidth="120.0" style="-fx-background-color: #EEE;" text="Mis logros" />
-            <JFXButton contentDisplay="CENTER" layoutX="17.0" layoutY="89.0" onAction="#irAlCarritoHandleClick" prefHeight="46.0" prefWidth="182.0" style="-fx-background-color: #EEE;" text="Ir al carrito" />
+            <JFXButton alignment="CENTER" layoutX="17.0" layoutY="89.0" onAction="#irAlCarritoHandleClick" prefHeight="46.0" prefWidth="182.0" style="-fx-background-color: #EEE;" text="Ir al carrito" />
          </children>
       </Pane>
-      <Pane layoutX="227.0" prefHeight="653.0" prefWidth="764.0">
+      <Pane layoutX="227.0" prefHeight="643.0" prefWidth="764.0">
          <children>
             <JFXButton contentDisplay="CENTER" layoutX="14.0" layoutY="14.0" onAction="#volverHandleClick" prefHeight="25.0" prefWidth="114.0" style="-fx-background-color: #EEE;" text="Volver a la tienda" />
-            <Label layoutX="14.0" layoutY="55.0" prefHeight="46.0" prefWidth="192.0" text="Mis direcciones">
+            <Label layoutX="140.0" layoutY="4.0" prefHeight="46.0" prefWidth="192.0" text="Mis direcciones">
                <font>
                   <Font name="Ebrima" size="27.0" />
                </font>
             </Label>
-            <JFXTextField fx:id="txtDireccion" layoutX="9.0" layoutY="602.0" prefHeight="25.0" prefWidth="313.0" />
+            <JFXTextField fx:id="txtDireccion" layoutX="11.0" layoutY="594.0" prefHeight="25.0" prefWidth="313.0" />
             <JFXButton fx:id="btnAddDireccion" contentDisplay="CENTER" layoutX="373.0" layoutY="602.0" onAction="#btnAddDireccion" prefHeight="25.0" prefWidth="114.0" style="-fx-background-color: #EEE;" text="Agregar dirección" />
-            <ScrollPane layoutX="9.0" layoutY="108.0" prefHeight="481.0" prefWidth="743.0">
+            <ScrollPane layoutX="9.0" layoutY="54.0" prefHeight="535.0" prefWidth="743.0">
                <content>
-                  <VBox fx:id="VBoxMisDirecciones" prefHeight="481.0" prefWidth="737.0" />
+                  <VBox fx:id="VBoxMisDirecciones" prefHeight="535.0" prefWidth="737.0" />
                </content>
             </ScrollPane>
+            <Label fx:id="lblError" layoutX="11.0" layoutY="621.0" text="Error, la direccion no puede estar vacia" textFill="RED" />
          </children>
       </Pane>
    </children>

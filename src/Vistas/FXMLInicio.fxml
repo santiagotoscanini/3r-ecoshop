@@ -103,16 +103,18 @@
                               <Font name="Candara Light" size="36.0" />
                            </font>
                         </Label>
-                        <ScrollPane layoutX="17.0" layoutY="154.0" prefHeight="424.0" prefWidth="723.0">
+                        <ScrollPane layoutX="18.0" layoutY="57.0" prefHeight="467.0" prefWidth="723.0">
                            <content>
-                              <VBox fx:id="VBoxPuntosDeVenta" prefHeight="421.0" prefWidth="720.0" />
+                              <VBox fx:id="VBoxPuntosDeVenta" prefHeight="466.0" prefWidth="720.0" />
                            </content>
                         </ScrollPane>
-                        <JFXButton fx:id="btnAddSucursal" layoutX="571.0" layoutY="107.0" onAction="#agregarPuntoDeVenta" prefHeight="36.0" prefWidth="162.0" text="Agregar sucursal" />
-                        <Label layoutX="20.0" layoutY="80.0" text="Direccion" />
-                        <Label layoutX="340.0" layoutY="80.0" text="Telefono" />
-                        <JFXTextField fx:id="txtDireccion" layoutX="20.0" layoutY="113.0" prefHeight="25.0" prefWidth="262.0" />
-                        <JFXTextField fx:id="txtTelefono" layoutX="340.0" layoutY="113.0" prefHeight="25.0" prefWidth="205.0" />
+                        <JFXButton fx:id="btnAddSucursal" layoutX="574.0" layoutY="564.0" onAction="#agregarPuntoDeVenta" prefHeight="36.0" prefWidth="162.0" text="Agregar sucursal" />
+                        <Label layoutX="23.0" layoutY="543.0" text="Direccion" />
+                        <Label layoutX="343.0" layoutY="543.0" text="Telefono" />
+                        <JFXTextField fx:id="txtDireccion" layoutX="23.0" layoutY="566.0" prefHeight="25.0" prefWidth="262.0" />
+                        <JFXTextField fx:id="txtTelefono" layoutX="343.0" layoutY="566.0" prefHeight="25.0" prefWidth="205.0" />
+                        <Label fx:id="lblErrorDir" layoutX="23.0" layoutY="594.0" text="Error, la direccion no puede estar vacia" textFill="RED" />
+                        <Label fx:id="lblErrorTel" layoutX="343.0" layoutY="594.0" text="Error, el telefono no puede estar vacio" textFill="RED" />
                      </children>
                   </AnchorPane>
             </content>
