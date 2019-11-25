@@ -41,7 +41,7 @@ public class FXMLFacturaController implements Initializable {
         document.addAuthor("EcoFood");
         document.addTitle("Demostracion");
         try {
-            PdfWriter.getInstance(document, new FileOutputStream("pdf/factura_" + this.fact.getId() + ".pdf"));
+            PdfWriter.getInstance(document, new FileOutputStream("factura_" + this.fact.getId() + ".pdf"));
             document.open();
             Paragraph pInformacionHeader = new Paragraph("EcoFood tienda online \n\n Tel: 1234 6789 \n e-Ticket \n\n Consumo final \n\n");
 
@@ -73,7 +73,7 @@ public class FXMLFacturaController implements Initializable {
             document.add(new Paragraph("Gracias por su compra"));
             if (Desktop.isDesktopSupported()) {
                 try {
-                    File myFile = new File("pdf/factura_" + this.fact.getId() + ".pdf");
+                    File myFile = new File("factura_" + this.fact.getId() + ".pdf");
                     Desktop.getDesktop().open(myFile);
                 } catch (IOException ex) {
                 }

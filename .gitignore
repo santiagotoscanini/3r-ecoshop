@@ -1,5 +1,6 @@
 *.class
 *.log
 /dist/
-build/
-nbproject/
+/build/
+/nbproject/
+*.pdf

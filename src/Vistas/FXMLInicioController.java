@@ -57,7 +57,6 @@ public class FXMLInicioController implements Initializable {
     public void agregarPuntoDeVenta() {
 
         String direccion = this.txtDireccion.getText();
-
         if (direccion.length() == 0) {
             lblErrorDir.setText("Error, la direccion no puede estar vacia");
             lblErrorDir.setVisible(true);
@@ -73,7 +72,14 @@ public class FXMLInicioController implements Initializable {
                 lblErrorTel.setText("Error, el telefono no es un numero");
                 lblErrorTel.setVisible(true);
             } else {
-                if (this.txtTelefono.getText().length() < 10 && direccion.length() != 0) {
+                if (this.txtTelefono.getText().length() > 9) {
+                    lblErrorTel.setText("Error, el telefono no puede tener mas de 9 digitos");
+                    lblErrorTel.setVisible(true);
+                } else {
+                    lblErrorTel.setVisible(false);
+                }
+
+                if (direccion.length() > 0 && this.txtTelefono.getText().length() < 10 && isNumeric(this.txtTelefono.getText())) {
                     int telefono = Integer.parseInt(this.txtTelefono.getText());
                     this.sistema.addSucursal(new Sucursal(direccion, telefono));
                     this.cargarPuntosDeVenta();
@@ -81,9 +87,6 @@ public class FXMLInicioController implements Initializable {
                     this.txtTelefono.setText("");
                     lblErrorTel.setVisible(false);
                     lblErrorDir.setVisible(false);
-                } else if (this.txtTelefono.getText().length() > 9) {
-                    lblErrorTel.setText("Error, el telefono no puede tener mas de 9 digitos");
-                    lblErrorTel.setVisible(true);
                 }
             }
         }
