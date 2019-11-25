@@ -20,7 +20,7 @@ public class ElementoCarrito {
         return unidades;
     }
 
-    public Boolean getCompostable() {
+    public boolean getCompostable() {
         return esCompostable;
     }
 

@@ -20,7 +20,7 @@ public class Main extends Application {
         sis = new Sistema();
         
         //Valores iniciales al sistema
-        sis.addUsuario(new Usuario("Maria Garcia", "49927391"));
+        sis.addUsuario(new Usuario("Maria Garcia", "49927391", "Mercedes 1254"));
         sis.setSelectedUser(sis.getRanking().get(0));
 
         sis.addAlimento(new Alimento("1kg de nueces", "nueces molidas para cocinar", 150, "Frutos Secos"));

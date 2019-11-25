@@ -79,7 +79,10 @@ public class Factura {
         return montoTotal;
     }
 
-    public void setMontoTotal(int montoTotal) {
-        this.montoTotal = montoTotal;
+    public void calcularMontoTotal(int montoTotal) {
+        int monto = 0;
+        for(int i = 0; i < this.productos.size(); i++){
+            monto = monto + (this.productos.get(i).getAlimento().getPrecio()*this.productos.get(i).getUnidades());   
+        }
     }
 }

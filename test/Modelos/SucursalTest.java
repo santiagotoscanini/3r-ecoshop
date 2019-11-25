@@ -1,31 +1,34 @@
+
 package Modelos;
 
-import java.util.List;
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.AfterAll;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.Test;
-import static org.junit.jupiter.api.Assertions.*;
+import org.junit.After;
+import org.junit.AfterClass;
+import org.junit.Before;
+import org.junit.BeforeClass;
+import org.junit.Test;
+import static org.junit.Assert.*;
+
 
 public class SucursalTest {
+    
+    Sucursal instance = new Sucursal("Dir1", 7548943);
     
     public SucursalTest() {
     }
     
-    @BeforeAll
+    @BeforeClass
     public static void setUpClass() {
     }
     
-    @AfterAll
+    @AfterClass
     public static void tearDownClass() {
     }
     
-    @BeforeEach
+    @Before
     public void setUp() {
     }
     
-    @AfterEach
+    @After
     public void tearDown() {
     }
 
@@ -34,13 +37,8 @@ public class SucursalTest {
      */
     @Test
     public void testGetDireccion() {
-        System.out.println("getDireccion");
-        Sucursal instance = null;
-        String expResult = "";
-        String result = instance.getDireccion();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        String expResult = "Dir1";
+        assertEquals(expResult, instance.getDireccion());
     }
 
     /**
@@ -48,12 +46,9 @@ public class SucursalTest {
      */
     @Test
     public void testSetDireccion() {
-        System.out.println("setDireccion");
-        String direccion = "";
-        Sucursal instance = null;
-        instance.setDireccion(direccion);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        String expResult = "Dir2";
+        instance.setDireccion(expResult);
+        assertEquals(expResult, instance.getDireccion());
     }
 
     /**
@@ -61,13 +56,8 @@ public class SucursalTest {
      */
     @Test
     public void testGetTelefono() {
-        System.out.println("getTelefono");
-        Sucursal instance = null;
-        int expResult = 0;
-        int result = instance.getTelefono();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        int expResult = 7548943;
+        assertEquals(expResult, instance.getTelefono());
     }
 
     /**
@@ -75,39 +65,18 @@ public class SucursalTest {
      */
     @Test
     public void testSetTelefono() {
-        System.out.println("setTelefono");
-        int telefono = 0;
-        Sucursal instance = null;
-        instance.setTelefono(telefono);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        int expResult = 884578920;
+        instance.setTelefono(expResult);
+        assertEquals(expResult, instance.getTelefono());
     }
 
     /**
-     * Test of getFacturas method, of class Sucursal.
+     * Test of getId method, of class Sucursal.
      */
     @Test
-    public void testGetFacturas() {
-        System.out.println("getFacturas");
-        Sucursal instance = null;
-        List<Factura> expResult = null;
-        List<Factura> result = instance.getFacturas();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-    /**
-     * Test of addFactura method, of class Sucursal.
-     */
-    @Test
-    public void testAddFactura() {
-        System.out.println("addFactura");
-        Factura factura = null;
-        Sucursal instance = null;
-        instance.addFactura(factura);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+    public void testGetId() {
+        int expResult = 1;
+        assertEquals(expResult, instance.getId());
     }
     
 }

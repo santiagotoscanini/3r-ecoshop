@@ -150,11 +150,26 @@ public class Sistema {
 
     public Alimento getAlimento(int id) {
         int i;
-        for (i = 0; i < this.getAlimentos().size(); i++) {
-            if (this.getAlimentos().get(i).getId() == id) {
+        List<Alimento> alimentosAux = this.getAlimentos();
+        for (i = 0; i < alimentosAux.size(); i++) {
+            if (alimentosAux.get(i).getId() == id) {
                 break;
             }
         }
-        return this.getAlimentos().get(i);
+        assert (i <= alimentosAux.size());
+        return alimentosAux.get(i);
+    }
+
+    public int getIndexOfAlimento(int id) {
+        int i;
+        List<Alimento> alimentosAux = this.getAlimentos();
+        for (i = 0; i < alimentosAux.size(); i++) {
+            if (alimentosAux.get(i).getId() == id) {
+                break;
+            }
+        }
+        assert (i <= alimentosAux.size());
+        return i;
+
     }
 }

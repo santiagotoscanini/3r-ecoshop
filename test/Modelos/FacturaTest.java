@@ -1,60 +1,71 @@
+
 package Modelos;
 
+import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
-import javafx.util.Pair;
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.AfterAll;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.Test;
-import static org.junit.jupiter.api.Assertions.*;
+import org.junit.After;
+import org.junit.AfterClass;
+import org.junit.Before;
+import org.junit.BeforeClass;
+import org.junit.Test;
+import static org.junit.Assert.*;
+
 
 public class FacturaTest {
+    
+    Factura instance;
     
     public FacturaTest() {
     }
     
-    @BeforeAll
+    @BeforeClass
     public static void setUpClass() {
     }
     
-    @AfterAll
+    @AfterClass
     public static void tearDownClass() {
     }
     
-    @BeforeEach
+    @Before
     public void setUp() {
+        List<ElementoCarrito> alimentos = new ArrayList<>();
+        alimentos.add(new ElementoCarrito(new Alimento("F3", "C4", 1, "FS")));
+        instance = new Factura(new Date(), false, alimentos, "D1", new Usuario("N1", "CI1", "D1"), 1);
     }
     
-    @AfterEach
+    @After
     public void tearDown() {
     }
 
     /**
-     * Test of getSucursal method, of class Factura.
+     * Test of getId method, of class Factura.
      */
     @Test
-    public void testGetSucursal() {
-        System.out.println("getSucursal");
-        Factura instance = null;
-        Sucursal expResult = null;
-        Sucursal result = instance.getSucursal();
+    public void testGetId() {
+        int expResult = 0;
+        int result = instance.getId();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
-     * Test of setSucursal method, of class Factura.
+     * Test of getDireccion method, of class Factura.
      */
     @Test
-    public void testSetSucursal() {
-        System.out.println("setSucursal");
-        Sucursal sucursal = null;
-        Factura instance = null;
-        instance.setSucursal(sucursal);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+    public void testGetDireccion() {
+        String expResult = "D1";
+        String result = instance.getDireccion();
+        assertEquals(expResult, result);
+    }
+
+    /**
+     * Test of setDireccion method, of class Factura.
+     */
+    @Test
+    public void testSetDireccion() {
+        String expResult = "D2";
+        instance.setDireccion(expResult);
+        assertEquals(expResult, instance.getDireccion());
     }
 
     /**
@@ -62,13 +73,14 @@ public class FacturaTest {
      */
     @Test
     public void testGetFechaFormateada() {
-        System.out.println("getFechaFormateada");
-        Factura instance = null;
-        String expResult = "";
-        String result = instance.getFechaFormateada();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+//        System.out.println("getFechaFormateada");
+//        Sistema sis = null;
+//        Factura instance = null;
+//        String expResult = "";
+//        String result = instance.getFechaFormateada(sis);
+//        assertEquals(expResult, result);
+//        // TODO review the generated test code and remove the default call to fail.
+//        fail("The test case is a prototype.");
     }
 
     /**
@@ -76,13 +88,8 @@ public class FacturaTest {
      */
     @Test
     public void testIsPagoConTarjeta() {
-        System.out.println("isPagoConTarjeta");
-        Factura instance = null;
         boolean expResult = false;
-        boolean result = instance.isPagoConTarjeta();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        assertEquals(expResult, instance.isPagoConTarjeta());
     }
 
     /**
@@ -90,12 +97,9 @@ public class FacturaTest {
      */
     @Test
     public void testSetPagoConTarjeta() {
-        System.out.println("setPagoConTarjeta");
-        boolean pagoConTarjeta = false;
-        Factura instance = null;
-        instance.setPagoConTarjeta(pagoConTarjeta);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        boolean expResult = true;
+        instance.setPagoConTarjeta(true);
+        assertEquals(expResult, instance.isPagoConTarjeta());
     }
 
     /**
@@ -103,13 +107,17 @@ public class FacturaTest {
      */
     @Test
     public void testGetProductos() {
-        System.out.println("getProductos");
-        Factura instance = null;
-        List<Pair> expResult = null;
-        List<Pair> result = instance.getProductos();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+//        System.out.println("getProductos");
+//        Factura instance = null;
+//        List<ElementoCarrito> expResult = null;
+//        List<ElementoCarrito> result = instance.getProductos();
+//        assertEquals(expResult, result);
+//        // TODO review the generated test code and remove the default call to fail.
+//        fail("The test case is a prototype.");
+//        List<ElementoCarrito> expAlimentos = new ArrayList<>();
+//        expAlimentos.add(new ElementoCarrito(new Alimento("F3", "C4", 1, "FS")));
+//        assertFalse(expAlimentos, instance.getProductos());
+
     }
 
     /**
@@ -117,12 +125,66 @@ public class FacturaTest {
      */
     @Test
     public void testSetProductos() {
-        System.out.println("setProductos");
-        List<Pair> productos = null;
-        Factura instance = null;
-        instance.setProductos(productos);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        List<ElementoCarrito> expAlimentos = new ArrayList<>();
+        expAlimentos.add(new ElementoCarrito(new Alimento("F3", "C4", 1, "FS")));
+        instance.setProductos(expAlimentos);
+        assertEquals(expAlimentos, instance.getProductos());
     }
-    
+
+    /**
+     * Test of getUsuario method, of class Factura.
+     */
+    @Test
+    public void testGetUsuario() {
+        Usuario expUsuario = new Usuario("N1", "CI1", "D1");
+        assertEquals(expUsuario, instance.getUsuario());
+    }
+
+    /**
+     * Test of setUsuario method, of class Factura.
+     */
+    @Test
+    public void testSetUsuario() {
+        Usuario expUsuario = new Usuario("N1", "CI2", "D1");
+        instance.setUsuario(expUsuario);
+        assertEquals(expUsuario, instance.getUsuario());
+    }
+
+    /**
+     * Test of getFechaEmision method, of class Factura.
+     */
+    @Test
+    public void testGetFechaEmision() {
+//        System.out.println("getFechaEmision");
+//        Factura instance = null;
+//        Date expResult = null;
+//        Date result = instance.getFechaEmision();
+//        assertEquals(expResult, result);
+//        // TODO review the generated test code and remove the default call to fail.
+//        fail("The test case is a prototype.");
+    }
+
+    /**
+     * Test of getFechaEntrega method, of class Factura.
+     */
+    @Test
+    public void testGetFechaEntrega() {
+//        System.out.println("getFechaEntrega");
+//        Factura instance = null;
+//        Date expResult = null;
+//        Date result = instance.getFechaEntrega();
+//        assertEquals(expResult, result);
+//        // TODO review the generated test code and remove the default call to fail.
+//        fail("The test case is a prototype.");
+    }
+
+    /**
+     * Test of getMontoTotal method, of class Factura.
+     */
+    @Test
+    public void testGetMontoTotal() {
+        int expResult = 1;
+        assertEquals(expResult, instance.getMontoTotal());
+    }
+
 }

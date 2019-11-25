@@ -1,35 +1,33 @@
 package Modelos;
 
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.AfterAll;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.Test;
-import static org.junit.jupiter.api.Assertions.*;
+import java.util.HashSet;
+import org.junit.After;
+import org.junit.AfterClass;
+import org.junit.Before;
+import org.junit.BeforeClass;
+import org.junit.Test;
+import static org.junit.Assert.*;
 
 public class AlimentoTest {
+    
+    Alimento instance = new Alimento("Test1","Desc1",1,"F1");
     
     public AlimentoTest() {
     }
     
-    @BeforeAll
+    @BeforeClass
     public static void setUpClass() {
     }
     
-    @AfterAll
+    @AfterClass
     public static void tearDownClass() {
     }
     
-    @BeforeEach
+    @Before
     public void setUp() {
     }
     
-    @Test
-    public void agregarDosUsuariosConMismoNombre(){
-        
-    }
-    
-    @AfterEach
+    @After
     public void tearDown() {
     }
 
@@ -38,13 +36,9 @@ public class AlimentoTest {
      */
     @Test
     public void testGetNombre() {
-        System.out.println("getNombre");
-        Alimento instance = null;
-        String expResult = "";
+        String expResult = "Test1";
         String result = instance.getNombre();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -52,66 +46,9 @@ public class AlimentoTest {
      */
     @Test
     public void testSetNombre() {
-        System.out.println("setNombre");
-        String nombre = "";
-        Alimento instance = null;
-        instance.setNombre(nombre);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-    /**
-     * Test of getCodigo method, of class Alimento.
-     */
-    @Test
-    public void testGetCodigo() {
-        System.out.println("getCodigo");
-        Alimento instance = null;
-        String expResult = "";
-        String result = instance.getCodigo();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-    /**
-     * Test of setCodigo method, of class Alimento.
-     */
-    @Test
-    public void testSetCodigo() {
-        System.out.println("setCodigo");
-        String codigo = "";
-        Alimento instance = null;
-        instance.setCodigo(codigo);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-    /**
-     * Test of getPrecio method, of class Alimento.
-     */
-    @Test
-    public void testGetPrecio() {
-        System.out.println("getPrecio");
-        Alimento instance = null;
-        int expResult = 0;
-        int result = instance.getPrecio();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-    /**
-     * Test of setPrecio method, of class Alimento.
-     */
-    @Test
-    public void testSetPrecio() {
-        System.out.println("setPrecio");
-        int precio = 0;
-        Alimento instance = null;
-        instance.setPrecio(precio);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        String expResult = "Frutilla";
+        instance.setNombre("Frutilla");
+        assertEquals(expResult, instance.getNombre());
     }
 
     /**
@@ -119,13 +56,9 @@ public class AlimentoTest {
      */
     @Test
     public void testGetDescripcion() {
-        System.out.println("getDescripcion");
-        Alimento instance = null;
-        String expResult = "";
+        String expResult = "Desc1";
         String result = instance.getDescripcion();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -133,39 +66,79 @@ public class AlimentoTest {
      */
     @Test
     public void testSetDescripcion() {
-        System.out.println("setDescripcion");
-        String descripcion = "";
-        Alimento instance = null;
-        instance.setDescripcion(descripcion);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        String expResult = "1kg de futilla congelada";
+        instance.setDescripcion("1kg de futilla congelada");
+        assertEquals(expResult, instance.getDescripcion());
     }
 
     /**
-     * Test of esReutilizable method, of class Alimento.
+     * Test of getPrecio method, of class Alimento.
      */
     @Test
-    public void testEsReutilizable() {
-        System.out.println("esReutilizable");
-        Alimento instance = null;
-        boolean expResult = false;
-        boolean result = instance.esReutilizable();
+    public void testGetPrecio() {
+        int expResult = 1;
+        int result = instance.getPrecio();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
-     * Test of setReutilizable method, of class Alimento.
+     * Test of setPrecio method, of class Alimento.
      */
     @Test
-    public void testSetReutilizable() {
-        System.out.println("setReutilizable");
-        boolean reutilizable = false;
-        Alimento instance = null;
-        instance.setReutilizable(reutilizable);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+    public void testSetPrecio() {
+        int expResult = 200;
+        instance.setPrecio(200);
+        assertEquals(expResult, instance.getPrecio());
+    }
+
+    /**
+     * Test of getId method, of class Alimento.
+     */
+    @Test
+    public void testGetId() {
+        int expResult = 1;
+        int result = instance.getId();
+        assertEquals(expResult, result);
+    }
+
+    /**
+     * Test of setCategoria method, of class Alimento.
+     */
+    @Test
+    public void testSetCategoria() {
+        String expResult = "Fruta Congelada";
+        instance.setCategoria("Fruta Congelada");
+        assertEquals(expResult, instance.getCategoria());
+    }
+
+    /**
+     * Test of getCategoria method, of class Alimento.
+     */
+    @Test
+    public void testGetCategoria() {
+        String expResult = "F1";
+        String result = instance.getCategoria();
+        assertEquals(expResult, result);
+    }
+
+    /**
+     * Test of equals method, of class Alimento.
+     */
+    @Test
+    public void testEquals() {
+        Alimento nuevo = new Alimento("n2", "d2", 1, "Frutos secos");
+        assertFalse(nuevo.equals(instance));
+    }
+
+    /**
+     * Test of toString method, of class Alimento.
+     */
+    @Test
+    public void testToString() {
+        String expResult = "1kg de frutillas";
+        instance.setNombre("1kg de frutillas");
+        assertEquals(expResult, instance.toString());
+        
     }
     
 }

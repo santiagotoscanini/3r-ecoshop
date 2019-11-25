@@ -17,11 +17,12 @@ public class Usuario implements Comparable<Usuario> {
     
     
 
-    public Usuario(String nombre, String cedula) {
+    public Usuario(String nombre, String cedula, String direccion) {
         this.nombre = nombre;
         this.puntos = 0;
         this.cedula = cedula;
         this.direcciones = new LinkedList<>();
+        this.direcciones.add(direccion);
         this.facturas = new LinkedList<>();
         this.elementosCarrito = new ArrayList<>();
     }
@@ -38,7 +39,7 @@ public class Usuario implements Comparable<Usuario> {
         return puntos;
     }
 
-    public void sumarPunto(int puntos) {
+    public void sumarPunto(double puntos) {
         this.puntos += puntos;
     }
 
@@ -97,6 +98,10 @@ public class Usuario implements Comparable<Usuario> {
         this.elementosCarrito = elementosCarrito;
     }
 
-    
+    @Override
+    public boolean equals(Object obj) {
+        Usuario aux = (Usuario) obj;
+        return this.cedula.equals(aux.cedula);
+    }
     
 }
